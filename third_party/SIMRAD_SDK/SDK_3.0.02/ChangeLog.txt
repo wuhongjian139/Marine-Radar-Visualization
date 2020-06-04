@@ -1,0 +1,58 @@
+===============================================================================
+           Navico BRPC Radar Software-Development-Kit Library                             
+===============================================================================
+
+Change Log:
+3.0.2
+ * Added main bang suppression command
+ * Added set antenna type command
+ * Added supported antenna feature support
+ * Added GetLockID() function
+ * Added new SetSeaClutter command
+
+3.0.1
+ * Added Linux support
+ * Added pulse width commands
+
+3.0.0
+ * Added HALO support
+ * Added Features support
+ * Added Sector Blanking
+
+2.1.2
+ * Added support for generating static libraries with only export related
+ functions
+
+2.1.1
+ * Moved check for ICC to before GCC, as ICC defines GCC macros
+
+2.1.0
+ * Ported to Linux
+ * Better support for multi-homed hosts with more than one network interface per
+ physical adapter
+
+2.0.4
+ * Increased UnlockRadar recommended and retry timeouts to better cope with sluggish
+   systems
+
+2.0.3
+ * Support for multi-range radars. tMultiRadar can report the number of ranges supported
+   and which services each range supports.
+ * Support for new beam-sharpening and noise-reject controls, as well as a new 48rpm fast
+   scan mode.
+ * Added interface for receiving radar errors (new iImageClientObserver::UpdateRadarErrors
+   callback method).
+ * Significant revamp of software interface for better consistency and clarity (see API
+   changes listed in ChangingToVersion2.txt document).
+ * SetLocalIR tImageClient method now only requires level-1 access.
+ * Support for the old MS Visual-C 6.0 compiler has been dropped.
+
+1.0.5:
+ * SDK now capable of handling network interfaces that only become active after the client
+   is started.
+
+1.0.4:
+ * Support for multi-homed hosts added
+
+1.0.3:
+ * First public release

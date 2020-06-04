@@ -1,0 +1,121 @@
+===============================================================================
+            Navico BRPC Radar Software-Development-Kit Library                             
+===============================================================================
+
+This file documents the changes required to convert existing software using version 1.x
+of the library to using version 2.x. 
+
+Overview:
+
+  The following points summarise the main changes that have been made.
+  
+  * The core NRP protocol definitions (structures and enams) for image and target-
+    tracking are now defined in a single file.
+  * Several unnecessary namespaces have been removed, including State, GuardZone and
+    TargetTracking.
+  * All fields now have their units appended to their name in a more consistent manner,
+    (e.g. _m for metres, _deg for degrees).
+  * Support has been added for new or missing features (e.g. reporting of radar errors,
+    and new multi-range radar support).
+
+
+Changes:
+
+  Most of the changes are simple renames that can be handled by just performing a search
+  and replace in an editor. The following documents the old name (to the left of the ->)
+  and what it has now changed to (to the right of the ->). Field names are listed indented
+  below the name of the structure they belong too, which in some cases has also changed.
+  
+
+  NavRadarProtocolDefs.h    -> NavRadarProtocol.h
+  NavRadarProtocolMarpaDefs.h -> NavRadarProtocol.h
+
+  State::                   -> 
+  GuardZone::               ->
+  TargetTracking::          -> 
+  tRadarAlarm               -> tGuardZoneAlarm
+  eTotalGuardZones          -> cMaxGuardZones
+  
+  t9174SpokeHeader
+    sampleSize              -> bitsPerSample
+    sampleCellSize_mmPerSample -> rangeCellSize_mm
+    rangeDiv2               -> rangeCellsDiv2
+    
+  tMode
+    warmupTime              -> warmupTime_sec
+    ttCount                 -> ttCount_sec
+    
+  tSetup
+    targetEmphasis          -> targetStretch
+  
+  tProperties
+    deviceId                -> gwRegVersionMinor, gwRegVersionMajor
+    nprId                   -> gwVersionMinor, gwVersionMajor
+    fesId                   -> gwCompileSource, scannerSwVersionBuild
+    rspId                   -> 
+    psuId                   -> powerCycles
+    driverIdMajor           -> driverVersionMajor
+    driverIdMinor           -> driverVersionMinor
+    operationTime           -> operationTime_hour
+    warmupTime              -> warmupTime_sec
+    swVersionMajor          -> radarSwVersionMajor
+    swVersionMinor          -> radarSwVersionMinor
+    swProtocolVersion       -> radarProtocolVersion
+    fScannerDetailSupported -> supportsScannerDetail
+    sectorTransmitAreas     -> supportsMaxStopTxSectors
+    fParkingSupported       -> supportsParking
+  
+  tRadarAlarm               -> tGuardZoneAlarm
+    id                      -> zone
+    
+  tGuardZone
+    rangeStart              -> rangeStart_m
+    rangeEnd                -> rangeEnd_m
+    azimuth                 -> azimuth_ddeg
+    width                   -> width_ddeg
+
+  tConfiguration
+    zeroRange               -> zeroRange_mm
+    zeroBearing             -> zeroBearing_ddeg
+    parkPosition            -> parkPosition_ddeg
+    antennaHeight           -> antennaHeight_mm
+    timedTxTxPeriod         -> timedTxTransmitPeriod_sec
+    timedTxStbyPeriod       -> timedTxStandbyPeriod_sec
+  
+  tAdvancedSTCState
+    rangeSTCTrim            -> rangeSTCTrim_dB  
+    seaSTCTrim              -> seaSTCTrim_dB
+    rainSTCTrim             -> rainSTCTrim_dB
+    apertureLevel           -> videoAperture_dB
+  
+  t9174TargetTrackingAlarmSetup -> tTargetTrackingAlarmSetup
+    saveZoneDistance        -> safeZoneDistance_m
+    safeZoneTime            -> safeZoneTime_sec
+  
+  t9174TargetTrackingAProperties -> tTargetTrackingProperties
+  
+  t9174TargetTrackingTarget -> tTrackedTarget
+    relativeRange_meters          -> infoRelative.distance_m
+    relativeBearing_degreesX10    -> infoRelative.bearing_ddeg
+    relativeCourse_degreesX10     -> infoRelative.course_ddeg
+    relativeSpeed_metersPerSecX10 -> infoRelative.speed_dmps
+    absoluteRange_meters          -> infoAbsolute.distance_m
+    absoluteBearing_degreesX10    -> infoAbsolute.bearing_ddeg
+    absoluteCourse_degreesX10     -> infoAbsolute.course_ddeg
+    absoluteSpeed_metersPerSecX10 -> infoAbsolute.speed_dmps
+    CPA_meters              -> CPA_m
+    TCPA_seconds            -> TCPA_sec
+  
+  iImageClientStateObserver
+    UpdateAlarm             -> UpdateGuardZoneAlarm
+                            -> void UpdateRadarError( const NRP::tRadarError* pError ) {}
+
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,45 @@
+===============================================================================
+        Navico BRPC Radar Software-Development-Kit Library (Linux)
+===============================================================================
+
+Introduction
+------------
+This file contains the compiler flags used to build the Linux SDK binaries.
+
+------------------
+----- 64-bit -----
+------------------
+
+A stock x64 Fedora 22 distribution with GCC version 4.9 was used:
+  * gcc 4.9.4
+  * glibc 2.21
+  * Linux 4.4
+
+Debug binaries
+--------------
+
+g++ -c -g -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Werror -std=gnu++11
+
+Release binaries
+----------------
+
+g++ -c -O3 -DNDEBUG -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Werror -std=gnu++11
+
+------------------
+----- 32-bit -----
+------------------
+
+A stock x64 Fedora 22 distribution with GCC version 4.9 was used:
+  * gcc 4.9.4
+  * glibc 2.21
+  * Linux 4.4
+
+Debug binaries
+--------------
+
+g++ -c -g -m32 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Werror -std=gnu++11
+
+Release binaries
+----------------
+
+g++ -c -O3 -DNDEBUG -m32 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Werror -std=gnu++11

@@ -1,0 +1,39 @@
+===============================================================================
+             Navico BRPC Radar Software-Development-Kit Library                             
+===============================================================================
+
+GUI Demo Change Log:
+3.0.2
+ * Added main bang suppression command
+ * Added set antenna type command
+ * Added supported antenna feature support
+ * Added GetLockID() function
+ * Added new SetSeaClutter command
+
+3.0.1
+ * Added Linux support
+ * Added pulse width commands
+
+3.0.0
+ * Support for radar features
+ * Support of sector blanking
+ * Display guard zones and blank sectors
+
+2.0.3
+ * Support for selecting and connecting to multi-range radars. These show up as 
+   the same serial-number with an A or B appended to the name for the first and
+   second range respectively.
+ * Support for new beam-sharpening and noise-reject controls.
+ * Displays error messages reported by the radar using new UpdateRadarError
+   callback.
+
+1.0.5:
+ * SDK now capable of handling network interfaces that become active after the
+   service client is started.
+ * Pushing "Connect" with an unlocked Radar now prompts for the unlock key 
+
+1.0.4:
+ * SDK support for multi-homed hosts added
+
+1.0.3:
+ * First public release
