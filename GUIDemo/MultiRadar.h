@@ -32,7 +32,7 @@ class tMultiRadar
     Q_OBJECT
 
 public:
-    tMultiRadar( Ui::GUIDemoClass& ui, QObject* pParent = 0 );
+    tMultiRadar( Ui::GUIDemoClass& ui, QObject* pParent = nullptr );
     ~tMultiRadar();
 
     QString GetRadarSelection();      ///< Return the text of the current selection
@@ -74,6 +74,7 @@ private slots:
     void MultiRadarUnlock_clicked( bool checked );
     void MultiRadarUnlockAll_clicked( bool checked );
     void MultiRadarFlush_clicked( bool checked );
+    void testclick();
 
 private:
     Ui::GUIDemoClass&  ui;

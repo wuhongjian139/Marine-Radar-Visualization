@@ -51,7 +51,7 @@ public:
     tQCustomFrame( tTargetLocation* pTargets, unsigned maxTargets, QWidget* pWidget, QImage* pImage, tOverlayManager& overlayManager );
     virtual ~tQCustomFrame() { }
 
-    void setImage( QImage* pImage = NULL ) { m_pImage = pImage; }
+    void setImage( QImage* pImage = nullptr ) { m_pImage = pImage; }
     QImage* getImage() { return m_pImage; }
 	void SetFullRange_m( uint32_t fullRange_m ) { m_FullRange_m = fullRange_m; }
 	void SetBearing_deg( float bearing_deg ) { m_Bearing_deg = bearing_deg; }

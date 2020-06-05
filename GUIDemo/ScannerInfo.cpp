@@ -116,7 +116,7 @@ void tScannerInfo::OnConnect( NRP::tImageClient* pImageClient )
     assert( m_pImageClient == NULL );
 
     m_pImageClient = pImageClient;
-    ui.groupScanner->setEnabled( m_pImageClient != NULL );
+    ui.groupScanner->setEnabled( m_pImageClient != nullptr );
     m_pImageClient->SetAutoSendClientWatchdog( ui.checkScannerKickRadar->isChecked() );
 }
 

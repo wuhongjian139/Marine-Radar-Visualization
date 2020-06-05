@@ -22,7 +22,7 @@ using namespace Navico::Protocol::NRP;
 template< typename Type >
 inline void InitStruct( Type* & ptr, unsigned count = 1 )
 {
-    if (ptr == NULL)
+    if (ptr == nullptr)
     {
         if (count > 1)
             ptr = new Type[ count ];
@@ -30,7 +30,7 @@ inline void InitStruct( Type* & ptr, unsigned count = 1 )
             ptr = new Type;
     }
 
-    if (ptr != NULL)
+    if (ptr != nullptr)
     {
         if (count > 1)
             memset( ptr, 0, count*sizeof(Type) );
@@ -73,21 +73,21 @@ QString ErrorToString( eErrors error )
 //-----------------------------------------------------------------------------
 GUIDemo::GUIDemo( QWidget* pParent, Qt::WindowFlags flags )
     : QMainWindow( pParent, flags )
-    , m_pImageClient( NULL )
-    , m_pMode( NULL )
-    , m_pSetup( NULL )
-    , m_pSetupExtended( NULL )
-    , m_pProperties( NULL )
-    , m_pConfiguration( NULL )
-    , m_pAdvancedSTCState( NULL )
-    , m_pGuardZoneAlarms( NULL )
-    , m_pRadarError( NULL )
+    , m_pImageClient( nullptr )
+    , m_pMode( nullptr )
+    , m_pSetup( nullptr )
+    , m_pSetupExtended( nullptr )
+    , m_pProperties( nullptr )
+    , m_pConfiguration( nullptr )
+    , m_pAdvancedSTCState( nullptr )
+    , m_pGuardZoneAlarms( nullptr )
+    , m_pRadarError( nullptr )
     , m_PixelCellSize_mm( 0 )
-    , m_pTargetClient( NULL )
-    , m_pTargetAlarmSetup( NULL )
-    , m_pTargetProperties( NULL )
-    , m_pTargets( NULL )
-    , m_pTargetLocations( NULL )
+    , m_pTargetClient( nullptr )
+    , m_pTargetAlarmSetup( nullptr )
+    , m_pTargetProperties( nullptr )
+    , m_pTargets( nullptr )
+    , m_pTargetLocations( nullptr )
 {
     m_pImageClient = new tImageClient();
     m_pTargetClient = new tTargetTrackingClient();
@@ -397,7 +397,7 @@ void GUIDemo::UpdateAdvancedState( const tAdvancedSTCState* pState )
 //-----------------------------------------------------------------------------
 void GUIDemo::UpdateFeature( const tFeatureEnum* pFeature )
 {
-    if (pFeature != 0)
+    if (pFeature != nullptr)
     {
         emit UpdateFeature_signal(*pFeature);
     }

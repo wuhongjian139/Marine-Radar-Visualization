@@ -32,7 +32,7 @@ tTabSectorBlanking::~tTabSectorBlanking()
 void tTabSectorBlanking::OnConnect( tImageClient* pImageClient )
 {
     tTabBase::OnConnect( pImageClient );
-    m_UpdateOnConfiguration = (pImageClient != 0);
+    m_UpdateOnConfiguration = (pImageClient != nullptr);
 	OnUpdateFeature( eFeatureEnum_SectorBlanking );
 }
 

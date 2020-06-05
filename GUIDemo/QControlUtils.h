@@ -50,8 +50,8 @@ QString ToItemName( unsigned value, QComboBox* pCombo );
 QString Slot( const QString& slot );
 
 /** Function that will assert if a Qt dis/connect fails **/
-bool Connect( bool connect, const QObject* sender,       const char* signal = 0, 
-                            const QObject* receiver = 0, const char* method = 0, Qt::ConnectionType type = Qt::AutoConnection );
+bool Connect( bool connect, const QObject* sender,       const char* signal = nullptr,
+                            const QObject* receiver = nullptr, const char* method = nullptr, Qt::ConnectionType type = Qt::AutoConnection );
 
 /** Function that will scan all sub-controls of 'parent' and automatically connect
     them to an appropriately named slot assumed to exist on 'manager' **/

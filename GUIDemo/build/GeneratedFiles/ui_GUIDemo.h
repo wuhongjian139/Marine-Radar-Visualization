@@ -68,34 +68,32 @@ public:
     QVBoxLayout *verticalLayout;
     QGroupBox *groupInformation;
     QGridLayout *layoutInformation;
-    QLabel *label_3;
-    QLabel *label_7;
-    QLabel *label_14;
-    QLabel *label_4;
-    QLabel *labelNavRadarSWVersion;
-    QLabel *label_8;
-    QLabel *labelScannerSWVersion;
-    QLabel *labelRegVersion_;
-    QLabel *labelRegVersion;
-    QLabel *label_5;
-    QLabel *labelNavRadarSWBuildDate;
-    QLabel *labelMaxRange_;
-    QLabel *labelMaxRange;
-    QLabel *labelGWVersion_;
-    QLabel *labelGWVersion;
-    QLabel *label_6;
-    QLabel *labelDriverVersion;
-    QLabel *labelOperationTime_;
-    QLabel *labelOperationTime;
     QLabel *labelGWCompiled_;
-    QLabel *labelGWCompiled;
-    QLabel *labelSDKVersion_;
-    QLabel *labelSDKVersion;
-    QLabel *label;
+    QLabel *label_6;
     QLabel *labelCycleCount;
+    QLabel *labelGWVersion;
+    QLabel *labelNavRadarSWBuildDate;
+    QLabel *labelRegVersion;
+    QLabel *labelRegVersion_;
     QLabel *labelGateWareSPSURevision;
-    QSpacerItem *verticalSpacer_6;
-    QSpacerItem *horizontalSpacer_3;
+    QLabel *labelScannerSWVersion;
+    QLabel *labelSDKVersion;
+    QLabel *label_5;
+    QLabel *label_8;
+    QLabel *label;
+    QLabel *labelMaxRange_;
+    QLabel *labelOperationTime_;
+    QLabel *labelGWVersion_;
+    QLabel *label_7;
+    QLabel *label_4;
+    QLabel *labelGWCompiled;
+    QLabel *labelNavRadarSWVersion;
+    QLabel *labelMaxRange;
+    QLabel *labelSDKVersion_;
+    QLabel *label_3;
+    QLabel *labelDriverVersion;
+    QLabel *labelOperationTime;
+    QLabel *label_14;
     QHBoxLayout *horizontalLayout_18;
     QGroupBox *groupMultiRadar;
     QHBoxLayout *layoutMultiRadar;
@@ -107,12 +105,10 @@ public:
     QSpacerItem *spacerMultiRadarLeft;
     QLabel *label_22;
     QComboBox *_comboMultiRadarSelect;
-    QSpacerItem *spacerMultiRadarRight;
     QPushButton *pushMultiRadarGetLockID;
     QPushButton *pushMultiRadarUnlock;
     QPushButton *pushMultiRadarUnlockAll;
     QPushButton *pushMultiRadarFlush;
-    QSpacerItem *horizontalSpacer_11;
     QTabWidget *tabs;
     QWidget *tabImage;
     QVBoxLayout *verticalLayout_15;
@@ -126,7 +122,6 @@ public:
     QPushButton *pushQueryConfiguration;
     QPushButton *pushQueryAdvanced;
     QPushButton *pushQueryFeatures;
-    QSpacerItem *horizontalSpacer_9;
     QHBoxLayout *horizontalLayout_9;
     QVBoxLayout *verticalLayout_12;
     QGroupBox *groupUseMode;
@@ -240,7 +235,6 @@ public:
     QSpinBox *spinTimedStandby;
     QSlider *sliderTimedStandby;
     QSpacerItem *verticalSpacer_8;
-    QSpacerItem *horizontalSpacer_13;
     QWidget *tabSectorBlanking;
     QHBoxLayout *horizontalLayout_7;
     QGridLayout *gridLayout_8;
@@ -255,17 +249,6 @@ public:
     QLabel *labelSector0End;
     QLineEdit *editSector0End;
     QCheckBox *checkSector0Enabled;
-    QGroupBox *groupSector2;
-    QGridLayout *layoutGuard1Setup_3;
-    QLabel *labelSector2Start;
-    QLineEdit *editSector2Start;
-    QDoubleSpinBox *spinSector2Start;
-    QSlider *sliderSector2Start;
-    QLabel *labelSector2End;
-    QLineEdit *editSector2End;
-    QDoubleSpinBox *spinSector2End;
-    QSlider *sliderSector2End;
-    QCheckBox *checkSector2Enabled;
     QGroupBox *groupSector1;
     QGridLayout *layoutGuard1Setup_2;
     QLineEdit *editSector1Start;
@@ -277,30 +260,18 @@ public:
     QDoubleSpinBox *spinSector1End;
     QLabel *labelSector1End;
     QCheckBox *checkSector1Enabled;
-    QSpacerItem *verticalSpacer_4;
+    QGroupBox *groupSector2;
+    QGridLayout *layoutGuard1Setup_3;
+    QLabel *labelSector2Start;
+    QLineEdit *editSector2Start;
+    QDoubleSpinBox *spinSector2Start;
+    QSlider *sliderSector2Start;
+    QLabel *labelSector2End;
+    QLineEdit *editSector2End;
+    QDoubleSpinBox *spinSector2End;
+    QSlider *sliderSector2End;
+    QCheckBox *checkSector2Enabled;
     QGridLayout *gridLayout_10;
-    QGroupBox *groupSector3;
-    QGridLayout *layoutGuard1Setup_4;
-    QDoubleSpinBox *spinSector3End;
-    QSlider *sliderSector3End;
-    QLabel *labelSector3Start;
-    QLineEdit *editSector3Start;
-    QDoubleSpinBox *spinSector3Start;
-    QSlider *sliderSector3Start;
-    QLabel *labelSector3End;
-    QLineEdit *editSector3End;
-    QCheckBox *checkSector3Enabled;
-    QGroupBox *groupSector5;
-    QGridLayout *layoutGuard1Setup_5;
-    QLabel *labelSector5Start;
-    QLineEdit *editSector5Start;
-    QDoubleSpinBox *spinSector5Start;
-    QSlider *sliderSector5Start;
-    QLabel *labelSector5End;
-    QLineEdit *editSector5End;
-    QDoubleSpinBox *spinSector5End;
-    QSlider *sliderSector5End;
-    QCheckBox *checkSector5Enabled;
     QGroupBox *groupSector4;
     QGridLayout *layoutGuard1Setup_6;
     QLineEdit *editSector4Start;
@@ -312,8 +283,28 @@ public:
     QDoubleSpinBox *spinSector4End;
     QLabel *labelSector4End;
     QCheckBox *checkSector4Enabled;
-    QSpacerItem *verticalSpacer_9;
-    QSpacerItem *horizontalSpacer_5;
+    QGroupBox *groupSector5;
+    QGridLayout *layoutGuard1Setup_5;
+    QLabel *labelSector5Start;
+    QLineEdit *editSector5Start;
+    QDoubleSpinBox *spinSector5Start;
+    QSlider *sliderSector5Start;
+    QLabel *labelSector5End;
+    QLineEdit *editSector5End;
+    QDoubleSpinBox *spinSector5End;
+    QSlider *sliderSector5End;
+    QCheckBox *checkSector5Enabled;
+    QGroupBox *groupSector3;
+    QGridLayout *layoutGuard1Setup_4;
+    QDoubleSpinBox *spinSector3End;
+    QSlider *sliderSector3End;
+    QLabel *labelSector3Start;
+    QLineEdit *editSector3Start;
+    QDoubleSpinBox *spinSector3Start;
+    QSlider *sliderSector3Start;
+    QLabel *labelSector3End;
+    QLineEdit *editSector3End;
+    QCheckBox *checkSector3Enabled;
     QWidget *tabInstallation;
     QVBoxLayout *verticalLayout_14;
     QGroupBox *groupImageConfiguration;
@@ -350,7 +341,7 @@ public:
     QLineEdit *editAntennaType;
     QComboBox *comboAntennaType;
     QSpacerItem *horizontalSpacer_15;
-    QSpacerItem *verticalSpacer_91;
+    QSpacerItem *verticalSpacer_9;
     QWidget *tabFeatures;
     QVBoxLayout *verticalLayout_10;
     QHBoxLayout *horizontalLayout_3;
@@ -370,7 +361,6 @@ public:
     QLabel *labelBlankSectors;
     QCheckBox *chckBlankSectors;
     QLineEdit *editBlankSectors;
-    QSpacerItem *horizontalSpacer_4;
     QHBoxLayout *horizontalLayout_4;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_9;
@@ -411,13 +401,12 @@ public:
     QCheckBox *chckUserControlSidelobeGain;
     QLineEdit *editUserControlRangeStretch;
     QLabel *labelUserControlNoiseReject;
-    QSpacerItem *horizontalSpacer_131;
+    QSpacerItem *horizontalSpacer_13;
     QCheckBox *chckUserControlLocalIR;
     QCheckBox *chckUserControlBeamSharpening;
     QLineEdit *editUserControlRange;
     QLabel *labelUserControlSTCCurve;
     QLineEdit *editUserControlRain;
-    QSpacerItem *horizontalSpacer_121;
     QSpacerItem *verticalSpacer_71;
     QWidget *tabGuardZone;
     QVBoxLayout *verticalLayout_2;
@@ -488,7 +477,6 @@ public:
     QSlider *sliderGuard2Width;
     QSpinBox *spinGuard2Bearing;
     QSpinBox *spinGuard2Width;
-    QSpacerItem *horizontalSpacer_61;
     QHBoxLayout *horizontalLayout_19;
     QGroupBox *groupGuardMiscellaneous;
     QGridLayout *gridLayout_21;
@@ -552,7 +540,6 @@ public:
     QLabel *labelMainBangSuppression;
     QCheckBox *checkMainBangSuppression;
     QSpacerItem *verticalSpacer_5;
-    QSpacerItem *horizontalSpacer_8;
     QSpacerItem *verticalSpacer;
     QWidget *tabBScan;
     QVBoxLayout *verticalLayout_tabBscan;
@@ -566,7 +553,6 @@ public:
     QPushButton *pushTargetsQueryAll;
     QPushButton *pushTargetsQuerySetup;
     QPushButton *pushTargetsQueryTargets;
-    QSpacerItem *horizontalSpacer_41;
     QGroupBox *AlaramSetupGroup;
     QHBoxLayout *horizontalLayout_41;
     QHBoxLayout *horizontalLayout_2;
@@ -574,26 +560,26 @@ public:
     QLineEdit *editDangerZoneDist;
     QSpinBox *spinDangerZoneDist;
     QSlider *sliderDangerZoneDist;
-    QSpacerItem *horizontalSpacer;
     QHBoxLayout *horizontalLayout_31;
     QLabel *labelDangerZoneTime;
     QLineEdit *editDangerZoneTime;
     QSpinBox *spinDangerZoneTime;
     QSlider *sliderDangerZoneTime;
     QSpacerItem *horizontalSpacer_2;
-    QSpacerItem *horizontalSpacer_51;
     QGroupBox *groupTargetsCancel;
     QHBoxLayout *horizontalLayout_71;
     QPushButton *pushCancelAll;
     QPushButton *pushCancelSelection;
     QPushButton *pushCancelDisplay;
     QTableWidget *tableTargets;
+    QWidget *tab;
+    QPushButton *pushButton;
 
     void setupUi(QMainWindow *GUIDemoClass)
     {
         if (GUIDemoClass->objectName().isEmpty())
             GUIDemoClass->setObjectName(QStringLiteral("GUIDemoClass"));
-        GUIDemoClass->resize(911, 722);
+        GUIDemoClass->resize(973, 810);
         GUIDemoClass->setMinimumSize(QSize(900, 407));
         centralWidget = new QWidget(GUIDemoClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
@@ -806,36 +792,119 @@ public:
         layoutInformation->setObjectName(QStringLiteral("layoutInformation"));
         layoutInformation->setHorizontalSpacing(14);
         layoutInformation->setContentsMargins(-1, 4, -1, -1);
-        label_3 = new QLabel(groupInformation);
-        label_3->setObjectName(QStringLiteral("label_3"));
+        labelGWCompiled_ = new QLabel(groupInformation);
+        labelGWCompiled_->setObjectName(QStringLiteral("labelGWCompiled_"));
+
+        layoutInformation->addWidget(labelGWCompiled_, 3, 4, 1, 1);
+
+        label_6 = new QLabel(groupInformation);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        layoutInformation->addWidget(label_6, 3, 0, 1, 1);
+
+        labelCycleCount = new QLabel(groupInformation);
+        labelCycleCount->setObjectName(QStringLiteral("labelCycleCount"));
+
+        layoutInformation->addWidget(labelCycleCount, 4, 3, 1, 1);
+
+        labelGWVersion = new QLabel(groupInformation);
+        labelGWVersion->setObjectName(QStringLiteral("labelGWVersion"));
         QFont font;
         font.setFamily(QStringLiteral("MS Shell Dlg 2"));
         font.setPointSize(8);
-        font.setBold(true);
+        font.setBold(false);
         font.setItalic(false);
         font.setUnderline(false);
-        font.setWeight(75);
+        font.setWeight(50);
         font.setStrikeOut(false);
-        label_3->setFont(font);
+        labelGWVersion->setFont(font);
 
-        layoutInformation->addWidget(label_3, 0, 0, 1, 2);
+        layoutInformation->addWidget(labelGWVersion, 2, 5, 1, 1);
+
+        labelNavRadarSWBuildDate = new QLabel(groupInformation);
+        labelNavRadarSWBuildDate->setObjectName(QStringLiteral("labelNavRadarSWBuildDate"));
+        labelNavRadarSWBuildDate->setFont(font);
+
+        layoutInformation->addWidget(labelNavRadarSWBuildDate, 2, 1, 1, 1);
+
+        labelRegVersion = new QLabel(groupInformation);
+        labelRegVersion->setObjectName(QStringLiteral("labelRegVersion"));
+
+        layoutInformation->addWidget(labelRegVersion, 1, 5, 1, 1);
+
+        labelRegVersion_ = new QLabel(groupInformation);
+        labelRegVersion_->setObjectName(QStringLiteral("labelRegVersion_"));
+
+        layoutInformation->addWidget(labelRegVersion_, 1, 4, 1, 1);
+
+        labelGateWareSPSURevision = new QLabel(groupInformation);
+        labelGateWareSPSURevision->setObjectName(QStringLiteral("labelGateWareSPSURevision"));
+
+        layoutInformation->addWidget(labelGateWareSPSURevision, 4, 5, 1, 1);
+
+        labelScannerSWVersion = new QLabel(groupInformation);
+        labelScannerSWVersion->setObjectName(QStringLiteral("labelScannerSWVersion"));
+
+        layoutInformation->addWidget(labelScannerSWVersion, 1, 3, 1, 1);
+
+        labelSDKVersion = new QLabel(groupInformation);
+        labelSDKVersion->setObjectName(QStringLiteral("labelSDKVersion"));
+
+        layoutInformation->addWidget(labelSDKVersion, 4, 1, 1, 1);
+
+        label_5 = new QLabel(groupInformation);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        layoutInformation->addWidget(label_5, 2, 0, 1, 1);
+
+        label_8 = new QLabel(groupInformation);
+        label_8->setObjectName(QStringLiteral("label_8"));
+
+        layoutInformation->addWidget(label_8, 1, 2, 1, 1);
+
+        label = new QLabel(groupInformation);
+        label->setObjectName(QStringLiteral("label"));
+
+        layoutInformation->addWidget(label, 4, 2, 1, 1);
+
+        labelMaxRange_ = new QLabel(groupInformation);
+        labelMaxRange_->setObjectName(QStringLiteral("labelMaxRange_"));
+
+        layoutInformation->addWidget(labelMaxRange_, 2, 2, 1, 1);
+
+        labelOperationTime_ = new QLabel(groupInformation);
+        labelOperationTime_->setObjectName(QStringLiteral("labelOperationTime_"));
+
+        layoutInformation->addWidget(labelOperationTime_, 3, 2, 1, 1);
+
+        labelGWVersion_ = new QLabel(groupInformation);
+        labelGWVersion_->setObjectName(QStringLiteral("labelGWVersion_"));
+
+        layoutInformation->addWidget(labelGWVersion_, 2, 4, 1, 1);
 
         label_7 = new QLabel(groupInformation);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setFont(font);
+        QFont font1;
+        font1.setFamily(QStringLiteral("MS Shell Dlg 2"));
+        font1.setPointSize(8);
+        font1.setBold(true);
+        font1.setItalic(false);
+        font1.setUnderline(false);
+        font1.setWeight(75);
+        font1.setStrikeOut(false);
+        label_7->setFont(font1);
 
         layoutInformation->addWidget(label_7, 0, 2, 1, 2);
-
-        label_14 = new QLabel(groupInformation);
-        label_14->setObjectName(QStringLiteral("label_14"));
-        label_14->setFont(font);
-
-        layoutInformation->addWidget(label_14, 0, 4, 1, 2);
 
         label_4 = new QLabel(groupInformation);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         layoutInformation->addWidget(label_4, 1, 0, 1, 1);
+
+        labelGWCompiled = new QLabel(groupInformation);
+        labelGWCompiled->setObjectName(QStringLiteral("labelGWCompiled"));
+
+        layoutInformation->addWidget(labelGWCompiled, 3, 5, 1, 1);
 
         labelNavRadarSWVersion = new QLabel(groupInformation);
         labelNavRadarSWVersion->setObjectName(QStringLiteral("labelNavRadarSWVersion"));
@@ -843,136 +912,45 @@ public:
 
         layoutInformation->addWidget(labelNavRadarSWVersion, 1, 1, 1, 1);
 
-        label_8 = new QLabel(groupInformation);
-        label_8->setObjectName(QStringLiteral("label_8"));
-
-        layoutInformation->addWidget(label_8, 1, 2, 1, 1);
-
-        labelScannerSWVersion = new QLabel(groupInformation);
-        labelScannerSWVersion->setObjectName(QStringLiteral("labelScannerSWVersion"));
-
-        layoutInformation->addWidget(labelScannerSWVersion, 1, 3, 1, 1);
-
-        labelRegVersion_ = new QLabel(groupInformation);
-        labelRegVersion_->setObjectName(QStringLiteral("labelRegVersion_"));
-
-        layoutInformation->addWidget(labelRegVersion_, 1, 4, 1, 1);
-
-        labelRegVersion = new QLabel(groupInformation);
-        labelRegVersion->setObjectName(QStringLiteral("labelRegVersion"));
-
-        layoutInformation->addWidget(labelRegVersion, 1, 5, 1, 1);
-
-        label_5 = new QLabel(groupInformation);
-        label_5->setObjectName(QStringLiteral("label_5"));
-
-        layoutInformation->addWidget(label_5, 2, 0, 1, 1);
-
-        labelNavRadarSWBuildDate = new QLabel(groupInformation);
-        labelNavRadarSWBuildDate->setObjectName(QStringLiteral("labelNavRadarSWBuildDate"));
-        QFont font1;
-        font1.setFamily(QStringLiteral("MS Shell Dlg 2"));
-        font1.setPointSize(8);
-        font1.setBold(false);
-        font1.setItalic(false);
-        font1.setUnderline(false);
-        font1.setWeight(50);
-        font1.setStrikeOut(false);
-        labelNavRadarSWBuildDate->setFont(font1);
-
-        layoutInformation->addWidget(labelNavRadarSWBuildDate, 2, 1, 1, 1);
-
-        labelMaxRange_ = new QLabel(groupInformation);
-        labelMaxRange_->setObjectName(QStringLiteral("labelMaxRange_"));
-
-        layoutInformation->addWidget(labelMaxRange_, 2, 2, 1, 1);
-
         labelMaxRange = new QLabel(groupInformation);
         labelMaxRange->setObjectName(QStringLiteral("labelMaxRange"));
-        labelMaxRange->setFont(font1);
+        labelMaxRange->setFont(font);
 
         layoutInformation->addWidget(labelMaxRange, 2, 3, 1, 1);
-
-        labelGWVersion_ = new QLabel(groupInformation);
-        labelGWVersion_->setObjectName(QStringLiteral("labelGWVersion_"));
-
-        layoutInformation->addWidget(labelGWVersion_, 2, 4, 1, 1);
-
-        labelGWVersion = new QLabel(groupInformation);
-        labelGWVersion->setObjectName(QStringLiteral("labelGWVersion"));
-        labelGWVersion->setFont(font1);
-
-        layoutInformation->addWidget(labelGWVersion, 2, 5, 1, 1);
-
-        label_6 = new QLabel(groupInformation);
-        label_6->setObjectName(QStringLiteral("label_6"));
-
-        layoutInformation->addWidget(label_6, 3, 0, 1, 1);
-
-        labelDriverVersion = new QLabel(groupInformation);
-        labelDriverVersion->setObjectName(QStringLiteral("labelDriverVersion"));
-
-        layoutInformation->addWidget(labelDriverVersion, 3, 1, 1, 1);
-
-        labelOperationTime_ = new QLabel(groupInformation);
-        labelOperationTime_->setObjectName(QStringLiteral("labelOperationTime_"));
-
-        layoutInformation->addWidget(labelOperationTime_, 3, 2, 1, 1);
-
-        labelOperationTime = new QLabel(groupInformation);
-        labelOperationTime->setObjectName(QStringLiteral("labelOperationTime"));
-        labelOperationTime->setFont(font1);
-
-        layoutInformation->addWidget(labelOperationTime, 3, 3, 1, 1);
-
-        labelGWCompiled_ = new QLabel(groupInformation);
-        labelGWCompiled_->setObjectName(QStringLiteral("labelGWCompiled_"));
-
-        layoutInformation->addWidget(labelGWCompiled_, 3, 4, 1, 1);
-
-        labelGWCompiled = new QLabel(groupInformation);
-        labelGWCompiled->setObjectName(QStringLiteral("labelGWCompiled"));
-
-        layoutInformation->addWidget(labelGWCompiled, 3, 5, 1, 1);
 
         labelSDKVersion_ = new QLabel(groupInformation);
         labelSDKVersion_->setObjectName(QStringLiteral("labelSDKVersion_"));
 
         layoutInformation->addWidget(labelSDKVersion_, 4, 0, 1, 1);
 
-        labelSDKVersion = new QLabel(groupInformation);
-        labelSDKVersion->setObjectName(QStringLiteral("labelSDKVersion"));
+        label_3 = new QLabel(groupInformation);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setFont(font1);
 
-        layoutInformation->addWidget(labelSDKVersion, 4, 1, 1, 1);
+        layoutInformation->addWidget(label_3, 0, 0, 1, 2);
 
-        label = new QLabel(groupInformation);
-        label->setObjectName(QStringLiteral("label"));
+        labelDriverVersion = new QLabel(groupInformation);
+        labelDriverVersion->setObjectName(QStringLiteral("labelDriverVersion"));
 
-        layoutInformation->addWidget(label, 4, 2, 1, 1);
+        layoutInformation->addWidget(labelDriverVersion, 3, 1, 1, 1);
 
-        labelCycleCount = new QLabel(groupInformation);
-        labelCycleCount->setObjectName(QStringLiteral("labelCycleCount"));
+        labelOperationTime = new QLabel(groupInformation);
+        labelOperationTime->setObjectName(QStringLiteral("labelOperationTime"));
+        labelOperationTime->setFont(font);
 
-        layoutInformation->addWidget(labelCycleCount, 4, 3, 1, 1);
+        layoutInformation->addWidget(labelOperationTime, 3, 3, 1, 1);
 
-        labelGateWareSPSURevision = new QLabel(groupInformation);
-        labelGateWareSPSURevision->setObjectName(QStringLiteral("labelGateWareSPSURevision"));
+        label_14 = new QLabel(groupInformation);
+        label_14->setObjectName(QStringLiteral("label_14"));
+        label_14->setFont(font1);
 
-        layoutInformation->addWidget(labelGateWareSPSURevision, 4, 5, 1, 1);
+        layoutInformation->addWidget(label_14, 0, 4, 1, 2);
 
 
         verticalLayout->addWidget(groupInformation);
 
-        verticalSpacer_6 = new QSpacerItem(20, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_6);
-
 
         horizontalLayout_12->addLayout(verticalLayout);
-
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_12->addItem(horizontalSpacer_3);
 
 
         verticalLayout_5->addLayout(horizontalLayout_12);
@@ -1041,10 +1019,6 @@ public:
 
         layoutMultiRadar->addWidget(_comboMultiRadarSelect);
 
-        spacerMultiRadarRight = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        layoutMultiRadar->addItem(spacerMultiRadarRight);
-
         pushMultiRadarGetLockID = new QPushButton(groupMultiRadar);
         pushMultiRadarGetLockID->setObjectName(QStringLiteral("pushMultiRadarGetLockID"));
         pushMultiRadarGetLockID->setMinimumSize(QSize(0, 20));
@@ -1073,10 +1047,6 @@ public:
 
 
         horizontalLayout_18->addWidget(groupMultiRadar);
-
-        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_18->addItem(horizontalSpacer_11);
 
 
         verticalLayout_5->addLayout(horizontalLayout_18);
@@ -1108,7 +1078,7 @@ public:
 
         layoutQuery->addWidget(pushQueryAll);
 
-        horizontalSpacer_10 = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        horizontalSpacer_10 = new QSpacerItem(50, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         layoutQuery->addItem(horizontalSpacer_10);
 
@@ -1147,10 +1117,6 @@ public:
         pushQueryFeatures->setMinimumSize(QSize(90, 0));
 
         layoutQuery->addWidget(pushQueryFeatures);
-
-        horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        layoutQuery->addItem(horizontalSpacer_9);
 
 
         verticalLayout_15->addWidget(groupQuery);
@@ -1914,10 +1880,6 @@ public:
 
         horizontalLayout_9->addLayout(verticalLayout_13);
 
-        horizontalSpacer_13 = new QSpacerItem(179, 88, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_9->addItem(horizontalSpacer_13);
-
 
         verticalLayout_15->addLayout(horizontalLayout_9);
 
@@ -2030,106 +1992,13 @@ public:
 
         gridLayout_8->addWidget(groupSector0, 0, 0, 1, 1);
 
-        groupSector2 = new QGroupBox(tabSectorBlanking);
-        groupSector2->setObjectName(QStringLiteral("groupSector2"));
+        groupSector1 = new QGroupBox(tabSectorBlanking);
+        groupSector1->setObjectName(QStringLiteral("groupSector1"));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::Base, brush);
         palette1.setBrush(QPalette::Inactive, QPalette::Base, brush);
         palette1.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        groupSector2->setPalette(palette1);
-        layoutGuard1Setup_3 = new QGridLayout(groupSector2);
-        layoutGuard1Setup_3->setSpacing(6);
-        layoutGuard1Setup_3->setContentsMargins(11, 11, 11, 11);
-        layoutGuard1Setup_3->setObjectName(QStringLiteral("layoutGuard1Setup_3"));
-        layoutGuard1Setup_3->setVerticalSpacing(6);
-        layoutGuard1Setup_3->setContentsMargins(-1, 3, -1, -1);
-        labelSector2Start = new QLabel(groupSector2);
-        labelSector2Start->setObjectName(QStringLiteral("labelSector2Start"));
-
-        layoutGuard1Setup_3->addWidget(labelSector2Start, 1, 1, 1, 1);
-
-        editSector2Start = new QLineEdit(groupSector2);
-        editSector2Start->setObjectName(QStringLiteral("editSector2Start"));
-        editSector2Start->setEnabled(false);
-        sizePolicy5.setHeightForWidth(editSector2Start->sizePolicy().hasHeightForWidth());
-        editSector2Start->setSizePolicy(sizePolicy5);
-        editSector2Start->setMinimumSize(QSize(0, 20));
-        editSector2Start->setMaximumSize(QSize(55, 16777215));
-        editSector2Start->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        editSector2Start->setReadOnly(true);
-
-        layoutGuard1Setup_3->addWidget(editSector2Start, 1, 3, 1, 1);
-
-        spinSector2Start = new QDoubleSpinBox(groupSector2);
-        spinSector2Start->setObjectName(QStringLiteral("spinSector2Start"));
-        spinSector2Start->setMinimumSize(QSize(85, 0));
-        spinSector2Start->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        spinSector2Start->setDecimals(1);
-        spinSector2Start->setMinimum(-360);
-        spinSector2Start->setMaximum(360);
-        spinSector2Start->setSingleStep(0.1);
-
-        layoutGuard1Setup_3->addWidget(spinSector2Start, 1, 4, 1, 1);
-
-        sliderSector2Start = new QSlider(groupSector2);
-        sliderSector2Start->setObjectName(QStringLiteral("sliderSector2Start"));
-        sliderSector2Start->setMinimum(-360);
-        sliderSector2Start->setMaximum(360);
-        sliderSector2Start->setOrientation(Qt::Horizontal);
-
-        layoutGuard1Setup_3->addWidget(sliderSector2Start, 1, 5, 1, 1);
-
-        labelSector2End = new QLabel(groupSector2);
-        labelSector2End->setObjectName(QStringLiteral("labelSector2End"));
-
-        layoutGuard1Setup_3->addWidget(labelSector2End, 4, 1, 1, 1);
-
-        editSector2End = new QLineEdit(groupSector2);
-        editSector2End->setObjectName(QStringLiteral("editSector2End"));
-        editSector2End->setEnabled(false);
-        sizePolicy5.setHeightForWidth(editSector2End->sizePolicy().hasHeightForWidth());
-        editSector2End->setSizePolicy(sizePolicy5);
-        editSector2End->setMinimumSize(QSize(0, 20));
-        editSector2End->setMaximumSize(QSize(55, 16777215));
-        editSector2End->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        editSector2End->setReadOnly(true);
-
-        layoutGuard1Setup_3->addWidget(editSector2End, 4, 3, 1, 1);
-
-        spinSector2End = new QDoubleSpinBox(groupSector2);
-        spinSector2End->setObjectName(QStringLiteral("spinSector2End"));
-        spinSector2End->setMinimumSize(QSize(85, 0));
-        spinSector2End->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        spinSector2End->setDecimals(1);
-        spinSector2End->setMinimum(-360);
-        spinSector2End->setMaximum(360);
-        spinSector2End->setSingleStep(0.1);
-
-        layoutGuard1Setup_3->addWidget(spinSector2End, 4, 4, 1, 1);
-
-        sliderSector2End = new QSlider(groupSector2);
-        sliderSector2End->setObjectName(QStringLiteral("sliderSector2End"));
-        sliderSector2End->setMinimum(-360);
-        sliderSector2End->setMaximum(360);
-        sliderSector2End->setOrientation(Qt::Horizontal);
-
-        layoutGuard1Setup_3->addWidget(sliderSector2End, 4, 5, 1, 1);
-
-        checkSector2Enabled = new QCheckBox(groupSector2);
-        checkSector2Enabled->setObjectName(QStringLiteral("checkSector2Enabled"));
-
-        layoutGuard1Setup_3->addWidget(checkSector2Enabled, 0, 1, 1, 3);
-
-
-        gridLayout_8->addWidget(groupSector2, 2, 0, 1, 1);
-
-        groupSector1 = new QGroupBox(tabSectorBlanking);
-        groupSector1->setObjectName(QStringLiteral("groupSector1"));
-        QPalette palette2;
-        palette2.setBrush(QPalette::Active, QPalette::Base, brush);
-        palette2.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette2.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        groupSector1->setPalette(palette2);
+        groupSector1->setPalette(palette1);
         layoutGuard1Setup_2 = new QGridLayout(groupSector1);
         layoutGuard1Setup_2->setSpacing(6);
         layoutGuard1Setup_2->setContentsMargins(11, 11, 11, 11);
@@ -2216,9 +2085,98 @@ public:
 
         gridLayout_8->addWidget(groupSector1, 1, 0, 1, 1);
 
-        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        groupSector2 = new QGroupBox(tabSectorBlanking);
+        groupSector2->setObjectName(QStringLiteral("groupSector2"));
+        QPalette palette2;
+        palette2.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette2.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette2.setBrush(QPalette::Disabled, QPalette::Base, brush1);
+        groupSector2->setPalette(palette2);
+        layoutGuard1Setup_3 = new QGridLayout(groupSector2);
+        layoutGuard1Setup_3->setSpacing(6);
+        layoutGuard1Setup_3->setContentsMargins(11, 11, 11, 11);
+        layoutGuard1Setup_3->setObjectName(QStringLiteral("layoutGuard1Setup_3"));
+        layoutGuard1Setup_3->setVerticalSpacing(6);
+        layoutGuard1Setup_3->setContentsMargins(-1, 3, -1, -1);
+        labelSector2Start = new QLabel(groupSector2);
+        labelSector2Start->setObjectName(QStringLiteral("labelSector2Start"));
 
-        gridLayout_8->addItem(verticalSpacer_4, 3, 0, 1, 1);
+        layoutGuard1Setup_3->addWidget(labelSector2Start, 1, 1, 1, 1);
+
+        editSector2Start = new QLineEdit(groupSector2);
+        editSector2Start->setObjectName(QStringLiteral("editSector2Start"));
+        editSector2Start->setEnabled(false);
+        sizePolicy5.setHeightForWidth(editSector2Start->sizePolicy().hasHeightForWidth());
+        editSector2Start->setSizePolicy(sizePolicy5);
+        editSector2Start->setMinimumSize(QSize(0, 20));
+        editSector2Start->setMaximumSize(QSize(55, 16777215));
+        editSector2Start->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        editSector2Start->setReadOnly(true);
+
+        layoutGuard1Setup_3->addWidget(editSector2Start, 1, 3, 1, 1);
+
+        spinSector2Start = new QDoubleSpinBox(groupSector2);
+        spinSector2Start->setObjectName(QStringLiteral("spinSector2Start"));
+        spinSector2Start->setMinimumSize(QSize(85, 0));
+        spinSector2Start->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        spinSector2Start->setDecimals(1);
+        spinSector2Start->setMinimum(-360);
+        spinSector2Start->setMaximum(360);
+        spinSector2Start->setSingleStep(0.1);
+
+        layoutGuard1Setup_3->addWidget(spinSector2Start, 1, 4, 1, 1);
+
+        sliderSector2Start = new QSlider(groupSector2);
+        sliderSector2Start->setObjectName(QStringLiteral("sliderSector2Start"));
+        sliderSector2Start->setMinimum(-360);
+        sliderSector2Start->setMaximum(360);
+        sliderSector2Start->setOrientation(Qt::Horizontal);
+
+        layoutGuard1Setup_3->addWidget(sliderSector2Start, 1, 5, 1, 1);
+
+        labelSector2End = new QLabel(groupSector2);
+        labelSector2End->setObjectName(QStringLiteral("labelSector2End"));
+
+        layoutGuard1Setup_3->addWidget(labelSector2End, 4, 1, 1, 1);
+
+        editSector2End = new QLineEdit(groupSector2);
+        editSector2End->setObjectName(QStringLiteral("editSector2End"));
+        editSector2End->setEnabled(false);
+        sizePolicy5.setHeightForWidth(editSector2End->sizePolicy().hasHeightForWidth());
+        editSector2End->setSizePolicy(sizePolicy5);
+        editSector2End->setMinimumSize(QSize(0, 20));
+        editSector2End->setMaximumSize(QSize(55, 16777215));
+        editSector2End->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        editSector2End->setReadOnly(true);
+
+        layoutGuard1Setup_3->addWidget(editSector2End, 4, 3, 1, 1);
+
+        spinSector2End = new QDoubleSpinBox(groupSector2);
+        spinSector2End->setObjectName(QStringLiteral("spinSector2End"));
+        spinSector2End->setMinimumSize(QSize(85, 0));
+        spinSector2End->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        spinSector2End->setDecimals(1);
+        spinSector2End->setMinimum(-360);
+        spinSector2End->setMaximum(360);
+        spinSector2End->setSingleStep(0.1);
+
+        layoutGuard1Setup_3->addWidget(spinSector2End, 4, 4, 1, 1);
+
+        sliderSector2End = new QSlider(groupSector2);
+        sliderSector2End->setObjectName(QStringLiteral("sliderSector2End"));
+        sliderSector2End->setMinimum(-360);
+        sliderSector2End->setMaximum(360);
+        sliderSector2End->setOrientation(Qt::Horizontal);
+
+        layoutGuard1Setup_3->addWidget(sliderSector2End, 4, 5, 1, 1);
+
+        checkSector2Enabled = new QCheckBox(groupSector2);
+        checkSector2Enabled->setObjectName(QStringLiteral("checkSector2Enabled"));
+
+        layoutGuard1Setup_3->addWidget(checkSector2Enabled, 0, 1, 1, 3);
+
+
+        gridLayout_8->addWidget(groupSector2, 2, 0, 1, 1);
 
 
         horizontalLayout_7->addLayout(gridLayout_8);
@@ -2226,99 +2184,98 @@ public:
         gridLayout_10 = new QGridLayout();
         gridLayout_10->setSpacing(6);
         gridLayout_10->setObjectName(QStringLiteral("gridLayout_10"));
-        groupSector3 = new QGroupBox(tabSectorBlanking);
-        groupSector3->setObjectName(QStringLiteral("groupSector3"));
+        groupSector4 = new QGroupBox(tabSectorBlanking);
+        groupSector4->setObjectName(QStringLiteral("groupSector4"));
         QPalette palette3;
         palette3.setBrush(QPalette::Active, QPalette::Base, brush);
         palette3.setBrush(QPalette::Inactive, QPalette::Base, brush);
         palette3.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        groupSector3->setPalette(palette3);
-        layoutGuard1Setup_4 = new QGridLayout(groupSector3);
-        layoutGuard1Setup_4->setSpacing(6);
-        layoutGuard1Setup_4->setContentsMargins(11, 11, 11, 11);
-        layoutGuard1Setup_4->setObjectName(QStringLiteral("layoutGuard1Setup_4"));
-        layoutGuard1Setup_4->setVerticalSpacing(6);
-        layoutGuard1Setup_4->setContentsMargins(-1, 3, -1, -1);
-        spinSector3End = new QDoubleSpinBox(groupSector3);
-        spinSector3End->setObjectName(QStringLiteral("spinSector3End"));
-        spinSector3End->setMinimumSize(QSize(85, 0));
-        spinSector3End->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        spinSector3End->setDecimals(1);
-        spinSector3End->setMinimum(-360);
-        spinSector3End->setMaximum(360);
-        spinSector3End->setSingleStep(0.1);
+        groupSector4->setPalette(palette3);
+        layoutGuard1Setup_6 = new QGridLayout(groupSector4);
+        layoutGuard1Setup_6->setSpacing(6);
+        layoutGuard1Setup_6->setContentsMargins(11, 11, 11, 11);
+        layoutGuard1Setup_6->setObjectName(QStringLiteral("layoutGuard1Setup_6"));
+        layoutGuard1Setup_6->setVerticalSpacing(6);
+        layoutGuard1Setup_6->setContentsMargins(-1, 3, -1, -1);
+        editSector4Start = new QLineEdit(groupSector4);
+        editSector4Start->setObjectName(QStringLiteral("editSector4Start"));
+        editSector4Start->setEnabled(false);
+        sizePolicy5.setHeightForWidth(editSector4Start->sizePolicy().hasHeightForWidth());
+        editSector4Start->setSizePolicy(sizePolicy5);
+        editSector4Start->setMinimumSize(QSize(0, 20));
+        editSector4Start->setMaximumSize(QSize(55, 16777215));
+        editSector4Start->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        editSector4Start->setReadOnly(true);
 
-        layoutGuard1Setup_4->addWidget(spinSector3End, 4, 4, 1, 1);
+        layoutGuard1Setup_6->addWidget(editSector4Start, 1, 4, 1, 1);
 
-        sliderSector3End = new QSlider(groupSector3);
-        sliderSector3End->setObjectName(QStringLiteral("sliderSector3End"));
-        sliderSector3End->setMinimum(-360);
-        sliderSector3End->setMaximum(360);
-        sliderSector3End->setOrientation(Qt::Horizontal);
+        spinSector4Start = new QDoubleSpinBox(groupSector4);
+        spinSector4Start->setObjectName(QStringLiteral("spinSector4Start"));
+        spinSector4Start->setMinimumSize(QSize(85, 0));
+        spinSector4Start->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        spinSector4Start->setDecimals(1);
+        spinSector4Start->setMinimum(-360);
+        spinSector4Start->setMaximum(360);
+        spinSector4Start->setSingleStep(0.1);
 
-        layoutGuard1Setup_4->addWidget(sliderSector3End, 4, 5, 1, 1);
+        layoutGuard1Setup_6->addWidget(spinSector4Start, 1, 5, 1, 1);
 
-        labelSector3Start = new QLabel(groupSector3);
-        labelSector3Start->setObjectName(QStringLiteral("labelSector3Start"));
+        sliderSector4Start = new QSlider(groupSector4);
+        sliderSector4Start->setObjectName(QStringLiteral("sliderSector4Start"));
+        sliderSector4Start->setMinimum(-360);
+        sliderSector4Start->setMaximum(360);
+        sliderSector4Start->setOrientation(Qt::Horizontal);
 
-        layoutGuard1Setup_4->addWidget(labelSector3Start, 1, 1, 1, 1);
+        layoutGuard1Setup_6->addWidget(sliderSector4Start, 1, 6, 1, 1);
 
-        editSector3Start = new QLineEdit(groupSector3);
-        editSector3Start->setObjectName(QStringLiteral("editSector3Start"));
-        editSector3Start->setEnabled(false);
-        sizePolicy5.setHeightForWidth(editSector3Start->sizePolicy().hasHeightForWidth());
-        editSector3Start->setSizePolicy(sizePolicy5);
-        editSector3Start->setMinimumSize(QSize(0, 20));
-        editSector3Start->setMaximumSize(QSize(55, 16777215));
-        editSector3Start->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        editSector3Start->setReadOnly(true);
+        labelSector4Start = new QLabel(groupSector4);
+        labelSector4Start->setObjectName(QStringLiteral("labelSector4Start"));
 
-        layoutGuard1Setup_4->addWidget(editSector3Start, 1, 3, 1, 1);
+        layoutGuard1Setup_6->addWidget(labelSector4Start, 1, 2, 1, 1);
 
-        spinSector3Start = new QDoubleSpinBox(groupSector3);
-        spinSector3Start->setObjectName(QStringLiteral("spinSector3Start"));
-        spinSector3Start->setMinimumSize(QSize(85, 0));
-        spinSector3Start->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        spinSector3Start->setDecimals(1);
-        spinSector3Start->setMinimum(-360);
-        spinSector3Start->setMaximum(360);
-        spinSector3Start->setSingleStep(0.1);
+        editSector4End = new QLineEdit(groupSector4);
+        editSector4End->setObjectName(QStringLiteral("editSector4End"));
+        editSector4End->setEnabled(false);
+        sizePolicy5.setHeightForWidth(editSector4End->sizePolicy().hasHeightForWidth());
+        editSector4End->setSizePolicy(sizePolicy5);
+        editSector4End->setMinimumSize(QSize(0, 20));
+        editSector4End->setMaximumSize(QSize(55, 16777215));
+        editSector4End->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        editSector4End->setReadOnly(true);
 
-        layoutGuard1Setup_4->addWidget(spinSector3Start, 1, 4, 1, 1);
+        layoutGuard1Setup_6->addWidget(editSector4End, 4, 4, 1, 1);
 
-        sliderSector3Start = new QSlider(groupSector3);
-        sliderSector3Start->setObjectName(QStringLiteral("sliderSector3Start"));
-        sliderSector3Start->setMinimumSize(QSize(140, 0));
-        sliderSector3Start->setMinimum(-360);
-        sliderSector3Start->setMaximum(360);
-        sliderSector3Start->setOrientation(Qt::Horizontal);
+        sliderSector4End = new QSlider(groupSector4);
+        sliderSector4End->setObjectName(QStringLiteral("sliderSector4End"));
+        sliderSector4End->setMinimum(-360);
+        sliderSector4End->setMaximum(360);
+        sliderSector4End->setOrientation(Qt::Horizontal);
 
-        layoutGuard1Setup_4->addWidget(sliderSector3Start, 1, 5, 1, 1);
+        layoutGuard1Setup_6->addWidget(sliderSector4End, 4, 6, 1, 1);
 
-        labelSector3End = new QLabel(groupSector3);
-        labelSector3End->setObjectName(QStringLiteral("labelSector3End"));
+        spinSector4End = new QDoubleSpinBox(groupSector4);
+        spinSector4End->setObjectName(QStringLiteral("spinSector4End"));
+        spinSector4End->setMinimumSize(QSize(85, 0));
+        spinSector4End->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        spinSector4End->setDecimals(1);
+        spinSector4End->setMinimum(-360);
+        spinSector4End->setMaximum(360);
+        spinSector4End->setSingleStep(0.1);
 
-        layoutGuard1Setup_4->addWidget(labelSector3End, 4, 1, 1, 1);
+        layoutGuard1Setup_6->addWidget(spinSector4End, 4, 5, 1, 1);
 
-        editSector3End = new QLineEdit(groupSector3);
-        editSector3End->setObjectName(QStringLiteral("editSector3End"));
-        editSector3End->setEnabled(false);
-        sizePolicy5.setHeightForWidth(editSector3End->sizePolicy().hasHeightForWidth());
-        editSector3End->setSizePolicy(sizePolicy5);
-        editSector3End->setMinimumSize(QSize(0, 20));
-        editSector3End->setMaximumSize(QSize(55, 16777215));
-        editSector3End->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        editSector3End->setReadOnly(true);
+        labelSector4End = new QLabel(groupSector4);
+        labelSector4End->setObjectName(QStringLiteral("labelSector4End"));
 
-        layoutGuard1Setup_4->addWidget(editSector3End, 4, 3, 1, 1);
+        layoutGuard1Setup_6->addWidget(labelSector4End, 4, 2, 1, 1);
 
-        checkSector3Enabled = new QCheckBox(groupSector3);
-        checkSector3Enabled->setObjectName(QStringLiteral("checkSector3Enabled"));
+        checkSector4Enabled = new QCheckBox(groupSector4);
+        checkSector4Enabled->setObjectName(QStringLiteral("checkSector4Enabled"));
 
-        layoutGuard1Setup_4->addWidget(checkSector3Enabled, 0, 1, 1, 3);
+        layoutGuard1Setup_6->addWidget(checkSector4Enabled, 0, 2, 1, 3);
 
 
-        gridLayout_10->addWidget(groupSector3, 0, 0, 1, 1);
+        gridLayout_10->addWidget(groupSector4, 1, 0, 1, 1);
 
         groupSector5 = new QGroupBox(tabSectorBlanking);
         groupSector5->setObjectName(QStringLiteral("groupSector5"));
@@ -2413,109 +2370,102 @@ public:
 
         gridLayout_10->addWidget(groupSector5, 2, 0, 1, 1);
 
-        groupSector4 = new QGroupBox(tabSectorBlanking);
-        groupSector4->setObjectName(QStringLiteral("groupSector4"));
+        groupSector3 = new QGroupBox(tabSectorBlanking);
+        groupSector3->setObjectName(QStringLiteral("groupSector3"));
         QPalette palette5;
         palette5.setBrush(QPalette::Active, QPalette::Base, brush);
         palette5.setBrush(QPalette::Inactive, QPalette::Base, brush);
         palette5.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        groupSector4->setPalette(palette5);
-        layoutGuard1Setup_6 = new QGridLayout(groupSector4);
-        layoutGuard1Setup_6->setSpacing(6);
-        layoutGuard1Setup_6->setContentsMargins(11, 11, 11, 11);
-        layoutGuard1Setup_6->setObjectName(QStringLiteral("layoutGuard1Setup_6"));
-        layoutGuard1Setup_6->setVerticalSpacing(6);
-        layoutGuard1Setup_6->setContentsMargins(-1, 3, -1, -1);
-        editSector4Start = new QLineEdit(groupSector4);
-        editSector4Start->setObjectName(QStringLiteral("editSector4Start"));
-        editSector4Start->setEnabled(false);
-        sizePolicy5.setHeightForWidth(editSector4Start->sizePolicy().hasHeightForWidth());
-        editSector4Start->setSizePolicy(sizePolicy5);
-        editSector4Start->setMinimumSize(QSize(0, 20));
-        editSector4Start->setMaximumSize(QSize(55, 16777215));
-        editSector4Start->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        editSector4Start->setReadOnly(true);
+        groupSector3->setPalette(palette5);
+        layoutGuard1Setup_4 = new QGridLayout(groupSector3);
+        layoutGuard1Setup_4->setSpacing(6);
+        layoutGuard1Setup_4->setContentsMargins(11, 11, 11, 11);
+        layoutGuard1Setup_4->setObjectName(QStringLiteral("layoutGuard1Setup_4"));
+        layoutGuard1Setup_4->setVerticalSpacing(6);
+        layoutGuard1Setup_4->setContentsMargins(-1, 3, -1, -1);
+        spinSector3End = new QDoubleSpinBox(groupSector3);
+        spinSector3End->setObjectName(QStringLiteral("spinSector3End"));
+        spinSector3End->setMinimumSize(QSize(85, 0));
+        spinSector3End->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        spinSector3End->setDecimals(1);
+        spinSector3End->setMinimum(-360);
+        spinSector3End->setMaximum(360);
+        spinSector3End->setSingleStep(0.1);
 
-        layoutGuard1Setup_6->addWidget(editSector4Start, 1, 4, 1, 1);
+        layoutGuard1Setup_4->addWidget(spinSector3End, 4, 4, 1, 1);
 
-        spinSector4Start = new QDoubleSpinBox(groupSector4);
-        spinSector4Start->setObjectName(QStringLiteral("spinSector4Start"));
-        spinSector4Start->setMinimumSize(QSize(85, 0));
-        spinSector4Start->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        spinSector4Start->setDecimals(1);
-        spinSector4Start->setMinimum(-360);
-        spinSector4Start->setMaximum(360);
-        spinSector4Start->setSingleStep(0.1);
+        sliderSector3End = new QSlider(groupSector3);
+        sliderSector3End->setObjectName(QStringLiteral("sliderSector3End"));
+        sliderSector3End->setMinimum(-360);
+        sliderSector3End->setMaximum(360);
+        sliderSector3End->setOrientation(Qt::Horizontal);
 
-        layoutGuard1Setup_6->addWidget(spinSector4Start, 1, 5, 1, 1);
+        layoutGuard1Setup_4->addWidget(sliderSector3End, 4, 5, 1, 1);
 
-        sliderSector4Start = new QSlider(groupSector4);
-        sliderSector4Start->setObjectName(QStringLiteral("sliderSector4Start"));
-        sliderSector4Start->setMinimum(-360);
-        sliderSector4Start->setMaximum(360);
-        sliderSector4Start->setOrientation(Qt::Horizontal);
+        labelSector3Start = new QLabel(groupSector3);
+        labelSector3Start->setObjectName(QStringLiteral("labelSector3Start"));
 
-        layoutGuard1Setup_6->addWidget(sliderSector4Start, 1, 6, 1, 1);
+        layoutGuard1Setup_4->addWidget(labelSector3Start, 1, 1, 1, 1);
 
-        labelSector4Start = new QLabel(groupSector4);
-        labelSector4Start->setObjectName(QStringLiteral("labelSector4Start"));
+        editSector3Start = new QLineEdit(groupSector3);
+        editSector3Start->setObjectName(QStringLiteral("editSector3Start"));
+        editSector3Start->setEnabled(false);
+        sizePolicy5.setHeightForWidth(editSector3Start->sizePolicy().hasHeightForWidth());
+        editSector3Start->setSizePolicy(sizePolicy5);
+        editSector3Start->setMinimumSize(QSize(0, 20));
+        editSector3Start->setMaximumSize(QSize(55, 16777215));
+        editSector3Start->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        editSector3Start->setReadOnly(true);
 
-        layoutGuard1Setup_6->addWidget(labelSector4Start, 1, 2, 1, 1);
+        layoutGuard1Setup_4->addWidget(editSector3Start, 1, 3, 1, 1);
 
-        editSector4End = new QLineEdit(groupSector4);
-        editSector4End->setObjectName(QStringLiteral("editSector4End"));
-        editSector4End->setEnabled(false);
-        sizePolicy5.setHeightForWidth(editSector4End->sizePolicy().hasHeightForWidth());
-        editSector4End->setSizePolicy(sizePolicy5);
-        editSector4End->setMinimumSize(QSize(0, 20));
-        editSector4End->setMaximumSize(QSize(55, 16777215));
-        editSector4End->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        editSector4End->setReadOnly(true);
+        spinSector3Start = new QDoubleSpinBox(groupSector3);
+        spinSector3Start->setObjectName(QStringLiteral("spinSector3Start"));
+        spinSector3Start->setMinimumSize(QSize(85, 0));
+        spinSector3Start->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        spinSector3Start->setDecimals(1);
+        spinSector3Start->setMinimum(-360);
+        spinSector3Start->setMaximum(360);
+        spinSector3Start->setSingleStep(0.1);
 
-        layoutGuard1Setup_6->addWidget(editSector4End, 4, 4, 1, 1);
+        layoutGuard1Setup_4->addWidget(spinSector3Start, 1, 4, 1, 1);
 
-        sliderSector4End = new QSlider(groupSector4);
-        sliderSector4End->setObjectName(QStringLiteral("sliderSector4End"));
-        sliderSector4End->setMinimum(-360);
-        sliderSector4End->setMaximum(360);
-        sliderSector4End->setOrientation(Qt::Horizontal);
+        sliderSector3Start = new QSlider(groupSector3);
+        sliderSector3Start->setObjectName(QStringLiteral("sliderSector3Start"));
+        sliderSector3Start->setMinimumSize(QSize(140, 0));
+        sliderSector3Start->setMinimum(-360);
+        sliderSector3Start->setMaximum(360);
+        sliderSector3Start->setOrientation(Qt::Horizontal);
 
-        layoutGuard1Setup_6->addWidget(sliderSector4End, 4, 6, 1, 1);
+        layoutGuard1Setup_4->addWidget(sliderSector3Start, 1, 5, 1, 1);
 
-        spinSector4End = new QDoubleSpinBox(groupSector4);
-        spinSector4End->setObjectName(QStringLiteral("spinSector4End"));
-        spinSector4End->setMinimumSize(QSize(85, 0));
-        spinSector4End->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        spinSector4End->setDecimals(1);
-        spinSector4End->setMinimum(-360);
-        spinSector4End->setMaximum(360);
-        spinSector4End->setSingleStep(0.1);
+        labelSector3End = new QLabel(groupSector3);
+        labelSector3End->setObjectName(QStringLiteral("labelSector3End"));
 
-        layoutGuard1Setup_6->addWidget(spinSector4End, 4, 5, 1, 1);
+        layoutGuard1Setup_4->addWidget(labelSector3End, 4, 1, 1, 1);
 
-        labelSector4End = new QLabel(groupSector4);
-        labelSector4End->setObjectName(QStringLiteral("labelSector4End"));
+        editSector3End = new QLineEdit(groupSector3);
+        editSector3End->setObjectName(QStringLiteral("editSector3End"));
+        editSector3End->setEnabled(false);
+        sizePolicy5.setHeightForWidth(editSector3End->sizePolicy().hasHeightForWidth());
+        editSector3End->setSizePolicy(sizePolicy5);
+        editSector3End->setMinimumSize(QSize(0, 20));
+        editSector3End->setMaximumSize(QSize(55, 16777215));
+        editSector3End->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        editSector3End->setReadOnly(true);
 
-        layoutGuard1Setup_6->addWidget(labelSector4End, 4, 2, 1, 1);
+        layoutGuard1Setup_4->addWidget(editSector3End, 4, 3, 1, 1);
 
-        checkSector4Enabled = new QCheckBox(groupSector4);
-        checkSector4Enabled->setObjectName(QStringLiteral("checkSector4Enabled"));
+        checkSector3Enabled = new QCheckBox(groupSector3);
+        checkSector3Enabled->setObjectName(QStringLiteral("checkSector3Enabled"));
 
-        layoutGuard1Setup_6->addWidget(checkSector4Enabled, 0, 2, 1, 3);
+        layoutGuard1Setup_4->addWidget(checkSector3Enabled, 0, 1, 1, 3);
 
 
-        gridLayout_10->addWidget(groupSector4, 1, 0, 1, 1);
-
-        verticalSpacer_9 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_10->addItem(verticalSpacer_9, 3, 0, 1, 1);
+        gridLayout_10->addWidget(groupSector3, 0, 0, 1, 1);
 
 
         horizontalLayout_7->addLayout(gridLayout_10);
-
-        horizontalSpacer_5 = new QSpacerItem(189, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_7->addItem(horizontalSpacer_5);
 
         tabs->addTab(tabSectorBlanking, QString());
         tabInstallation = new QWidget();
@@ -2734,7 +2684,7 @@ public:
 
         horizontalLayout_13->addLayout(gridLayout_13);
 
-        horizontalSpacer_141 = new QSpacerItem(194, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_141 = new QSpacerItem(100, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_13->addItem(horizontalSpacer_141);
 
@@ -2784,9 +2734,9 @@ public:
 
         verticalLayout_14->addWidget(groupAntennaType);
 
-        verticalSpacer_91 = new QSpacerItem(198, 294, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_9 = new QSpacerItem(198, 294, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_14->addItem(verticalSpacer_91);
+        verticalLayout_14->addItem(verticalSpacer_9);
 
         tabs->addTab(tabInstallation, QString());
         tabFeatures = new QWidget();
@@ -2940,10 +2890,6 @@ public:
 
 
         horizontalLayout_3->addWidget(groupFeaturesMisc);
-
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_4);
 
 
         verticalLayout_10->addLayout(horizontalLayout_3);
@@ -3323,9 +3269,9 @@ public:
 
         gridLayout_9->addWidget(labelUserControlNoiseReject, 3, 4, 1, 1);
 
-        horizontalSpacer_131 = new QSpacerItem(15, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        horizontalSpacer_13 = new QSpacerItem(15, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        gridLayout_9->addItem(horizontalSpacer_131, 0, 3, 1, 1);
+        gridLayout_9->addItem(horizontalSpacer_13, 0, 3, 1, 1);
 
         chckUserControlLocalIR = new QCheckBox(groupBox);
         chckUserControlLocalIR->setObjectName(QStringLiteral("chckUserControlLocalIR"));
@@ -3379,10 +3325,6 @@ public:
 
 
         horizontalLayout_4->addWidget(groupBox);
-
-        horizontalSpacer_121 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_4->addItem(horizontalSpacer_121);
 
 
         verticalLayout_10->addLayout(horizontalLayout_4);
@@ -3459,7 +3401,7 @@ public:
 
         layoutGuard1Alarm->addWidget(pushGuard1Cancel, 1, 3, 1, 1);
 
-        horizontalSpacer_16 = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        horizontalSpacer_16 = new QSpacerItem(100, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         layoutGuard1Alarm->addItem(horizontalSpacer_16, 0, 2, 1, 1);
 
@@ -3686,7 +3628,7 @@ public:
 
         layoutGuard2Alarm->addWidget(pushGuard2Cancel, 1, 3, 1, 1);
 
-        horizontalSpacer_17 = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        horizontalSpacer_17 = new QSpacerItem(100, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         layoutGuard2Alarm->addItem(horizontalSpacer_17, 0, 2, 1, 1);
 
@@ -3858,10 +3800,6 @@ public:
 
 
         horizontalLayout_8->addWidget(groupGuard2Zone);
-
-        horizontalSpacer_61 = new QSpacerItem(189, 17, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_8->addItem(horizontalSpacer_61);
 
 
         verticalLayout_2->addLayout(horizontalLayout_8);
@@ -4290,10 +4228,6 @@ public:
 
         horizontalLayout_10->addLayout(verticalLayout_8);
 
-        horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_10->addItem(horizontalSpacer_8);
-
 
         verticalLayout_9->addLayout(horizontalLayout_10);
 
@@ -4367,10 +4301,6 @@ public:
 
         horizontalLayout_61->addWidget(groupTargetsQuery);
 
-        horizontalSpacer_41 = new QSpacerItem(6, 10, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        horizontalLayout_61->addItem(horizontalSpacer_41);
-
         AlaramSetupGroup = new QGroupBox(tabTargets);
         AlaramSetupGroup->setObjectName(QStringLiteral("AlaramSetupGroup"));
         sizePolicy9.setHeightForWidth(AlaramSetupGroup->sizePolicy().hasHeightForWidth());
@@ -4418,10 +4348,6 @@ public:
 
         horizontalLayout_41->addLayout(horizontalLayout_2);
 
-        horizontalSpacer = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        horizontalLayout_41->addItem(horizontalSpacer);
-
         horizontalLayout_31 = new QHBoxLayout();
         horizontalLayout_31->setSpacing(5);
         horizontalLayout_31->setObjectName(QStringLiteral("horizontalLayout_31"));
@@ -4467,10 +4393,6 @@ public:
 
         horizontalLayout_61->addItem(horizontalSpacer_2);
 
-        horizontalSpacer_51 = new QSpacerItem(6, 10, QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
-
-        horizontalLayout_61->addItem(horizontalSpacer_51);
-
         groupTargetsCancel = new QGroupBox(tabTargets);
         groupTargetsCancel->setObjectName(QStringLiteral("groupTargetsCancel"));
         horizontalLayout_71 = new QHBoxLayout(groupTargetsCancel);
@@ -4509,6 +4431,12 @@ public:
         verticalLayout_3->addWidget(tableTargets);
 
         tabs->addTab(tabTargets, QString());
+        tab = new QWidget();
+        tab->setObjectName(QStringLiteral("tab"));
+        pushButton = new QPushButton(tab);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(640, 84, 89, 41));
+        tabs->addTab(tab, QString());
 
         verticalLayout_5->addWidget(tabs);
 
@@ -4516,7 +4444,7 @@ public:
 
         retranslateUi(GUIDemoClass);
 
-        tabs->setCurrentIndex(0);
+        tabs->setCurrentIndex(9);
 
 
         QMetaObject::connectSlotsByName(GUIDemoClass);
@@ -4567,20 +4495,20 @@ public:
         labelScannerRange->setText(QApplication::translate("GUIDemoClass", "Range", Q_NULLPTR));
         spinScannerRange->setSuffix(QApplication::translate("GUIDemoClass", " m", Q_NULLPTR));
         groupInformation->setTitle(QApplication::translate("GUIDemoClass", "Information", Q_NULLPTR));
-        label_3->setText(QApplication::translate("GUIDemoClass", "NavRadar", Q_NULLPTR));
-        label_7->setText(QApplication::translate("GUIDemoClass", "Scanner", Q_NULLPTR));
-        label_14->setText(QApplication::translate("GUIDemoClass", "GateWare", Q_NULLPTR));
-        label_4->setText(QApplication::translate("GUIDemoClass", "SW Version", Q_NULLPTR));
-        label_8->setText(QApplication::translate("GUIDemoClass", "SW Version", Q_NULLPTR));
+        labelGWCompiled_->setText(QApplication::translate("GUIDemoClass", "GW Compiled", Q_NULLPTR));
+        label_6->setText(QApplication::translate("GUIDemoClass", "Driver Version", Q_NULLPTR));
         labelRegVersion_->setText(QApplication::translate("GUIDemoClass", "Reg Version", Q_NULLPTR));
         label_5->setText(QApplication::translate("GUIDemoClass", "SW Build Date", Q_NULLPTR));
-        labelMaxRange_->setText(QApplication::translate("GUIDemoClass", "Max Range", Q_NULLPTR));
-        labelGWVersion_->setText(QApplication::translate("GUIDemoClass", "GW Version", Q_NULLPTR));
-        label_6->setText(QApplication::translate("GUIDemoClass", "Driver Version", Q_NULLPTR));
-        labelOperationTime_->setText(QApplication::translate("GUIDemoClass", "Operation Time", Q_NULLPTR));
-        labelGWCompiled_->setText(QApplication::translate("GUIDemoClass", "GW Compiled", Q_NULLPTR));
-        labelSDKVersion_->setText(QApplication::translate("GUIDemoClass", "SDK Version", Q_NULLPTR));
+        label_8->setText(QApplication::translate("GUIDemoClass", "SW Version", Q_NULLPTR));
         label->setText(QApplication::translate("GUIDemoClass", "Cycle Count", Q_NULLPTR));
+        labelMaxRange_->setText(QApplication::translate("GUIDemoClass", "Max Range", Q_NULLPTR));
+        labelOperationTime_->setText(QApplication::translate("GUIDemoClass", "Operation Time", Q_NULLPTR));
+        labelGWVersion_->setText(QApplication::translate("GUIDemoClass", "GW Version", Q_NULLPTR));
+        label_7->setText(QApplication::translate("GUIDemoClass", "Scanner", Q_NULLPTR));
+        label_4->setText(QApplication::translate("GUIDemoClass", "SW Version", Q_NULLPTR));
+        labelSDKVersion_->setText(QApplication::translate("GUIDemoClass", "SDK Version", Q_NULLPTR));
+        label_3->setText(QApplication::translate("GUIDemoClass", "NavRadar", Q_NULLPTR));
+        label_14->setText(QApplication::translate("GUIDemoClass", "GateWare", Q_NULLPTR));
         groupMultiRadar->setTitle(QApplication::translate("GUIDemoClass", "Multi-Radar", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         pushMultiRadarConnect->setToolTip(QApplication::translate("GUIDemoClass", "Connect to radar", Q_NULLPTR));
@@ -4703,36 +4631,36 @@ public:
         spinSector0Start->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
         labelSector0End->setText(QApplication::translate("GUIDemoClass", "End", Q_NULLPTR));
         checkSector0Enabled->setText(QApplication::translate("GUIDemoClass", "Enabled", Q_NULLPTR));
-        groupSector2->setTitle(QApplication::translate("GUIDemoClass", "Sector 2", Q_NULLPTR));
-        labelSector2Start->setText(QApplication::translate("GUIDemoClass", "Start", Q_NULLPTR));
-        spinSector2Start->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
-        labelSector2End->setText(QApplication::translate("GUIDemoClass", "End", Q_NULLPTR));
-        spinSector2End->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
-        checkSector2Enabled->setText(QApplication::translate("GUIDemoClass", "Enabled", Q_NULLPTR));
         groupSector1->setTitle(QApplication::translate("GUIDemoClass", "Sector 1", Q_NULLPTR));
         spinSector1Start->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
         labelSector1Start->setText(QApplication::translate("GUIDemoClass", "Start", Q_NULLPTR));
         spinSector1End->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
         labelSector1End->setText(QApplication::translate("GUIDemoClass", "End", Q_NULLPTR));
         checkSector1Enabled->setText(QApplication::translate("GUIDemoClass", "Enabled", Q_NULLPTR));
-        groupSector3->setTitle(QApplication::translate("GUIDemoClass", "Sector 3", Q_NULLPTR));
-        spinSector3End->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
-        labelSector3Start->setText(QApplication::translate("GUIDemoClass", "Start", Q_NULLPTR));
-        spinSector3Start->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
-        labelSector3End->setText(QApplication::translate("GUIDemoClass", "End", Q_NULLPTR));
-        checkSector3Enabled->setText(QApplication::translate("GUIDemoClass", "Enabled", Q_NULLPTR));
-        groupSector5->setTitle(QApplication::translate("GUIDemoClass", "Sector 5", Q_NULLPTR));
-        labelSector5Start->setText(QApplication::translate("GUIDemoClass", "Start", Q_NULLPTR));
-        spinSector5Start->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
-        labelSector5End->setText(QApplication::translate("GUIDemoClass", "End", Q_NULLPTR));
-        spinSector5End->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
-        checkSector5Enabled->setText(QApplication::translate("GUIDemoClass", "Enabled", Q_NULLPTR));
+        groupSector2->setTitle(QApplication::translate("GUIDemoClass", "Sector 2", Q_NULLPTR));
+        labelSector2Start->setText(QApplication::translate("GUIDemoClass", "Start", Q_NULLPTR));
+        spinSector2Start->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
+        labelSector2End->setText(QApplication::translate("GUIDemoClass", "End", Q_NULLPTR));
+        spinSector2End->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
+        checkSector2Enabled->setText(QApplication::translate("GUIDemoClass", "Enabled", Q_NULLPTR));
         groupSector4->setTitle(QApplication::translate("GUIDemoClass", "Sector 4", Q_NULLPTR));
         spinSector4Start->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
         labelSector4Start->setText(QApplication::translate("GUIDemoClass", "Start", Q_NULLPTR));
         spinSector4End->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
         labelSector4End->setText(QApplication::translate("GUIDemoClass", "End", Q_NULLPTR));
         checkSector4Enabled->setText(QApplication::translate("GUIDemoClass", "Enabled", Q_NULLPTR));
+        groupSector5->setTitle(QApplication::translate("GUIDemoClass", "Sector 5", Q_NULLPTR));
+        labelSector5Start->setText(QApplication::translate("GUIDemoClass", "Start", Q_NULLPTR));
+        spinSector5Start->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
+        labelSector5End->setText(QApplication::translate("GUIDemoClass", "End", Q_NULLPTR));
+        spinSector5End->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
+        checkSector5Enabled->setText(QApplication::translate("GUIDemoClass", "Enabled", Q_NULLPTR));
+        groupSector3->setTitle(QApplication::translate("GUIDemoClass", "Sector 3", Q_NULLPTR));
+        spinSector3End->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
+        labelSector3Start->setText(QApplication::translate("GUIDemoClass", "Start", Q_NULLPTR));
+        spinSector3Start->setSuffix(QApplication::translate("GUIDemoClass", " deg", Q_NULLPTR));
+        labelSector3End->setText(QApplication::translate("GUIDemoClass", "End", Q_NULLPTR));
+        checkSector3Enabled->setText(QApplication::translate("GUIDemoClass", "Enabled", Q_NULLPTR));
         tabs->setTabText(tabs->indexOf(tabSectorBlanking), QApplication::translate("GUIDemoClass", "Sector blanking", Q_NULLPTR));
         groupImageConfiguration->setTitle(QApplication::translate("GUIDemoClass", "Configuration", Q_NULLPTR));
         spinAntennaXOffset->setSuffix(QApplication::translate("GUIDemoClass", " m", Q_NULLPTR));
@@ -4893,6 +4821,8 @@ public:
         pushCancelSelection->setText(QApplication::translate("GUIDemoClass", "Selection", Q_NULLPTR));
         pushCancelDisplay->setText(QApplication::translate("GUIDemoClass", "Display", Q_NULLPTR));
         tabs->setTabText(tabs->indexOf(tabTargets), QApplication::translate("GUIDemoClass", "Targets", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("GUIDemoClass", "PushButton", Q_NULLPTR));
+        tabs->setTabText(tabs->indexOf(tab), QApplication::translate("GUIDemoClass", "Page", Q_NULLPTR));
     } // retranslateUi
 
 };

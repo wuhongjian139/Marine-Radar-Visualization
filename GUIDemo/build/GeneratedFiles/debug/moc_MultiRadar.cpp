@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_tMultiRadar_t {
-    QByteArrayData data[23];
-    char stringdata0[437];
+    QByteArrayData data[24];
+    char stringdata0[447];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -53,7 +53,8 @@ QT_MOC_LITERAL(18, 308, 23), // "MultiRadarQuery_clicked"
 QT_MOC_LITERAL(19, 332, 27), // "MultiRadarGetLockID_clicked"
 QT_MOC_LITERAL(20, 360, 24), // "MultiRadarUnlock_clicked"
 QT_MOC_LITERAL(21, 385, 27), // "MultiRadarUnlockAll_clicked"
-QT_MOC_LITERAL(22, 413, 23) // "MultiRadarFlush_clicked"
+QT_MOC_LITERAL(22, 413, 23), // "MultiRadarFlush_clicked"
+QT_MOC_LITERAL(23, 437, 9) // "testclick"
 
     },
     "tMultiRadar\0ConnectChanged\0\0connect\0"
@@ -68,7 +69,7 @@ QT_MOC_LITERAL(22, 413, 23) // "MultiRadarFlush_clicked"
     "MultiRadarGetLockID_clicked\0"
     "MultiRadarUnlock_clicked\0"
     "MultiRadarUnlockAll_clicked\0"
-    "MultiRadarFlush_clicked"
+    "MultiRadarFlush_clicked\0testclick"
 };
 #undef QT_MOC_LITERAL
 
@@ -78,7 +79,7 @@ static const uint qt_meta_data_tMultiRadar[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      15,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -86,23 +87,24 @@ static const uint qt_meta_data_tMultiRadar[] = {
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   89,    2, 0x06 /* Public */,
-       4,    0,   92,    2, 0x06 /* Public */,
-       5,    2,   93,    2, 0x06 /* Public */,
-       8,    2,   98,    2, 0x06 /* Public */,
+       1,    1,   94,    2, 0x06 /* Public */,
+       4,    0,   97,    2, 0x06 /* Public */,
+       5,    2,   98,    2, 0x06 /* Public */,
+       8,    2,  103,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      11,    0,  103,    2, 0x08 /* Private */,
-      12,    2,  104,    2, 0x08 /* Private */,
-      13,    2,  109,    2, 0x08 /* Private */,
-      14,    1,  114,    2, 0x08 /* Private */,
-      16,    1,  117,    2, 0x08 /* Private */,
-      17,    1,  120,    2, 0x08 /* Private */,
-      18,    1,  123,    2, 0x08 /* Private */,
-      19,    1,  126,    2, 0x08 /* Private */,
-      20,    1,  129,    2, 0x08 /* Private */,
-      21,    1,  132,    2, 0x08 /* Private */,
-      22,    1,  135,    2, 0x08 /* Private */,
+      11,    0,  108,    2, 0x08 /* Private */,
+      12,    2,  109,    2, 0x08 /* Private */,
+      13,    2,  114,    2, 0x08 /* Private */,
+      14,    1,  119,    2, 0x08 /* Private */,
+      16,    1,  122,    2, 0x08 /* Private */,
+      17,    1,  125,    2, 0x08 /* Private */,
+      18,    1,  128,    2, 0x08 /* Private */,
+      19,    1,  131,    2, 0x08 /* Private */,
+      20,    1,  134,    2, 0x08 /* Private */,
+      21,    1,  137,    2, 0x08 /* Private */,
+      22,    1,  140,    2, 0x08 /* Private */,
+      23,    0,  143,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Bool,    3,
@@ -122,6 +124,7 @@ static const uint qt_meta_data_tMultiRadar[] = {
     QMetaType::Void, QMetaType::Bool,   15,
     QMetaType::Void, QMetaType::Bool,   15,
     QMetaType::Void, QMetaType::Bool,   15,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -147,6 +150,7 @@ void tMultiRadar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 12: _t->MultiRadarUnlock_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 13: _t->MultiRadarUnlockAll_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 14: _t->MultiRadarFlush_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 15: _t->testclick(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -213,13 +217,13 @@ int tMultiRadar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 16;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 15)
+        if (_id < 16)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 15;
+        _id -= 16;
     }
     return _id;
 }

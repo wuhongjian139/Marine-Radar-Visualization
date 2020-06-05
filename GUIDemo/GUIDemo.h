@@ -33,6 +33,7 @@
 #include "TabPPI.h"
 #include "TabFeatures.h"
 #include "TabSectorBlanking.h"
+
 #include "OverlayManager.h"
 
 #include "ui_GUIDemo.h"
@@ -52,7 +53,7 @@ class GUIDemo
     Q_OBJECT
 
 public:
-    GUIDemo( QWidget *parent = 0, Qt::WindowFlags flags = 0 );
+    GUIDemo( QWidget *parent = nullptr, Qt::WindowFlags flags = nullptr );
     ~GUIDemo();
 
 private:

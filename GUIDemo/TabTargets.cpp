@@ -84,7 +84,7 @@ QString FormatTime( uint32_t secs )
 //-----------------------------------------------------------------------------
 tTabTargets::tTabTargets( GUIDemoClass& ui, QObject* pParent, QWidget& tab )
     : tTabBase( ui, pParent, tab )
-    , m_pTargetTrackingClient( NULL )
+    , m_pTargetTrackingClient( nullptr )
 {
     ConnectControls( true, *this, tab );
 

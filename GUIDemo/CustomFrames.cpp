@@ -61,7 +61,7 @@ void tQCustomFrame::paintEvent( QPaintEvent * /*pEvent*/ )
 		for (int i = 0; i < Navico::Protocol::NRP::cMaxGuardZones; ++i)
 		{
 			const tOverlay* overlay = m_OverlayManager.GetGuardZone(i);
-			if ((overlay != 0) && (overlay->enabled))
+            if ((overlay != nullptr) && (overlay->enabled))
 			{
 				DrawOverlay(painter, overlay);
 			}
@@ -116,7 +116,7 @@ void tQCustomFrame::contextMenuEvent( QContextMenuEvent* pEvent )
         }
 
         QAction* pSelected = menu.exec( this->mapToGlobal( pEvent->pos() ) );
-        if (pSelected != 0)
+        if (pSelected != nullptr)
         {
             if (pSelected == pAcquireAction)
             {

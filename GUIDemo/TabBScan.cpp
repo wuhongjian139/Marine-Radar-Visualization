@@ -107,7 +107,7 @@ void tTabBScan::OnUpdateSpoke( const NRP::Spoke::t9174Spoke *pSpoke )
     QMutexLocker locker( tQCustomFrame::getImageMutex() );
 
     const uint32_t cSpokesPerRevolution = 2048;
-    if (m_pImage == NULL)
+    if (m_pImage == nullptr)
     {
         m_NumSamples = pSpoke->header.nOfSamples;
         

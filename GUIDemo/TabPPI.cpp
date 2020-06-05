@@ -3,7 +3,7 @@
 // Confidential and proprietary.  All rights reserved.
 //-----------------------------------------------------------------------------
 
-#define _USE_MATH_DEFINES
+//#define _USE_MATH_DEFINES
 #include <cmath>
 #include <cassert>
 
@@ -131,9 +131,9 @@ void tQPPIFrame::DrawOverlay( QPainter& painter, const tOverlay* pOverlay )
 //-----------------------------------------------------------------------------
 tTabPPI::tTabPPI( Ui::GUIDemoClass& myUI, tTargetLocation* pTargets, unsigned maxTargets, QObject* pParent, tOverlayManager& overlayManager )
     : QObject( pParent )
-    , m_pImage( NULL )
-    , m_pFrame( new tQPPIFrame( pTargets, maxTargets, myUI.tabPPI, NULL, overlayManager ) )
+    , m_pFrame( new tQPPIFrame( pTargets, maxTargets, myUI.tabPPI, nullptr, overlayManager ) )
     , m_pController( new Navico::Image::tPPIController() )
+    , m_pImage( nullptr )
     , ui( myUI )
 {
     ui.verticalLayout_tabPPI->addWidget( m_pFrame );
@@ -186,7 +186,7 @@ void tTabPPI::OnUpdateSpoke( const NRP::Spoke::t9174Spoke *pSpoke )
 {
     QMutexLocker locker( tQCustomFrame::getImageMutex() );
 
-    if (m_pImage == NULL)
+    if (m_pImage == nullptr)
     {
         m_pImage = new QImage( 2*pSpoke->header.nOfSamples, 2*pSpoke->header.nOfSamples, QImage::Format_RGB32 );
         m_pImage->fill( 0 );

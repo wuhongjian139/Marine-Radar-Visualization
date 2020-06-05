@@ -59,7 +59,7 @@ const tOverlay* tOverlayManager::GetGuardZone(int index)
 	}
 	else
 	{
-		return 0;
+        return nullptr;
 	}
 }
 
@@ -71,6 +71,6 @@ const tOverlay* tOverlayManager::GetBlankingSector(int index)
 	}
 	else
 	{
-		return 0;
+        return nullptr;
 	}
 }

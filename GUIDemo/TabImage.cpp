@@ -58,7 +58,7 @@ void tTabImage::UpdateUseMode()
 	// Always have custom mode.
     m_Ui.comboUseMode->addItem( UseModeToString( eUseMode_Custom ), QVariant( eUseMode_Custom ) );
 
-	if (m_pImageClient != 0)
+    if (m_pImageClient != nullptr)
 	{
 		// Check feature manager for supported use modes
 		tFeatureManager& featureManager = m_pImageClient->GetFeatureManager();

@@ -53,7 +53,7 @@ void tQDoubleIntConnector::SpinnerValueChanged( double value )
 //-----------------------------------------------------------------------------
 QString ToItemName( unsigned value, QComboBox* pCombo )
 {
-    return (pCombo == NULL || value >= unsigned(pCombo->count()))?
+    return (pCombo == nullptr || value >= unsigned(pCombo->count()))?
         QString::number( value ) : pCombo->itemText( value );
 }
 
@@ -88,7 +88,7 @@ void LinkControls( bool connect, QObject& manager, QWidget& parent )
         Connect( connect, pSpin, SIGNAL(valueChanged(int)), &manager, Slot(name+"_valueChanged(int)").toLatin1().data() );
 
         QSlider* pSlider = parent.findChild< QSlider* >( "slider" + name );
-        if (pSlider != NULL)
+        if (pSlider != nullptr)
         {
             Connect( connect, pSlider, SIGNAL(sliderMoved(int)),  pSpin,    SLOT(setValue(int)) );
             Connect( connect, pSpin,   SIGNAL(valueChanged(int)), pSlider,  SLOT(setValue(int)) );
@@ -102,13 +102,13 @@ void LinkControls( bool connect, QObject& manager, QWidget& parent )
         Connect( connect, pSpin, SIGNAL(valueChanged(double)), &manager, Slot(name+"_valueChanged(double)").toLatin1().data() );
 
         QSlider* pSlider = parent.findChild< QSlider* >( "slider" + name );
-        if (pSlider != NULL)
+        if (pSlider != nullptr)
         {
             tQDoubleIntConnector* pConnector = (connect == true)?
                 new tQDoubleIntConnector( pSpin, pSlider, name ) : pSlider->findChild< tQDoubleIntConnector* >( name );
 
             assert( pConnector != NULL );
-            if (pConnector != NULL)
+            if (pConnector != nullptr)
             {
                 Connect( connect, pSlider, SIGNAL(sliderMoved(int)),     pConnector, SLOT(SliderValueChanged(int)) );
                 Connect( connect, pSpin,   SIGNAL(valueChanged(double)), pConnector, SLOT(SpinnerValueChanged(double)) );
@@ -165,11 +165,11 @@ void SetManualValue( QSpinBox* pSpin, int value )
     assert( pSpin != NULL );
 
     QObject* pParent = pSpin->parent();
-    if (pParent != NULL && pSpin->objectName().startsWith( "spin" ))
+    if (pParent != nullptr && pSpin->objectName().startsWith( "spin" ))
     {
         QString name( pSpin->objectName().mid( 4 ) );
         QSlider* pSlider = pParent->findChild< QSlider* >( "slider" + name );
-        if (pSlider != NULL)
+        if (pSlider != nullptr)
         {
             pSlider->blockSignals( true );
             pSlider->setValue( value );
@@ -187,11 +187,11 @@ void SetManualValue( QDoubleSpinBox* pSpin, double value )
     assert( pSpin != NULL );
 
     QObject* pParent = pSpin->parent();
-    if (pParent != NULL && pSpin->objectName().startsWith( "spin" ))
+    if (pParent != nullptr && pSpin->objectName().startsWith( "spin" ))
     {
         QString name( pSpin->objectName().mid( 4 ) );
         QSlider* pSlider = pParent->findChild< QSlider* >( "slider" + name );
-        if (pSlider != NULL)
+        if (pSlider != nullptr)
         {
             pSlider->blockSignals( true );
             pSlider->setValue( tQDoubleIntConnector::ToSliderValue( value, pSpin, pSlider ) );
@@ -225,11 +225,11 @@ void SetManualRange( QSpinBox* pSpin, int minValue, int maxValue )
     assert( pSpin != NULL );
 
     QObject* pParent = pSpin->parent();
-    if (pParent != NULL && pSpin->objectName().startsWith( "spin" ))
+    if (pParent != nullptr && pSpin->objectName().startsWith( "spin" ))
     {
         QString name( pSpin->objectName().mid( 4 ) );
         QSlider* pSlider = pParent->findChild< QSlider* >( "slider" + name );
-        if (pSlider != NULL)
+        if (pSlider != nullptr)
         {
             pSlider->blockSignals( true );
             pSlider->setRange( minValue, maxValue );
