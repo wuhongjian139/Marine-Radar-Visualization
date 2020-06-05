@@ -10,8 +10,6 @@
 #include "TabBase.h"
 #include "ui_GUIDemo.h"
 
-using namespace Navico::Protocol::NRP;
-
 //-----------------------------------------------------------------------------
 // tTabAdvanced Implementation
 //-----------------------------------------------------------------------------
@@ -24,7 +22,8 @@ tTabAdvanced::tTabAdvanced(Ui::GUIDemoClass& ui, QObject* pParent, QWidget& tab)
 tTabAdvanced::~tTabAdvanced() { ConnectControls(false, *this, m_Tab); }
 
 //-----------------------------------------------------------------------------
-void tTabAdvanced::OnConnect(tImageClient* pImageClient) {
+void tTabAdvanced::OnConnect(
+    Navico::Protocol::NRP::tImageClient* pImageClient) {
   tTabBase::OnConnect(pImageClient);
   // m_updateOnSetupExtended = true;
   m_updateOnAdvancedSTCState = true;
@@ -81,7 +80,8 @@ void tTabAdvanced::MainBangSuppression_clicked(bool checked) {
 }
 
 //-----------------------------------------------------------------------------
-void tTabAdvanced::OnAdvancedSTCStateChanged(const tAdvancedSTCState* pState) {
+void tTabAdvanced::OnAdvancedSTCStateChanged(
+    const Navico::Protocol::NRP::tAdvancedSTCState* pState) {
   m_Ui.editRangeTrim->setText(QString::number(pState->rangeSTCTrim_dB, 'f', 3));
   m_Ui.editRangeRate->setText(QString::number(pState->rangeSTCRate_dBpDec));
 

@@ -171,7 +171,8 @@ void tTabPPI::Timer_timeout() {
 }
 
 //-----------------------------------------------------------------------------
-void tTabPPI::OnUpdateSpoke(const NRP::Spoke::t9174Spoke* pSpoke) {
+void tTabPPI::OnUpdateSpoke(
+    const Navico::Protocol::NRP::Spoke::t9174Spoke* pSpoke) {
   QMutexLocker locker(tQCustomFrame::getImageMutex());
 
   if (m_pImage == nullptr) {
@@ -187,8 +188,9 @@ void tTabPPI::OnUpdateSpoke(const NRP::Spoke::t9174Spoke* pSpoke) {
     m_pController->SetTrailsTime(-1);
   }
 
-  m_pFrame->SetFullRange_m(NRP::Spoke::GetSampleRange_mm(pSpoke->header) *
-                           pSpoke->header.nOfSamples * 2 / 1000);
+  m_pFrame->SetFullRange_m(
+      Navico::Protocol::NRP::Spoke::GetSampleRange_mm(pSpoke->header) *
+      pSpoke->header.nOfSamples * 2 / 1000);
   m_pFrame->SetBearing_deg((pSpoke->header.compassInvalid == 0)
                                ? CompassToDegrees(pSpoke->header.spokeCompass)
                                : 0.0f);

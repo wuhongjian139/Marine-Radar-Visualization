@@ -13,8 +13,6 @@
 #include "TabBase.h"
 #include "ui_GUIDemo.h"
 
-using namespace Navico::Protocol::NRP;
-
 //-----------------------------------------------------------------------------
 tTabFeatures::tTabFeatures(Ui::GUIDemoClass& ui, QObject* pParent, QWidget& tab)
     : tTabBase(ui, pParent, tab) {
@@ -85,7 +83,8 @@ static tConstStrings StcCurveStrings() {
 }
 
 //-----------------------------------------------------------------------------
-void tTabFeatures::OnConnect(tImageClient* pImageClient) {
+void tTabFeatures::OnConnect(
+    Navico::Protocol::NRP::tImageClient* pImageClient) {
   tTabBase::OnConnect(pImageClient);
   ResetToDefaults();
 }
@@ -150,10 +149,9 @@ void tTabFeatures::ResetToDefaults() {
 }
 
 //-----------------------------------------------------------------------------
-static void ExtractFeatureControlEnum(const tFeatureLevel& feature,
-                                      QCheckBox* pCheckBox,
-                                      QLineEdit* pLineEdit,
-                                      tConstStrings names) {
+static void ExtractFeatureControlEnum(
+    const Navico::Protocol::NRP::tFeatureLevel& feature, QCheckBox* pCheckBox,
+    QLineEdit* pLineEdit, tConstStrings names) {
   if (feature.supported == true) {
     pCheckBox->setCheckState((feature.enabled == true) ? Qt::Checked
                                                        : Qt::Unchecked);
@@ -163,28 +161,30 @@ static void ExtractFeatureControlEnum(const tFeatureLevel& feature,
 }
 
 //-----------------------------------------------------------------------------
-static void ExtractFeatureControlEnum(const tFeatureLevel& feature,
-                                      QCheckBox* pCheckBox,
-                                      QLineEdit* pLineEdit) {
+static void ExtractFeatureControlEnum(
+    const Navico::Protocol::NRP::tFeatureLevel& feature, QCheckBox* pCheckBox,
+    QLineEdit* pLineEdit) {
   ExtractFeatureControlEnum(feature, pCheckBox, pLineEdit,
                             SeverityStrings(feature.maxLevel + 1));
 }
 
 //-----------------------------------------------------------------------------
-void tTabFeatures::OnUpdateFeature(tFeatureEnum featureEnum) {
-  tFeatureManager& featureManager = m_pImageClient->GetFeatureManager();
+void tTabFeatures::OnUpdateFeature(
+    Navico::Protocol::NRP::tFeatureEnum featureEnum) {
+  Navico::Protocol::NRP::tFeatureManager& featureManager =
+      m_pImageClient->GetFeatureManager();
 
   switch (featureEnum) {
-    case eFeatureEnum_CombinedNoiseIFReject: {
-      const tFeatureBase& feature =
+    case Navico::Protocol::NRP::eFeatureEnum_CombinedNoiseIFReject: {
+      const Navico::Protocol::NRP::tFeatureBase& feature =
           featureManager.GetFeatureCombinedNoiseIFReject();
       if (feature.supported == true) {
         m_Ui.editCombinedNoiseIR->setText(QString::number(feature.enabled));
       }
     } break;
 
-    case eFeatureEnum_SupportedUseModes: {
-      const tFeatureUseModes& feature =
+    case Navico::Protocol::NRP::eFeatureEnum_SupportedUseModes: {
+      const Navico::Protocol::NRP::tFeatureUseModes& feature =
           featureManager.GetFeatureSupportedUseModes();
       if (feature.supported == true) {
         QString useModes("");
@@ -199,45 +199,51 @@ void tTabFeatures::OnUpdateFeature(tFeatureEnum featureEnum) {
       }
     } break;
 
-    case eFeatureEnum_IRControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureIR();
+    case Navico::Protocol::NRP::eFeatureEnum_IRControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureIR();
       ExtractFeatureControlEnum(feature, m_Ui.chckUserControlIR,
                                 m_Ui.editUserControlIR);
     } break;
 
-    case eFeatureEnum_NoiseRejectControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureNoiseReject();
+    case Navico::Protocol::NRP::eFeatureEnum_NoiseRejectControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureNoiseReject();
       ExtractFeatureControlEnum(feature, m_Ui.chckUserControlNoiseReject,
                                 m_Ui.editUserControlNoiseReject);
     } break;
 
-    case eFeatureEnum_RangeStretchControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureRangeStretch();
+    case Navico::Protocol::NRP::eFeatureEnum_RangeStretchControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureRangeStretch();
       ExtractFeatureControlEnum(feature, m_Ui.chckUserControlRangeStretch,
                                 m_Ui.editUserControlRangeStretch);
     } break;
 
-    case eFeatureEnum_STCCurveControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureStcCurves();
+    case Navico::Protocol::NRP::eFeatureEnum_STCCurveControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureStcCurves();
       ExtractFeatureControlEnum(feature, m_Ui.chckUserControlSTCCurve,
                                 m_Ui.editUserControlSTCCurve,
                                 StcCurveStrings());
     } break;
 
-    case eFeatureEnum_BeamSharpeningControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureBeamSharpening();
+    case Navico::Protocol::NRP::eFeatureEnum_BeamSharpeningControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureBeamSharpening();
       ExtractFeatureControlEnum(feature, m_Ui.chckUserControlBeamSharpening,
                                 m_Ui.editUserControlBeamSharpening);
     } break;
 
-    case eFeatureEnum_FastScanControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureFastScan();
+    case Navico::Protocol::NRP::eFeatureEnum_FastScanControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureFastScan();
       ExtractFeatureControlEnum(feature, m_Ui.chckUserControlFastScan,
                                 m_Ui.editUserControlFastScan);
     } break;
 
-    case eFeatureEnum_SidelobeGainControl: {
-      const tFeatureRangeLimits& feature =
+    case Navico::Protocol::NRP::eFeatureEnum_SidelobeGainControl: {
+      const Navico::Protocol::NRP::tFeatureRangeLimits& feature =
           featureManager.GetFeatureSidelobeGain();
       if (feature.supported == true) {
         m_Ui.chckUserControlSidelobeGain->setCheckState(
@@ -247,11 +253,11 @@ void tTabFeatures::OnUpdateFeature(tFeatureEnum featureEnum) {
       }
     } break;
 
-    case eFeatureEnum_SupportedAntennas:
+    case Navico::Protocol::NRP::eFeatureEnum_SupportedAntennas:
       break;
 
-    case eFeatureEnum_InstrRangeLimits: {
-      const tFeatureRangeLimits& feature =
+    case Navico::Protocol::NRP::eFeatureEnum_InstrRangeLimits: {
+      const Navico::Protocol::NRP::tFeatureRangeLimits& feature =
           featureManager.GetFeatureInstrRangeLimits();
       if (feature.supported == true) {
         m_Ui.editInstrRangeMin->setText(QString("%1 dm").arg(feature.minimum));
@@ -262,26 +268,29 @@ void tTabFeatures::OnUpdateFeature(tFeatureEnum featureEnum) {
       }
     } break;
 
-    case eFeatureEnum_LocalIRControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureLocalIR();
+    case Navico::Protocol::NRP::eFeatureEnum_LocalIRControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureLocalIR();
       ExtractFeatureControlEnum(feature, m_Ui.chckUserControlLocalIR,
                                 m_Ui.editUserControlLocalIR);
     } break;
 
-    case eFeatureEnum_LEDControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureLED();
+    case Navico::Protocol::NRP::eFeatureEnum_LEDControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureLED();
       ExtractFeatureControlEnum(feature, m_Ui.chckUserControlLED,
                                 m_Ui.editUserControlLED);
     } break;
 
-    case eFeatureEnum_TargetStretchControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureTargetStretch();
+    case Navico::Protocol::NRP::eFeatureEnum_TargetStretchControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureTargetStretch();
       ExtractFeatureControlEnum(feature, m_Ui.chckUserControlTargetStretch,
                                 m_Ui.editUserControlTargetStretch);
     } break;
 
-    case eFeatureEnum_SeaUserGainLimits: {
-      const tFeatureGainLimits& feature =
+    case Navico::Protocol::NRP::eFeatureEnum_SeaUserGainLimits: {
+      const Navico::Protocol::NRP::tFeatureGainLimits& feature =
           featureManager.GetFeatureSeaUserGainLimits();
       if (feature.supported == true) {
         m_Ui.editSeaLimitsManual->setText(QString("manual: %1 - %2")
@@ -293,8 +302,8 @@ void tTabFeatures::OnUpdateFeature(tFeatureEnum featureEnum) {
       }
     } break;
 
-    case eFeatureEnum_SectorBlanking: {
-      const tFeatureSectorBlanking& feature =
+    case Navico::Protocol::NRP::eFeatureEnum_SectorBlanking: {
+      const Navico::Protocol::NRP::tFeatureSectorBlanking& feature =
           featureManager.GetFeatureSectorBlanking();
       if (feature.supported == true) {
         m_Ui.chckBlankSectors->setChecked(feature.enabled);

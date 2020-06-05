@@ -11,8 +11,6 @@
 #include "QControlUtils.h"
 #include "ui_GUIDemo.h"
 
-using namespace Navico::Protocol::NRP;
-
 //-----------------------------------------------------------------------------
 tTabSectorBlanking::tTabSectorBlanking(Ui::GUIDemoClass& ui, QObject* pParent,
                                        QWidget& tab,
@@ -28,10 +26,11 @@ tTabSectorBlanking::~tTabSectorBlanking() {
 }
 
 //-----------------------------------------------------------------------------
-void tTabSectorBlanking::OnConnect(tImageClient* pImageClient) {
+void tTabSectorBlanking::OnConnect(
+    Navico::Protocol::NRP::tImageClient* pImageClient) {
   tTabBase::OnConnect(pImageClient);
   m_UpdateOnConfiguration = (pImageClient != nullptr);
-  OnUpdateFeature(eFeatureEnum_SectorBlanking);
+  OnUpdateFeature(Navico::Protocol::NRP::eFeatureEnum_SectorBlanking);
 }
 
 //-----------------------------------------------------------------------------
@@ -210,7 +209,7 @@ void tTabSectorBlanking::OnConfigurationChanged(
     m_OverlayManager.SetBlankingSector(3, enabled, startBearing_deg,
                                        endBearing_deg);
 
-    if (cMaxBlankSectors > 4) {
+    if (Navico::Protocol::NRP::cMaxBlankSectors > 4) {
       enabled = pConfig->blankSectors[4].state;
       startBearing_deg =
           ToDegrees(pConfig->blankSectors[4].sectorStart_ddeg / 10.0);
@@ -225,7 +224,7 @@ void tTabSectorBlanking::OnConfigurationChanged(
                                          endBearing_deg);
     }
 
-    if (cMaxBlankSectors > 5) {
+    if (Navico::Protocol::NRP::cMaxBlankSectors > 5) {
       enabled = pConfig->blankSectors[5].state;
       startBearing_deg =
           ToDegrees(pConfig->blankSectors[5].sectorStart_ddeg / 10.0);
@@ -244,36 +243,38 @@ void tTabSectorBlanking::OnConfigurationChanged(
 
 //-----------------------------------------------------------------------------
 
-void tTabSectorBlanking::OnUpdateFeature(tFeatureEnum featureEnum) {
-  tFeatureManager& featureManager = m_pImageClient->GetFeatureManager();
+void tTabSectorBlanking::OnUpdateFeature(
+    Navico::Protocol::NRP::tFeatureEnum featureEnum) {
+  Navico::Protocol::NRP::tFeatureManager& featureManager =
+      m_pImageClient->GetFeatureManager();
 
   switch (featureEnum) {
-    case eFeatureEnum_SectorBlanking: {
-      const tFeatureSectorBlanking& feature =
+    case Navico::Protocol::NRP::eFeatureEnum_SectorBlanking: {
+      const Navico::Protocol::NRP::tFeatureSectorBlanking& feature =
           featureManager.GetFeatureSectorBlanking();
       m_Ui.chckBlankSectors->setChecked(feature.enabled);
       m_Ui.editBlankSectors->setText(QString::number(feature.sectorCount) +
                                      " sectors");
 
       // update sector blanking ui
-      m_Ui.groupSector0->setEnabled((feature.enabled == true) &&
-                                    (feature.sectorCount > 0) &&
-                                    (cMaxBlankSectors > 0));
-      m_Ui.groupSector1->setEnabled((feature.enabled == true) &&
-                                    (feature.sectorCount > 1) &&
-                                    (cMaxBlankSectors > 1));
-      m_Ui.groupSector2->setEnabled((feature.enabled == true) &&
-                                    (feature.sectorCount > 2) &&
-                                    (cMaxBlankSectors > 2));
-      m_Ui.groupSector3->setEnabled((feature.enabled == true) &&
-                                    (feature.sectorCount > 3) &&
-                                    (cMaxBlankSectors > 3));
-      m_Ui.groupSector4->setEnabled((feature.enabled == true) &&
-                                    (feature.sectorCount > 4) &&
-                                    (cMaxBlankSectors > 4));
-      m_Ui.groupSector5->setEnabled((feature.enabled == true) &&
-                                    (feature.sectorCount > 5) &&
-                                    (cMaxBlankSectors > 5));
+      m_Ui.groupSector0->setEnabled(
+          (feature.enabled == true) && (feature.sectorCount > 0) &&
+          (Navico::Protocol::NRP::cMaxBlankSectors > 0));
+      m_Ui.groupSector1->setEnabled(
+          (feature.enabled == true) && (feature.sectorCount > 1) &&
+          (Navico::Protocol::NRP::cMaxBlankSectors > 1));
+      m_Ui.groupSector2->setEnabled(
+          (feature.enabled == true) && (feature.sectorCount > 2) &&
+          (Navico::Protocol::NRP::cMaxBlankSectors > 2));
+      m_Ui.groupSector3->setEnabled(
+          (feature.enabled == true) && (feature.sectorCount > 3) &&
+          (Navico::Protocol::NRP::cMaxBlankSectors > 3));
+      m_Ui.groupSector4->setEnabled(
+          (feature.enabled == true) && (feature.sectorCount > 4) &&
+          (Navico::Protocol::NRP::cMaxBlankSectors > 4));
+      m_Ui.groupSector5->setEnabled(
+          (feature.enabled == true) && (feature.sectorCount > 5) &&
+          (Navico::Protocol::NRP::cMaxBlankSectors > 5));
     } break;
 
     default:

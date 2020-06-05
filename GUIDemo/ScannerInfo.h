@@ -16,8 +16,6 @@
 #include <ImageClient.h>
 #include "ui_GUIDemo.h"
 
-using namespace Navico::Protocol;
-
 //-----------------------------------------------------------------------------
 // tScannerInfo Class
 //-----------------------------------------------------------------------------
@@ -28,13 +26,13 @@ class tScannerInfo : public QObject {
   tScannerInfo(Ui::GUIDemoClass& ui, QWidget* pParent = nullptr);
   virtual ~tScannerInfo();
 
-  void OnConnect(NRP::tImageClient* pImageClient);
+  void OnConnect(Navico::Protocol::NRP::tImageClient* pImageClient);
   void OnDisconnect();
 
-  void OnModeChanged(NRP::tMode* pMode);
-  void OnPropertiesChanged(NRP::tProperties* pProperties);
-  void OnSetupChanged(NRP::tSetup* pSetup);
-  void OnRadarErrorChanged(NRP::tRadarError* pError);
+  void OnModeChanged(Navico::Protocol::NRP::tMode* pMode);
+  void OnPropertiesChanged(Navico::Protocol::NRP::tProperties* pProperties);
+  void OnSetupChanged(Navico::Protocol::NRP::tSetup* pSetup);
+  void OnRadarErrorChanged(Navico::Protocol::NRP::tRadarError* pError);
 
  private slots:
   void ScannerPower_clicked(bool checked);
@@ -49,7 +47,7 @@ class tScannerInfo : public QObject {
   void MakeConnections(bool connect);
 
  private:
-  NRP::tImageClient* m_pImageClient;
+  Navico::Protocol::NRP::tImageClient* m_pImageClient;
 
   Ui::GUIDemoClass& ui;
 };

@@ -13,8 +13,6 @@
 
 #include <QDebug>
 
-using namespace Navico::Protocol;
-
 //-----------------------------------------------------------------------------
 //  Helpers
 //-----------------------------------------------------------------------------
@@ -57,7 +55,8 @@ tMultiRadar::tMultiRadar(Ui::GUIDemoClass& myUI, QObject* pParent)
 
   ConnectControls(true, *this, *ui.groupMultiRadar);
 
-  tMultiRadarClient* pClient = tMultiRadarClient::GetInstance();
+  Navico::Protocol::tMultiRadarClient* pClient =
+      Navico::Protocol::tMultiRadarClient::GetInstance();
   pClient->AddRadarListObserver(this);
   pClient->AddUnlockStateObserver(this);
   pClient->SetUnlockKeySupplier(this);
@@ -69,7 +68,8 @@ tMultiRadar::tMultiRadar(Ui::GUIDemoClass& myUI, QObject* pParent)
 tMultiRadar::~tMultiRadar() {
   ConnectControls(false, *this, *ui.groupMultiRadar);
 
-  tMultiRadarClient* pClient = tMultiRadarClient::GetInstance();
+  Navico::Protocol::tMultiRadarClient* pClient =
+      Navico::Protocol::tMultiRadarClient::GetInstance();
   pClient->Disconnect();
   pClient->SetUnlockKeySupplier(nullptr);
   pClient->RemoveUnlockStateObserver(this);
@@ -126,12 +126,13 @@ void tMultiRadar::MultiRadar_UpdateRadarList() {
   char radars[cMaxRadars][MAX_SERIALNUMBER_SIZE];
 
   unsigned numRadars =
-      tMultiRadarClient::GetInstance()->GetRadars(radars, cMaxRadars);
+      Navico::Protocol::tMultiRadarClient::GetInstance()->GetRadars(radars,
+                                                                    cMaxRadars);
   if (numRadars > 0) {
     if (numRadars > cMaxRadars) numRadars = cMaxRadars;
     for (unsigned i = 0; i < numRadars; ++i) {
-      int numImageServices =
-          tMultiRadarClient::GetInstance()->GetImageStreamCount(radars[i]);
+      int numImageServices = Navico::Protocol::tMultiRadarClient::GetInstance()
+                                 ->GetImageStreamCount(radars[i]);
       if (numImageServices > 0) {
         QString serialNumber(radars[i]);
         if (serialNumber == currSerialNumber) {
@@ -193,7 +194,8 @@ void tMultiRadar::MultiRadar_GetUnlockKey(const char* pSerialNumber,
     unlockKey.replace("\\s+", "");
     int len = FromHexString(unlockKey, data, sizeof(data));
     if (len > 0) {
-      tMultiRadarClient::GetInstance()->SetUnlockKey(pSerialNumber, data, len);
+      Navico::Protocol::tMultiRadarClient::GetInstance()->SetUnlockKey(
+          pSerialNumber, data, len);
     } else {
       QMessageBox::critical(pParent, "Error", "Invalid unlock key entered");
     }
@@ -234,17 +236,17 @@ void tMultiRadar::MultiRadarConnect_clicked(bool checked) {
 
 //-----------------------------------------------------------------------------
 void tMultiRadar::MultiRadarQuery_clicked(bool) {
-  tMultiRadarClient::GetInstance()->QueryRadars();
+  Navico::Protocol::tMultiRadarClient::GetInstance()->QueryRadars();
 }
 
 //-----------------------------------------------------------------------------
 void tMultiRadar::MultiRadarReset_clicked(bool) {
-  tMultiRadarClient::GetInstance()->ResetDeviceIDs();
+  Navico::Protocol::tMultiRadarClient::GetInstance()->ResetDeviceIDs();
 }
 
 //-----------------------------------------------------------------------------
 void tMultiRadar::MultiRadarClear_clicked(bool) {
-  tMultiRadarClient::GetInstance()->ClearRadars();
+  Navico::Protocol::tMultiRadarClient::GetInstance()->ClearRadars();
 }
 //-----------------------------------------------------------------------------
 void tMultiRadar::MultiRadarGetLockID_clicked(bool) {
@@ -252,7 +254,7 @@ void tMultiRadar::MultiRadarGetLockID_clicked(bool) {
   QString radar("Radar: \"" + GetRadarSerialNumber() + "\"\n\n");
 
   char lockID[MAX_LOCKID_SIZE * 2 + 1];
-  int length = tMultiRadarClient::GetInstance()->GetLockID(
+  int length = Navico::Protocol::tMultiRadarClient::GetInstance()->GetLockID(
       lockID, GetRadarSerialNumber().toLatin1().data());
   lockID[length] = '\0';
   QWidget* pParent = dynamic_cast<QWidget*>(parent());
@@ -261,18 +263,18 @@ void tMultiRadar::MultiRadarGetLockID_clicked(bool) {
 
 //-----------------------------------------------------------------------------
 void tMultiRadar::MultiRadarUnlock_clicked(bool) {
-  tMultiRadarClient::GetInstance()->UnlockRadar(
+  Navico::Protocol::tMultiRadarClient::GetInstance()->UnlockRadar(
       GetRadarSerialNumber().toLatin1().data(), 0);
 }
 
 //-----------------------------------------------------------------------------
 void tMultiRadar::MultiRadarUnlockAll_clicked(bool) {
-  tMultiRadarClient::GetInstance()->UnlockRadar(0, 0);
+  Navico::Protocol::tMultiRadarClient::GetInstance()->UnlockRadar(0, 0);
 }
 
 //-----------------------------------------------------------------------------
 void tMultiRadar::MultiRadarFlush_clicked(bool) {
-  tMultiRadarClient::GetInstance()->ClearUnlockKeys();
+  Navico::Protocol::tMultiRadarClient::GetInstance()->ClearUnlockKeys();
 }
 
 void tMultiRadar::testclick() { qDebug() << "test\n"; }

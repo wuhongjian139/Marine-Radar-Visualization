@@ -12,8 +12,6 @@
 #include "TabBase.h"
 #include "ui_GUIDemo.h"
 
-using namespace Navico::Protocol::NRP;
-
 //-----------------------------------------------------------------------------
 // tTabImage Implementation
 //-----------------------------------------------------------------------------
@@ -34,7 +32,7 @@ tTabImage::tTabImage(Ui::GUIDemoClass& ui, QObject* pParent, QWidget& tab)
 tTabImage::~tTabImage() { ConnectControls(false, *this, m_Tab); }
 
 //-----------------------------------------------------------------------------
-void tTabImage::OnConnect(tImageClient* pImageClient) {
+void tTabImage::OnConnect(Navico::Protocol::NRP::tImageClient* pImageClient) {
   tTabBase::OnConnect(pImageClient);
   m_UpdateOnConfiguration = true;
   m_UpdateOnSetupExt = true;
@@ -50,18 +48,20 @@ void tTabImage::UpdateUseMode() {
   m_Ui.comboUseMode->clear();
 
   // Always have custom mode.
-  m_Ui.comboUseMode->addItem(UseModeToString(eUseMode_Custom),
-                             QVariant(eUseMode_Custom));
+  m_Ui.comboUseMode->addItem(
+      UseModeToString(Navico::Protocol::NRP::eUseMode_Custom),
+      QVariant(Navico::Protocol::NRP::eUseMode_Custom));
 
   if (m_pImageClient != nullptr) {
     // Check feature manager for supported use modes
-    tFeatureManager& featureManager = m_pImageClient->GetFeatureManager();
-    const tFeatureUseModes& feature =
+    Navico::Protocol::NRP::tFeatureManager& featureManager =
+        m_pImageClient->GetFeatureManager();
+    const Navico::Protocol::NRP::tFeatureUseModes& feature =
         featureManager.GetFeatureSupportedUseModes();
 
     for (int i = 0; i < feature.useModeCount; ++i) {
-      eUseMode useMode = feature.useModes[i];
-      if (useMode != eUseMode_Custom) {
+      Navico::Protocol::NRP::eUseMode useMode = feature.useModes[i];
+      if (useMode != Navico::Protocol::NRP::eUseMode_Custom) {
         m_Ui.comboUseMode->addItem(UseModeToString(useMode), QVariant(useMode));
       }
     }
@@ -72,7 +72,8 @@ void tTabImage::UpdateUseMode() {
   // Try to select the current use mode, or the first use mode.
   int index = m_Ui.comboUseMode->findText(m_Ui.editUseMode->text());
   if (index < 0) {
-    m_Ui.editUseMode->setText(UseModeToString(eUseMode_Custom));
+    m_Ui.editUseMode->setText(
+        UseModeToString(Navico::Protocol::NRP::eUseMode_Custom));
     index = 0;
   }
   m_Ui.comboUseMode->setCurrentIndex((index >= 0) ? index : 0);
@@ -120,8 +121,9 @@ void tTabImage::QueryFeatures_clicked(bool /*checked*/) {
 // Group: Use Mode
 //-----------------------------------------------------------------------------
 void tTabImage::UseMode_currentIndexChanged(int index) {
-  eUseMode useMode =
-      static_cast<eUseMode>(m_Ui.comboUseMode->itemData(index).toInt());
+  Navico::Protocol::NRP::eUseMode useMode =
+      static_cast<Navico::Protocol::NRP::eUseMode>(
+          m_Ui.comboUseMode->itemData(index).toInt());
   m_pImageClient->SetUseMode(useMode);
 }
 
@@ -181,30 +183,34 @@ void tTabImage::TargetStretch_clicked(bool checked) {
 // Group: Sensitivity
 //-----------------------------------------------------------------------------
 void tTabImage::STCCurveType_currentIndexChanged(int index) {
-  m_pImageClient->SetSTCCurveType(eStcCurveType(index));
+  m_pImageClient->SetSTCCurveType(Navico::Protocol::NRP::eStcCurveType(index));
 }
 
 //-----------------------------------------------------------------------------
 void tTabImage::Gain_valueChanged(int value) {
-  m_pImageClient->SetGain(eUserGainManualAuto(m_Ui.comboGain->currentIndex()),
+  m_pImageClient->SetGain(Navico::Protocol::NRP::eUserGainManualAuto(
+                              m_Ui.comboGain->currentIndex()),
                           value);
 }
 
 //-----------------------------------------------------------------------------
 void tTabImage::Gain_currentIndexChanged(int index) {
-  m_pImageClient->SetGain(eUserGainManualAuto(index), m_Ui.sliderGain->value());
+  m_pImageClient->SetGain(Navico::Protocol::NRP::eUserGainManualAuto(index),
+                          m_Ui.sliderGain->value());
 }
 
 //-----------------------------------------------------------------------------
 void tTabImage::SeaClutter_valueChanged(int value) {
-  m_pImageClient->SetSeaClutter(
-      eUserGainManualAuto(m_Ui.comboSeaClutter->currentIndex()), value);
+  m_pImageClient->SetSeaClutter(Navico::Protocol::NRP::eUserGainManualAuto(
+                                    m_Ui.comboSeaClutter->currentIndex()),
+                                value);
 }
 
 //-----------------------------------------------------------------------------
 void tTabImage::SeaClutter_currentIndexChanged(int index) {
-  m_pImageClient->SetSeaClutter(eUserGainManualAuto(index),
-                                m_Ui.sliderSeaClutter->value());
+  m_pImageClient->SetSeaClutter(
+      Navico::Protocol::NRP::eUserGainManualAuto(index),
+      m_Ui.sliderSeaClutter->value());
 }
 
 //-----------------------------------------------------------------------------
@@ -212,40 +218,47 @@ void tTabImage::SeaFlags_clicked(bool /*clicked*/) {}
 
 //-----------------------------------------------------------------------------
 void tTabImage::SeaAuto_valueChanged(int value) {
-  eUserGainValid flags = m_Ui.checkSeaFlags->isChecked() ? UserGainValid_ALL
-                                                         : UserGainValid_Offset;
+  Navico::Protocol::NRP::eUserGainValid flags =
+      m_Ui.checkSeaFlags->isChecked()
+          ? Navico::Protocol::NRP::UserGainValid_ALL
+          : Navico::Protocol::NRP::UserGainValid_Offset;
   m_pImageClient->SetSeaClutter(
-      eUserGainManualAuto(m_Ui.comboSea->currentIndex()),
+      Navico::Protocol::NRP::eUserGainManualAuto(m_Ui.comboSea->currentIndex()),
       m_Ui.sliderSea->value(), value, flags);
 }
 
 //-----------------------------------------------------------------------------
 void tTabImage::Sea_valueChanged(int value) {
-  eUserGainValid flags = m_Ui.checkSeaFlags->isChecked() ? UserGainValid_ALL
-                                                         : UserGainValid_Offset;
+  Navico::Protocol::NRP::eUserGainValid flags =
+      m_Ui.checkSeaFlags->isChecked()
+          ? Navico::Protocol::NRP::UserGainValid_ALL
+          : Navico::Protocol::NRP::UserGainValid_Offset;
   m_pImageClient->SetSeaClutter(
-      eUserGainManualAuto(m_Ui.comboSea->currentIndex()), value,
-      m_Ui.sliderSeaAuto->value(), flags);
+      Navico::Protocol::NRP::eUserGainManualAuto(m_Ui.comboSea->currentIndex()),
+      value, m_Ui.sliderSeaAuto->value(), flags);
 }
 
 //-----------------------------------------------------------------------------
 void tTabImage::Sea_currentIndexChanged(int index) {
-  eUserGainValid flags = m_Ui.checkSeaFlags->isChecked() ? UserGainValid_ALL
-                                                         : UserGainValid_Offset;
-  m_pImageClient->SetSeaClutter(eUserGainManualAuto(index),
-                                m_Ui.sliderSea->value(),
-                                m_Ui.sliderSeaAuto->value(), flags);
+  Navico::Protocol::NRP::eUserGainValid flags =
+      m_Ui.checkSeaFlags->isChecked()
+          ? Navico::Protocol::NRP::UserGainValid_ALL
+          : Navico::Protocol::NRP::UserGainValid_Offset;
+  m_pImageClient->SetSeaClutter(
+      Navico::Protocol::NRP::eUserGainManualAuto(index),
+      m_Ui.sliderSea->value(), m_Ui.sliderSeaAuto->value(), flags);
 }
 
 //-----------------------------------------------------------------------------
 void tTabImage::SideLobe_valueChanged(int value) {
-  m_pImageClient->SetSideLobe(
-      eUserGainManualAuto(m_Ui.comboSideLobe->currentIndex()), value);
+  m_pImageClient->SetSideLobe(Navico::Protocol::NRP::eUserGainManualAuto(
+                                  m_Ui.comboSideLobe->currentIndex()),
+                              value);
 }
 
 //-----------------------------------------------------------------------------
 void tTabImage::SideLobe_currentIndexChanged(int index) {
-  m_pImageClient->SetSideLobe(eUserGainManualAuto(index),
+  m_pImageClient->SetSideLobe(Navico::Protocol::NRP::eUserGainManualAuto(index),
                               m_Ui.sliderSideLobe->value());
 }
 
@@ -292,32 +305,35 @@ void tTabImage::TimedStandby_valueChanged(int value) {
 //-----------------------------------------------------------------------------
 // State Changes
 //-----------------------------------------------------------------------------
-void tTabImage::OnModeChanged(const tMode* pMode) {
+void tTabImage::OnModeChanged(const Navico::Protocol::NRP::tMode* pMode) {
   m_Ui.checkTimedTxMode->setChecked(pMode->ttState);
 }
 
 //-----------------------------------------------------------------------------
-void tTabImage::OnSetupChanged(const tSetup* pSetup) {
+void tTabImage::OnSetupChanged(const Navico::Protocol::NRP::tSetup* pSetup) {
   int gainType;
 
   // Gain controls update
-  gainType = pSetup->gain[eSetupGain].type;
-  assert(gainType < eTotalUserGains);
-  m_Ui.editGain->setText(QString::number(pSetup->gain[eSetupGain].value));
+  gainType = pSetup->gain[Navico::Protocol::NRP::eSetupGain].type;
+  assert(gainType < Navico::Protocol::NRP::eTotalUserGains);
+  m_Ui.editGain->setText(
+      QString::number(pSetup->gain[Navico::Protocol::NRP::eSetupGain].value));
   SetManualValue(m_Ui.comboGain, gainType);
 
   // Sea clutter controls update
-  gainType = pSetup->gain[eSetupSea].type;
-  assert(gainType < eTotalUserGains);
+  gainType = pSetup->gain[Navico::Protocol::NRP::eSetupSea].type;
+  assert(gainType < Navico::Protocol::NRP::eTotalUserGains);
 
-  m_Ui.editSeaClutter->setText(QString::number(pSetup->gain[eSetupSea].value));
+  m_Ui.editSeaClutter->setText(
+      QString::number(pSetup->gain[Navico::Protocol::NRP::eSetupSea].value));
   SetManualValue(m_Ui.comboSeaClutter, gainType);
   SetManualValue(m_Ui.comboSea, gainType);
 
   // Rain controls update
-  gainType = pSetup->gain[eSetupRain].type;
-  assert(gainType < eTotalUserGains);
-  m_Ui.editRain->setText(QString::number(pSetup->gain[eSetupRain].value));
+  gainType = pSetup->gain[Navico::Protocol::NRP::eSetupRain].type;
+  assert(gainType < Navico::Protocol::NRP::eTotalUserGains);
+  m_Ui.editRain->setText(
+      QString::number(pSetup->gain[Navico::Protocol::NRP::eSetupRain].value));
 
   // FTC controls update
   m_Ui.editFTC->setText(QString::number(pSetup->ftc.value));
@@ -337,14 +353,17 @@ void tTabImage::OnSetupChanged(const tSetup* pSetup) {
   m_Ui.editCoarseTune->setText(QString::number(pSetup->coarseTune));
   m_Ui.editFineTune->setText(QString::number(pSetup->fineTune));
 
-  m_Ui.editUseMode->setText(
-      UseModeToString(static_cast<eUseMode>(pSetup->useMode)));
+  m_Ui.editUseMode->setText(UseModeToString(
+      static_cast<Navico::Protocol::NRP::eUseMode>(pSetup->useMode)));
 
   if (m_UpdateOnSetup) {
     m_UpdateOnSetup = false;
-    SetManualValue(m_Ui.spinGain, pSetup->gain[eSetupGain].value);
-    SetManualValue(m_Ui.spinSeaClutter, pSetup->gain[eSetupSea].value);
-    SetManualValue(m_Ui.spinRain, pSetup->gain[eSetupRain].value);
+    SetManualValue(m_Ui.spinGain,
+                   pSetup->gain[Navico::Protocol::NRP::eSetupGain].value);
+    SetManualValue(m_Ui.spinSeaClutter,
+                   pSetup->gain[Navico::Protocol::NRP::eSetupSea].value);
+    SetManualValue(m_Ui.spinRain,
+                   pSetup->gain[Navico::Protocol::NRP::eSetupRain].value);
     SetManualValue(m_Ui.spinFTC, pSetup->ftc.value);
     SetManualValue(m_Ui.spinIRLevel, pSetup->interferenceReject);
     SetManualValue(m_Ui.spinTargetBoost, pSetup->targetBoost);
@@ -354,8 +373,8 @@ void tTabImage::OnSetupChanged(const tSetup* pSetup) {
     m_Ui.checkAutoTune->setChecked(pSetup->tuneType != 0u);
 
     // Change the use mode combo box index if possible & needed.
-    int index = m_Ui.comboUseMode->findText(
-        UseModeToString(static_cast<eUseMode>(pSetup->useMode)));
+    int index = m_Ui.comboUseMode->findText(UseModeToString(
+        static_cast<Navico::Protocol::NRP::eUseMode>(pSetup->useMode)));
     if ((index >= 0) && (index != m_Ui.comboUseMode->currentIndex())) {
       m_Ui.comboUseMode->blockSignals(true);
       m_Ui.comboUseMode->setCurrentIndex(index);
@@ -365,10 +384,11 @@ void tTabImage::OnSetupChanged(const tSetup* pSetup) {
 }
 
 //-----------------------------------------------------------------------------
-void tTabImage::OnSetupExtendedChanged(const tSetupExtended* pSetupEx) {
+void tTabImage::OnSetupExtendedChanged(
+    const Navico::Protocol::NRP::tSetupExtended* pSetupEx) {
   // Side lobe controls update
   int gainType = pSetupEx->sidelobe.type;
-  assert(gainType < eTotalUserGains);
+  assert(gainType < Navico::Protocol::NRP::eTotalUserGains);
   m_Ui.editSideLobe->setText(QString::number(pSetupEx->sidelobe.value));
   SetManualValue(m_Ui.comboSideLobe, gainType);
 
@@ -398,7 +418,8 @@ void tTabImage::OnSetupExtendedChanged(const tSetupExtended* pSetupEx) {
 }
 
 //-----------------------------------------------------------------------------
-void tTabImage::OnConfigurationChanged(const tConfiguration* pConfig) {
+void tTabImage::OnConfigurationChanged(
+    const Navico::Protocol::NRP::tConfiguration* pConfig) {
   m_Ui.editTimedTransmit->setText(
       QString::number(pConfig->timedTransmitPeriod_s));
   m_Ui.editTimedStandby->setText(
@@ -414,87 +435,97 @@ void tTabImage::OnConfigurationChanged(const tConfiguration* pConfig) {
 }
 
 //-----------------------------------------------------------------------------
-void tTabImage::OnUpdateFeature(tFeatureEnum featureEnum) {
-  tFeatureManager& featureManager = m_pImageClient->GetFeatureManager();
+void tTabImage::OnUpdateFeature(
+    Navico::Protocol::NRP::tFeatureEnum featureEnum) {
+  Navico::Protocol::NRP::tFeatureManager& featureManager =
+      m_pImageClient->GetFeatureManager();
 
   switch (featureEnum) {
-    case eFeatureEnum_SupportedUseModes: {
+    case Navico::Protocol::NRP::eFeatureEnum_SupportedUseModes: {
       UpdateUseMode();
     } break;
 
-    case eFeatureEnum_IRControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureIR();
+    case Navico::Protocol::NRP::eFeatureEnum_IRControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureIR();
       m_Ui.spinIRLevel->setEnabled(feature.enabled);
       m_Ui.sliderIRLevel->setEnabled(feature.enabled);
       SetManualRange(m_Ui.spinIRLevel, 0, feature.maxLevel);
     } break;
 
-    case eFeatureEnum_NoiseRejectControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureNoiseReject();
+    case Navico::Protocol::NRP::eFeatureEnum_NoiseRejectControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureNoiseReject();
       m_Ui.spinNoiseReject->setEnabled(feature.enabled);
       m_Ui.sliderNoiseReject->setEnabled(feature.enabled);
       SetManualRange(m_Ui.spinNoiseReject, 0, feature.maxLevel);
     } break;
 
-    case eFeatureEnum_STCCurveControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureStcCurves();
+    case Navico::Protocol::NRP::eFeatureEnum_STCCurveControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureStcCurves();
       m_Ui.comboSTCCurveType->setEnabled(feature.enabled);
     } break;
 
-    case eFeatureEnum_BeamSharpeningControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureBeamSharpening();
+    case Navico::Protocol::NRP::eFeatureEnum_BeamSharpeningControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureBeamSharpening();
       m_Ui.spinBeamSharpening->setEnabled(feature.enabled);
       m_Ui.sliderBeamSharpening->setEnabled(feature.enabled);
       SetManualRange(m_Ui.spinBeamSharpening, 0, feature.maxLevel);
     } break;
 
-    case eFeatureEnum_FastScanControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureFastScan();
+    case Navico::Protocol::NRP::eFeatureEnum_FastScanControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureFastScan();
       m_Ui.comboFastScan->setEnabled(feature.enabled);
     } break;
 
-    case eFeatureEnum_SidelobeGainControl: {
-      const tFeatureRangeLimits& feature =
+    case Navico::Protocol::NRP::eFeatureEnum_SidelobeGainControl: {
+      const Navico::Protocol::NRP::tFeatureRangeLimits& feature =
           featureManager.GetFeatureSidelobeGain();
       m_Ui.spinSideLobe->setEnabled(feature.enabled);
       m_Ui.sliderSideLobe->setEnabled(feature.enabled);
     } break;
 
-    case eFeatureEnum_LocalIRControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureLocalIR();
+    case Navico::Protocol::NRP::eFeatureEnum_LocalIRControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureLocalIR();
       m_Ui.spinLocalIR->setEnabled(feature.enabled);
       m_Ui.sliderLocalIR->setEnabled(feature.enabled);
       SetManualRange(m_Ui.spinLocalIR, 0, feature.maxLevel);
     } break;
 
-    case eFeatureEnum_LEDControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureLED();
+    case Navico::Protocol::NRP::eFeatureEnum_LEDControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureLED();
       m_Ui.spinLEDs->setEnabled(feature.enabled);
       m_Ui.sliderLEDs->setEnabled(feature.enabled);
       SetManualRange(m_Ui.spinLEDs, 0, feature.maxLevel);
     } break;
 
-    case eFeatureEnum_TargetStretchControl: {
-      const tFeatureLevel& feature = featureManager.GetFeatureTargetStretch();
+    case Navico::Protocol::NRP::eFeatureEnum_TargetStretchControl: {
+      const Navico::Protocol::NRP::tFeatureLevel& feature =
+          featureManager.GetFeatureTargetStretch();
       m_Ui.spinTargetStretch->setEnabled(feature.enabled);
       m_Ui.sliderTargetStretch->setEnabled(feature.enabled);
       SetManualRange(m_Ui.spinTargetStretch, 0, feature.maxLevel);
     } break;
 
-    case eFeatureEnum_SeaUserGainLimits: {
-      const tFeatureGainLimits& feature =
+    case Navico::Protocol::NRP::eFeatureEnum_SeaUserGainLimits: {
+      const Navico::Protocol::NRP::tFeatureGainLimits& feature =
           featureManager.GetFeatureSeaUserGainLimits();
       m_Ui.spinSeaAuto->setEnabled(feature.enabled);
       m_Ui.sliderSeaAuto->setEnabled(feature.enabled);
       m_Ui.checkSeaFlags->setEnabled(feature.enabled);
     } break;
 
-    case eFeatureEnum_CombinedNoiseIFReject:
-    case eFeatureEnum_RangeStretchControl:
-    case eFeatureEnum_SupportedAntennas:
-    case eFeatureEnum_InstrRangeLimits:
-    case eFeatureEnum_SectorBlanking:
-    case eFeatureEnum_PerformanceMonitor:
+    case Navico::Protocol::NRP::eFeatureEnum_CombinedNoiseIFReject:
+    case Navico::Protocol::NRP::eFeatureEnum_RangeStretchControl:
+    case Navico::Protocol::NRP::eFeatureEnum_SupportedAntennas:
+    case Navico::Protocol::NRP::eFeatureEnum_InstrRangeLimits:
+    case Navico::Protocol::NRP::eFeatureEnum_SectorBlanking:
+    case Navico::Protocol::NRP::eFeatureEnum_PerformanceMonitor:
     default:
       break;
   }

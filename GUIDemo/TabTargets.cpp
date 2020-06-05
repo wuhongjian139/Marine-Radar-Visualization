@@ -11,9 +11,6 @@
 #include "TargetTrackingClient.h"
 #include "ui_GUIDemo.h"
 
-using namespace Ui;
-using namespace Navico::Protocol::NRP;
-
 //-----------------------------------------------------------------------------
 // UI Setup Information
 //-----------------------------------------------------------------------------
@@ -113,7 +110,7 @@ QString FormatTime(uint32_t secs) {
 //-----------------------------------------------------------------------------
 // tTabTargets Implementation
 //-----------------------------------------------------------------------------
-tTabTargets::tTabTargets(GUIDemoClass& ui, QObject* pParent, QWidget& tab)
+tTabTargets::tTabTargets(Ui::GUIDemoClass& ui, QObject* pParent, QWidget& tab)
     : tTabBase(ui, pParent, tab), m_pTargetTrackingClient(nullptr) {
   ConnectControls(true, *this, tab);
 
@@ -146,7 +143,8 @@ tTabTargets::~tTabTargets() {
 }
 
 //-----------------------------------------------------------------------------
-void tTabTargets::OnConnect(tTargetTrackingClient* pTargetTrackingClient) {
+void tTabTargets::OnConnect(
+    Navico::Protocol::NRP::tTargetTrackingClient* pTargetTrackingClient) {
   m_pTargetTrackingClient = pTargetTrackingClient;
   m_Ui.tabTargets->setEnabled(m_pTargetTrackingClient != nullptr);
   m_UpdateAlarmSetupControls = true;
@@ -238,7 +236,7 @@ void tTabTargets::Table_itemSelectionChanged() {
 //  Target Tracking Service Events
 //-----------------------------------------------------------------------------
 void tTabTargets::OnTTAlarmSetupChanged(
-    const tTargetTrackingAlarmSetup* pAlarmSetup) {
+    const Navico::Protocol::NRP::tTargetTrackingAlarmSetup* pAlarmSetup) {
   m_Ui.editDangerZoneDist->setText(
       QString::number(pAlarmSetup->safeZoneDistance_m));
   m_Ui.editDangerZoneTime->setText(
@@ -253,17 +251,19 @@ void tTabTargets::OnTTAlarmSetupChanged(
 }
 
 //-----------------------------------------------------------------------------
-void tTabTargets::OnTTPropertiesChanged(const tTargetTrackingProperties*) {}
+void tTabTargets::OnTTPropertiesChanged(
+    const Navico::Protocol::NRP::tTargetTrackingProperties*) {}
 
 //-----------------------------------------------------------------------------
-void tTabTargets::OnTrackedTargetChanged(unsigned targetIndex,
-                                         const tTrackedTarget* pTarget) {
+void tTabTargets::OnTrackedTargetChanged(
+    unsigned targetIndex,
+    const Navico::Protocol::NRP::tTrackedTarget* pTarget) {
   if (pTarget->targetValid) {
     unsigned state = pTarget->targetState;
     QString stateStr;
     if (state < dimensionof(targetStateNames))
       stateStr = targetStateNames[state];
-    else if (state == eBadState)
+    else if (state == Navico::Protocol::NRP::eBadState)
       stateStr = "Bad-State";
     else
       stateStr = QString("Invalid State (%0)").arg(state);

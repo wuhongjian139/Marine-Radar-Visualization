@@ -10,16 +10,14 @@
 #include "TabBase.h"
 #include "ui_GUIDemo.h"
 
-using namespace Navico::Protocol::NRP;
-
 enum { eGuardZone1 = 0, eGuardZone2 };
 
 //-----------------------------------------------------------------------------
 tTabGuardZone::tTabGuardZone(Ui::GUIDemoClass& m_Ui, QObject* pParent,
                              QWidget& tab, tOverlayManager& overlayManager)
     : tTabBase(m_Ui, pParent, tab), m_OverlayManager(overlayManager) {
-  for (unsigned i = 0; i < cMaxGuardZones; ++i) {
-    m_AlarmTypes[i] = eGZAlarmEntry;
+  for (unsigned i = 0; i < Navico::Protocol::NRP::cMaxGuardZones; ++i) {
+    m_AlarmTypes[i] = Navico::Protocol::NRP::eGZAlarmEntry;
   }
   ConnectControls(true, *this, tab);
 }
@@ -28,7 +26,8 @@ tTabGuardZone::tTabGuardZone(Ui::GUIDemoClass& m_Ui, QObject* pParent,
 tTabGuardZone::~tTabGuardZone() { ConnectControls(false, *this, m_Tab); }
 
 //-----------------------------------------------------------------------------
-void tTabGuardZone::OnConnect(tImageClient* pImageClient) {
+void tTabGuardZone::OnConnect(
+    Navico::Protocol::NRP::tImageClient* pImageClient) {
   tTabBase::OnConnect(pImageClient);
   m_UpdateOnSetup = true;
 }
@@ -48,7 +47,8 @@ void tTabGuardZone::SetGuardZone(int zone) {
       default:
       case eGuardZone1:
         enabled = m_Ui.checkGuard1Enabled->isChecked();
-        startRange_m = static_cast<uint32_t>(m_Ui.spinGuard1RangeStart->value());
+        startRange_m =
+            static_cast<uint32_t>(m_Ui.spinGuard1RangeStart->value());
         endRange_m = static_cast<uint32_t>(m_Ui.spinGuard1RangeEnd->value());
         bearing_deg = static_cast<uint16_t>(m_Ui.spinGuard1Bearing->value());
         width_deg = static_cast<uint16_t>(m_Ui.spinGuard1Width->value());
@@ -56,7 +56,8 @@ void tTabGuardZone::SetGuardZone(int zone) {
 
       case eGuardZone2:
         enabled = m_Ui.checkGuard2Enabled->isChecked();
-        startRange_m = static_cast<uint32_t>(m_Ui.spinGuard2RangeStart->value());
+        startRange_m =
+            static_cast<uint32_t>(m_Ui.spinGuard2RangeStart->value());
         endRange_m = static_cast<uint32_t>(m_Ui.spinGuard2RangeEnd->value());
         bearing_deg = static_cast<uint16_t>(m_Ui.spinGuard2Bearing->value());
         width_deg = static_cast<uint16_t>(m_Ui.spinGuard2Width->value());
@@ -103,8 +104,8 @@ void tTabGuardZone::Guard1Width_valueChanged(int /*value*/) {
 //-----------------------------------------------------------------------------
 void tTabGuardZone::Guard1AlarmType_currentIndexChanged(int value) {
   if (m_pImageClient) {
-    m_pImageClient->SetGuardZoneAlarmSetup(eGuardZone1,
-                                           eGuardZoneAlarmType(value));
+    m_pImageClient->SetGuardZoneAlarmSetup(
+        eGuardZone1, Navico::Protocol::NRP::eGuardZoneAlarmType(value));
   }
 }
 
@@ -140,8 +141,8 @@ void tTabGuardZone::Guard2Width_valueChanged(int /*value*/) {
 //-----------------------------------------------------------------------------
 void tTabGuardZone::Guard2AlarmType_currentIndexChanged(int value) {
   if (m_pImageClient) {
-    m_pImageClient->SetGuardZoneAlarmSetup(eGuardZone2,
-                                           eGuardZoneAlarmType(value));
+    m_pImageClient->SetGuardZoneAlarmSetup(
+        eGuardZone2, Navico::Protocol::NRP::eGuardZoneAlarmType(value));
   }
 }
 
@@ -155,7 +156,8 @@ void tTabGuardZone::GuardSensitivity_valueChanged(int value) {
 }
 
 //-----------------------------------------------------------------------------
-void tTabGuardZone::OnSetupChanged(const tSetup* pSetup) {
+void tTabGuardZone::OnSetupChanged(
+    const Navico::Protocol::NRP::tSetup* pSetup) {
   unsigned range_m = (pSetup->range_dm + 5) / 10;
   SetManualRange(m_Ui.spinGuard1RangeStart, 0, range_m);
   SetManualRange(m_Ui.spinGuard1RangeEnd, 0, range_m);
@@ -237,7 +239,8 @@ void tTabGuardZone::OnSetupChanged(const tSetup* pSetup) {
 void tTabGuardZone::Guard1Cancel_clicked(bool /*checked*/) {
   if (m_pImageClient) {
     m_pImageClient->SetGuardZoneAlarmCancel(
-        eGuardZone1, eGuardZoneAlarmType(m_AlarmTypes[eGuardZone1]));
+        eGuardZone1,
+        Navico::Protocol::NRP::eGuardZoneAlarmType(m_AlarmTypes[eGuardZone1]));
   }
 }
 
@@ -245,27 +248,28 @@ void tTabGuardZone::Guard1Cancel_clicked(bool /*checked*/) {
 void tTabGuardZone::Guard2Cancel_clicked(bool /*checked*/) {
   if (m_pImageClient) {
     m_pImageClient->SetGuardZoneAlarmCancel(
-        eGuardZone2, eGuardZoneAlarmType(m_AlarmTypes[eGuardZone2]));
+        eGuardZone2,
+        Navico::Protocol::NRP::eGuardZoneAlarmType(m_AlarmTypes[eGuardZone2]));
   }
 }
 
 //-----------------------------------------------------------------------------
-void tTabGuardZone::OnGuardZoneAlarmChanged(unsigned zone,
-                                            const tGuardZoneAlarm* pAlarm) {
+void tTabGuardZone::OnGuardZoneAlarmChanged(
+    unsigned zone, const Navico::Protocol::NRP::tGuardZoneAlarm* pAlarm) {
   m_AlarmTypes[zone] = pAlarm->type;
 
   QString type = m_Ui.comboGuard1AlarmType->itemText(pAlarm->type);
   QString state;
   switch (pAlarm->state) {
-    case eAlarmActive: {
+    case Navico::Protocol::NRP::eAlarmActive: {
       state = "Active";
     } break;
 
-    case eAlarmInactive: {
+    case Navico::Protocol::NRP::eAlarmInactive: {
       state = "Inactive";
     } break;
 
-    case eAlarmCancelled: {
+    case Navico::Protocol::NRP::eAlarmCancelled: {
       state = "Cancelled";
     } break;
 

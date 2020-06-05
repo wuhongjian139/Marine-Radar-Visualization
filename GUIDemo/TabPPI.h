@@ -21,8 +21,6 @@
 #include "OverlayManager.h"
 #include "ui_GUIDemo.h"
 
-using namespace Navico::Protocol;
-
 //-----------------------------------------------------------------------------
 // tQPPIFram Helper Class
 //-----------------------------------------------------------------------------
@@ -64,7 +62,7 @@ class tTabPPI : public QObject {
   void OnConnect();
   void OnDisconnect();
 
-  void OnUpdateSpoke(const NRP::Spoke::t9174Spoke* pSpoke);
+  void OnUpdateSpoke(const Navico::Protocol::NRP::Spoke::t9174Spoke* pSpoke);
 
  signals:
   void AcquireTarget(double sample, double degrees);

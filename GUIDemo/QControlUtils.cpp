@@ -9,8 +9,6 @@
 #include <QPushButton>
 #include <cassert>
 
-using namespace Navico::Protocol::NRP;
-
 //-----------------------------------------------------------------------------
 tQDoubleIntConnector::tQDoubleIntConnector(QDoubleSpinBox* pSpin,
                                            QSlider* pSlider,
@@ -228,27 +226,27 @@ void SetManualRange(QSpinBox* pSpin, int minValue, int maxValue) {
 }
 
 //-----------------------------------------------------------------------------
-QString UseModeToString(eUseMode useMode) {
+QString UseModeToString(Navico::Protocol::NRP::eUseMode useMode) {
   switch (useMode) {
-    case eUseMode_Custom:
+    case Navico::Protocol::NRP::eUseMode_Custom:
       return QString("Manual");
-    case eUseMode_Harbour:
+    case Navico::Protocol::NRP::eUseMode_Harbour:
       return QString("Harbour");
-    case eUseMode_Offshore:
+    case Navico::Protocol::NRP::eUseMode_Offshore:
       return QString("Offshore");
-    case eUseMode_Buoy:
+    case Navico::Protocol::NRP::eUseMode_Buoy:
       return QString("Buoy");
-    case eUseMode_Weather:
+    case Navico::Protocol::NRP::eUseMode_Weather:
       return QString("Weather");
-    case eUseMode_Bird:
+    case Navico::Protocol::NRP::eUseMode_Bird:
       return QString("Bird");
-    case eUseMode_Netfinder:
+    case Navico::Protocol::NRP::eUseMode_Netfinder:
       return QString("Netfinder");
-    case eUseMode_SaRT:
+    case Navico::Protocol::NRP::eUseMode_SaRT:
       return QString("SaRT");
-    case eUseMode_Doppler:
+    case Navico::Protocol::NRP::eUseMode_Doppler:
       return QString("Doppler");
-    case eUseMode_RTE:
+    case Navico::Protocol::NRP::eUseMode_RTE:
       return QString("RTE");
     default:
       return QString("Unknown (0x%1)").arg(useMode, 2, 10, QChar('0'));

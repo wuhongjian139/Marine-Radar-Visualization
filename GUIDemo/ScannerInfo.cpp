@@ -14,70 +14,70 @@
 
 namespace {
 inline double UnitsConvertMetersX10ToNauticalMiles_double(int metersX10) {
-  return (static_cast<double>(metersX10)/ 18520.0);
+  return (static_cast<double>(metersX10) / 18520.0);
 }
 
 inline int UnitsConvertNauticalMilesToMeters_double(double nauticalMiles) {
   return static_cast<int>(static_cast<double>(nauticalMiles) * 1852.0);
 }
 
-QString ToString(NRP::eRadarErrorType type) {
+QString ToString(Navico::Protocol::NRP::eRadarErrorType type) {
   switch (type) {
-    case NRP::eErrorPersistenceCorrupt:
+    case Navico::Protocol::NRP::eErrorPersistenceCorrupt:
       return "Persistence Corrupt";
-    case NRP::eErrorZeroBearingFault:
+    case Navico::Protocol::NRP::eErrorZeroBearingFault:
       return "Zero Bearing Fault";
-    case NRP::eErrorBearingPulseFault:
+    case Navico::Protocol::NRP::eErrorBearingPulseFault:
       return "Bearing Pulse Fault";
-    case NRP::eErrorMotorNotRunning:
+    case Navico::Protocol::NRP::eErrorMotorNotRunning:
       return "Motor Not Running";
-    case NRP::eErrorCommsNotActive:
+    case Navico::Protocol::NRP::eErrorCommsNotActive:
       return "CommsNotActive";
-    case NRP::eErrorMagnetronHeaterVoltage:
+    case Navico::Protocol::NRP::eErrorMagnetronHeaterVoltage:
       return "Magnetron Heater Voltage";
-    case NRP::eErrorModulationVoltage:
+    case Navico::Protocol::NRP::eErrorModulationVoltage:
       return "Modulation Voltage";
-    case NRP::eErrorTriggerFault:
+    case Navico::Protocol::NRP::eErrorTriggerFault:
       return "Trigger Fault";
-    case NRP::eErrorVideoFault:
+    case Navico::Protocol::NRP::eErrorVideoFault:
       return "Video Fault";
-    case NRP::eErrorFanFault:
+    case Navico::Protocol::NRP::eErrorFanFault:
       return "Fan Fault";
-    case NRP::eErrorScannerConfigFault:
+    case Navico::Protocol::NRP::eErrorScannerConfigFault:
       return "Scanner Config Fault";
-    case NRP::eErrorPowerSupplyTransient:
+    case Navico::Protocol::NRP::eErrorPowerSupplyTransient:
       return "Power Supply Transient";
-    case NRP::eErrorScannerDetectFail:
+    case Navico::Protocol::NRP::eErrorScannerDetectFail:
       return "Scanner Detect Fail";
-    case NRP::eErrorPASoftOverheat:
+    case Navico::Protocol::NRP::eErrorPASoftOverheat:
       return "PA Soft-Overheat";
-    case NRP::eErrorPAHardOverheat:
+    case Navico::Protocol::NRP::eErrorPAHardOverheat:
       return "PA Hard-Overheat";
-    case NRP::eErrorGWDatapathError:
+    case Navico::Protocol::NRP::eErrorGWDatapathError:
       return "GW Datapath Error";
-    case NRP::eErrorPSUOverheat:
+    case Navico::Protocol::NRP::eErrorPSUOverheat:
       return "PSU Overheat";
-    case NRP::eErrorPSUVoltage:
+    case Navico::Protocol::NRP::eErrorPSUVoltage:
       return "PSU Voltage";
-    case NRP::eErrorPSUPower:
+    case Navico::Protocol::NRP::eErrorPSUPower:
       return "PSU Power";
-    case NRP::eErrorPSUHWFault:
+    case Navico::Protocol::NRP::eErrorPSUHWFault:
       return "PSU HW-Fault";
-    case NRP::eErrorPSUCommsFault:
+    case Navico::Protocol::NRP::eErrorPSUCommsFault:
       return "PSU Comms-Fault";
-    case NRP::eErrorMechanicalFault:
+    case Navico::Protocol::NRP::eErrorMechanicalFault:
       return "Mechanical Fault";
-    case NRP::eErrorLEDFault:
+    case Navico::Protocol::NRP::eErrorLEDFault:
       return "LED Fault";
-    case NRP::eErrorScannerFail:
+    case Navico::Protocol::NRP::eErrorScannerFail:
       return "Scanner Fail";
-    case NRP::eErrorRIFault:
+    case Navico::Protocol::NRP::eErrorRIFault:
       return "Radar-Interface Fault";
-    case NRP::eErrorLowBattery:
+    case Navico::Protocol::NRP::eErrorLowBattery:
       return "Low Battery";
-    case NRP::eErrorMotorStall:
+    case Navico::Protocol::NRP::eErrorMotorStall:
       return "Motor Stall";
-    case NRP::eErrorSafetyMode:
+    case Navico::Protocol::NRP::eErrorSafetyMode:
       return "Safety Mode";
     default:
       return QString("Radar Error #%1 (0x%2)").arg(type).arg(type, 0, 16);
@@ -91,7 +91,7 @@ QString ToString(NRP::eRadarErrorType type) {
 tScannerInfo::tScannerInfo(Ui::GUIDemoClass& myUI, QWidget* pParent)
     : QObject(pParent), m_pImageClient(nullptr), ui(myUI) {
   uint32_t major, minor, build;
-  NRP::tImageClient::GetVersion(major, minor, build);
+  Navico::Protocol::NRP::tImageClient::GetVersion(major, minor, build);
   ui.labelSDKVersion->setText(tr("%1.%2.%3").arg(major).arg(minor).arg(build));
 
   ui.comboScannerRange->addItem("1/64 Nm", 29);
@@ -128,7 +128,8 @@ tScannerInfo::~tScannerInfo() {
 }
 
 //-----------------------------------------------------------------------------
-void tScannerInfo::OnConnect(NRP::tImageClient* pImageClient) {
+void tScannerInfo::OnConnect(
+    Navico::Protocol::NRP::tImageClient* pImageClient) {
   assert(m_pImageClient == NULL);
 
   m_pImageClient = pImageClient;
@@ -144,34 +145,34 @@ void tScannerInfo::OnDisconnect() {
 }
 
 //-----------------------------------------------------------------------------
-void tScannerInfo::OnModeChanged(NRP::tMode* pMode) {
+void tScannerInfo::OnModeChanged(Navico::Protocol::NRP::tMode* pMode) {
   switch (pMode->state) {
-    case NRP::eOff:
+    case Navico::Protocol::NRP::eOff:
       ui.editScannerState->setText(tr("Off"));
       ui.checkScannerPower->setChecked(false);
       ui.checkScannerTransmit->setChecked(false);
       break;
-    case NRP::eStandby:
+    case Navico::Protocol::NRP::eStandby:
       ui.editScannerState->setText(tr("Standby"));
       ui.checkScannerPower->setChecked(true);
       ui.checkScannerTransmit->setChecked(false);
       break;
-    case NRP::eTransmit:
+    case Navico::Protocol::NRP::eTransmit:
       ui.editScannerState->setText(tr("Transmit"));
       ui.checkScannerPower->setChecked(true);
       ui.checkScannerTransmit->setChecked(true);
       break;
-    case NRP::eWarming:
+    case Navico::Protocol::NRP::eWarming:
       ui.editScannerState->setText(tr("Warming up"));
       ui.checkScannerPower->setChecked(true);
       ui.checkScannerTransmit->setChecked(false);
       break;
-    case NRP::eNoScanner:
+    case Navico::Protocol::NRP::eNoScanner:
       ui.editScannerState->setText(tr("No Scanner"));
       ui.checkScannerPower->setChecked(false);
       ui.checkScannerTransmit->setChecked(false);
       break;
-    case NRP::eDetectingScanner:
+    case Navico::Protocol::NRP::eDetectingScanner:
       ui.editScannerState->setText(tr("Detecting Scanner"));
       ui.checkScannerPower->setChecked(true);
       ui.checkScannerTransmit->setChecked(false);
@@ -189,54 +190,55 @@ void tScannerInfo::OnModeChanged(NRP::tMode* pMode) {
 }
 
 //-----------------------------------------------------------------------------
-void tScannerInfo::OnPropertiesChanged(NRP::tProperties* pProperties) {
+void tScannerInfo::OnPropertiesChanged(
+    Navico::Protocol::NRP::tProperties* pProperties) {
   switch (pProperties->scannerType) {
-    case NRP::eTypeNoScanner:
+    case Navico::Protocol::NRP::eTypeNoScanner:
       ui.editScannerType->setText(tr("No Scanner"));
       break;
-    case NRP::eNKE_1065:
+    case Navico::Protocol::NRP::eNKE_1065:
       ui.editScannerType->setText(tr("JRC 2KW Radome"));
       break;
-    case NRP::eNKE_249:
+    case Navico::Protocol::NRP::eNKE_249:
       ui.editScannerType->setText(tr("JRC 4KW Radome"));
       break;
-    case NRP::eNKE_250_4:
+    case Navico::Protocol::NRP::eNKE_250_4:
       ui.editScannerType->setText(tr("JRC 6KW 4ft OA"));
       break;
-    case NRP::eNKE_250_4_NAX:
+    case Navico::Protocol::NRP::eNKE_250_4_NAX:
       ui.editScannerType->setText(tr("JRC 6KW 4ft N OA"));
       break;
-    case NRP::eNKE_2102_6:
+    case Navico::Protocol::NRP::eNKE_2102_6:
       ui.editScannerType->setText(tr("JRC 10KW 6ft OA"));
       break;
-    case NRP::eNKE_2252_7:
+    case Navico::Protocol::NRP::eNKE_2252_7:
       ui.editScannerType->setText(tr("JRC 25KW 7ft OA"));
       break;
-    case NRP::eNKE_2252_9:
+    case Navico::Protocol::NRP::eNKE_2252_9:
       ui.editScannerType->setText(tr("JRC 25KW 9ft OA"));
       break;
-    case NRP::e4kWSimulator:
+    case Navico::Protocol::NRP::e4kWSimulator:
       ui.editScannerType->setText(tr("4kW Simulator"));
       break;
-    case NRP::eGWTestScanner:
+    case Navico::Protocol::NRP::eGWTestScanner:
       ui.editScannerType->setText(tr("GWTest"));
       break;
-    case NRP::eFMCW400_BR24:
+    case Navico::Protocol::NRP::eFMCW400_BR24:
       ui.editScannerType->setText(tr("Navico BR-24"));
       break;
-    case NRP::eFMCW400_Simulator:
+    case Navico::Protocol::NRP::eFMCW400_Simulator:
       ui.editScannerType->setText(tr("Navico BR-24 Sim"));
       break;
-    case NRP::eFMCW400_HD3G:
+    case Navico::Protocol::NRP::eFMCW400_HD3G:
       ui.editScannerType->setText(tr("Navico BRHD-3G"));
       break;
-    case NRP::eFMCW400_HD4G:
+    case Navico::Protocol::NRP::eFMCW400_HD4G:
       ui.editScannerType->setText(tr("Navico BRHD-4G"));
       break;
-    case NRP::ePCOMP_HALO:
+    case Navico::Protocol::NRP::ePCOMP_HALO:
       ui.editScannerType->setText(tr("Navico BRHALO"));
       break;
-    case NRP::ePROP_MAGGIE:
+    case Navico::Protocol::NRP::ePROP_MAGGIE:
       ui.editScannerType->setText(tr("Navico-Pro Maggie"));
       break;
     default:
@@ -289,14 +291,16 @@ void tScannerInfo::OnPropertiesChanged(NRP::tProperties* pProperties) {
 }
 
 //-----------------------------------------------------------------------------
-void tScannerInfo::OnSetupChanged(NRP::tSetup* pSetup) {
+void tScannerInfo::OnSetupChanged(Navico::Protocol::NRP::tSetup* pSetup) {
   ui.editScannerRange->setText(
       tr("%1 m ").arg(pSetup->range_dm / 10.0, 4, 'f', 1));
 }
 
 //-----------------------------------------------------------------------------
-void tScannerInfo::OnRadarErrorChanged(NRP::tRadarError* pError) {
-  ui.editScannerError->setText(ToString(NRP::eRadarErrorType(pError->type)));
+void tScannerInfo::OnRadarErrorChanged(
+    Navico::Protocol::NRP::tRadarError* pError) {
+  ui.editScannerError->setText(
+      ToString(Navico::Protocol::NRP::eRadarErrorType(pError->type)));
 }
 
 //-----------------------------------------------------------------------------

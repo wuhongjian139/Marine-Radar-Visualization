@@ -98,7 +98,8 @@ void tTabBScan::Timer_timeout() {
 }
 
 //-----------------------------------------------------------------------------
-void tTabBScan::OnUpdateSpoke(const NRP::Spoke::t9174Spoke* pSpoke) {
+void tTabBScan::OnUpdateSpoke(
+    const Navico::Protocol::NRP::Spoke::t9174Spoke* pSpoke) {
   QMutexLocker locker(tQCustomFrame::getImageMutex());
 
   const uint32_t cSpokesPerRevolution = 2048;
@@ -128,6 +129,7 @@ void tTabBScan::OnUpdateSpoke(const NRP::Spoke::t9174Spoke* pSpoke) {
         gNavicoLUT.GetColour(((pSpoke->data[r] >> 4) & 0xf));
   }
 
-  m_pFrame->SetFullRange_m(NRP::Spoke::GetSampleRange_mm(pSpoke->header) *
-                           pSpoke->header.nOfSamples / 1000);
+  m_pFrame->SetFullRange_m(
+      Navico::Protocol::NRP::Spoke::GetSampleRange_mm(pSpoke->header) *
+      pSpoke->header.nOfSamples / 1000);
 }

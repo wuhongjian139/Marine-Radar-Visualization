@@ -202,12 +202,12 @@ void *tMultiRadar::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_tMultiRadar.stringdata0))
         return static_cast<void*>(this);
-    if (!strcmp(_clname, "iRadarListObserver"))
-        return static_cast< iRadarListObserver*>(this);
-    if (!strcmp(_clname, "iUnlockStateObserver"))
-        return static_cast< iUnlockStateObserver*>(this);
-    if (!strcmp(_clname, "iUnlockKeySupplier"))
-        return static_cast< iUnlockKeySupplier*>(this);
+    if (!strcmp(_clname, "Navico::Protocol::iRadarListObserver"))
+        return static_cast< Navico::Protocol::iRadarListObserver*>(this);
+    if (!strcmp(_clname, "Navico::Protocol::iUnlockStateObserver"))
+        return static_cast< Navico::Protocol::iUnlockStateObserver*>(this);
+    if (!strcmp(_clname, "Navico::Protocol::iUnlockKeySupplier"))
+        return static_cast< Navico::Protocol::iUnlockKeySupplier*>(this);
     return QObject::qt_metacast(_clname);
 }
 

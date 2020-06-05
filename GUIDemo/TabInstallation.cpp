@@ -11,8 +11,6 @@
 #include "TabBase.h"
 #include "ui_GUIDemo.h"
 
-using namespace Navico::Protocol::NRP;
-
 //-----------------------------------------------------------------------------
 // tTabInstallation Implementation
 //-----------------------------------------------------------------------------
@@ -26,7 +24,8 @@ tTabInstallation::tTabInstallation(Ui::GUIDemoClass& ui, QObject* pParent,
 tTabInstallation::~tTabInstallation() { ConnectControls(false, *this, m_Tab); }
 
 //-----------------------------------------------------------------------------
-void tTabInstallation::OnConnect(tImageClient* pImageClient) {
+void tTabInstallation::OnConnect(
+    Navico::Protocol::NRP::tImageClient* pImageClient) {
   tTabBase::OnConnect(pImageClient);
   m_UpdateOnConfiguration = true;
 }
@@ -78,7 +77,8 @@ void tTabInstallation::AntennaType_currentIndexChanged(int value) {
 //-----------------------------------------------------------------------------
 // State Changes
 //-----------------------------------------------------------------------------
-void tTabInstallation::OnConfigurationChanged(tConfiguration* pConfig) {
+void tTabInstallation::OnConfigurationChanged(
+    Navico::Protocol::NRP::tConfiguration* pConfig) {
   m_Ui.editParkPosition->setText(
       QString::number(pConfig->parkPosition_ddeg / 10.0));
   m_Ui.editAntennaHeight->setText(
@@ -114,12 +114,14 @@ void tTabInstallation::OnConfigurationChanged(tConfiguration* pConfig) {
   }
 }
 
-void tTabInstallation::OnUpdateFeature(tFeatureEnum featureEnum) {
-  tFeatureManager& featureManager = m_pImageClient->GetFeatureManager();
+void tTabInstallation::OnUpdateFeature(
+    Navico::Protocol::NRP::tFeatureEnum featureEnum) {
+  Navico::Protocol::NRP::tFeatureManager& featureManager =
+      m_pImageClient->GetFeatureManager();
 
   switch (featureEnum) {
-    case eFeatureEnum_SupportedAntennas: {
-      const tFeatureAntennaTypes& feature =
+    case Navico::Protocol::NRP::eFeatureEnum_SupportedAntennas: {
+      const Navico::Protocol::NRP::tFeatureAntennaTypes& feature =
           featureManager.GetFeatureSupportedAntennaTypes();
       m_Ui.comboAntennaType->blockSignals(true);
       m_Ui.comboAntennaType->clear();

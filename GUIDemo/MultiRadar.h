@@ -17,15 +17,13 @@
 
 #include "ui_GUIDemo.h"
 
-using namespace Navico::Protocol;
-
 //-----------------------------------------------------------------------------
 // tMultiRadar
 //-----------------------------------------------------------------------------
 class tMultiRadar : public QObject,
-                    public iRadarListObserver,
-                    public iUnlockStateObserver,
-                    public iUnlockKeySupplier {
+                    public Navico::Protocol::iRadarListObserver,
+                    public Navico::Protocol::iUnlockStateObserver,
+                    public Navico::Protocol::iUnlockKeySupplier {
   Q_OBJECT
 
  public:
