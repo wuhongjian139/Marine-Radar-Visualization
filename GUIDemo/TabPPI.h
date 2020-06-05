@@ -14,74 +14,71 @@
 #include <QObject>
 #include <QTimer>
 
-#include <PPIController.h>
 #include <ImageClient.h>
+#include <PPIController.h>
 
 #include "CustomFrames.h"
 #include "OverlayManager.h"
 #include "ui_GUIDemo.h"
-
 
 using namespace Navico::Protocol;
 
 //-----------------------------------------------------------------------------
 // tQPPIFram Helper Class
 //-----------------------------------------------------------------------------
-class tQPPIFrame : public tQCustomFrame
-{
-    Q_OBJECT
+class tQPPIFrame : public tQCustomFrame {
+  Q_OBJECT
 
-public:
-    tQPPIFrame( tTargetLocation * pTargets, unsigned maxTargets, QWidget *pParent, QImage *pImage, tOverlayManager& overlayManager )
-        : tQCustomFrame( pTargets, maxTargets, pParent, pImage, overlayManager )
-        , m_TrailsTime( -1 )
-    { }
+ public:
+  tQPPIFrame(tTargetLocation* pTargets, unsigned maxTargets, QWidget* pParent,
+             QImage* pImage, tOverlayManager& overlayManager)
+      : tQCustomFrame(pTargets, maxTargets, pParent, pImage, overlayManager),
+        m_TrailsTime(-1) {}
 
-signals:
-    void ChangeTrailsTime( int secs );
+ signals:
+  void ChangeTrailsTime(int secs);
 
-protected:
-    void addActions( QMenu & menu );
-    void performAction( QAction & action );
-    void convertXYtoSD( int x, int y, double& s, double& d );
-    void convertSDtoXY( double s, double d, int& x, int& y );
+ protected:
+  void addActions(QMenu& menu);
+  void performAction(QAction& action);
+  void convertXYtoSD(int x, int y, double& s, double& d);
+  void convertSDtoXY(double s, double d, int& x, int& y);
 
-	void DrawOverlay( QPainter& painter, const tOverlay* pOverlay );
+  void DrawOverlay(QPainter& painter, const tOverlay* pOverlay);
 
-private:
-    int  m_TrailsTime;
+ private:
+  int m_TrailsTime;
 };
-
 
 //-----------------------------------------------------------------------------
 // tTabPPI Class
 //-----------------------------------------------------------------------------
-class tTabPPI : public QObject
-{
-    Q_OBJECT
+class tTabPPI : public QObject {
+  Q_OBJECT
 
-public:
-    tTabPPI( Ui::GUIDemoClass& ui, tTargetLocation* pTargets, unsigned maxTargets, QObject* pParent, tOverlayManager& overlayManager );
-    ~tTabPPI();
+ public:
+  tTabPPI(Ui::GUIDemoClass& ui, tTargetLocation* pTargets, unsigned maxTargets,
+          QObject* pParent, tOverlayManager& overlayManager);
+  ~tTabPPI();
 
-    void OnConnect();
-    void OnDisconnect();
+  void OnConnect();
+  void OnDisconnect();
 
-    void OnUpdateSpoke( const NRP::Spoke::t9174Spoke *pSpoke );
+  void OnUpdateSpoke(const NRP::Spoke::t9174Spoke* pSpoke);
 
-signals:
-    void AcquireTarget( double sample, double degrees );
+ signals:
+  void AcquireTarget(double sample, double degrees);
 
-private slots:
-    void Timer_timeout();
-    void Frame_ChangeTrailsTime( int secs );
+ private slots:
+  void Timer_timeout();
+  void Frame_ChangeTrailsTime(int secs);
 
-private:
-    tQPPIFrame*                     m_pFrame;
-    Navico::Image::tPPIController*  m_pController;
-    QImage *                        m_pImage;
-    QTimer                          m_Timer;
-    Ui::GUIDemoClass&  ui;
+ private:
+  tQPPIFrame* m_pFrame;
+  Navico::Image::tPPIController* m_pController;
+  QImage* m_pImage;
+  QTimer m_Timer;
+  Ui::GUIDemoClass& ui;
 };
 
 //-----------------------------------------------------------------------------

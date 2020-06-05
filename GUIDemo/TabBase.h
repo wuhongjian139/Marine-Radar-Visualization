@@ -15,43 +15,38 @@
 //-----------------------------------------------------------------------------
 // Forward Declaration
 //-----------------------------------------------------------------------------
-namespace Ui
-{
-    class GUIDemoClass;
+namespace Ui {
+class GUIDemoClass;
 }
 
-namespace Navico
-{
-    namespace Protocol
-    {
-        namespace NRP
-        {
-            class tImageClient;
-        }
-    }
+namespace Navico {
+namespace Protocol {
+namespace NRP {
+class tImageClient;
 }
+}  // namespace Protocol
+}  // namespace Navico
 
 //-----------------------------------------------------------------------------
 // tTabBase Base Class
 //-----------------------------------------------------------------------------
-class tTabBase : public QObject
-{
-public:
-    //-----------------------------------------------------------------------------
-    // Constructor and initialization
-    //-----------------------------------------------------------------------------
-    tTabBase( Ui::GUIDemoClass& ui, QObject* pParent, QWidget& tab );
+class tTabBase : public QObject {
+ public:
+  //-----------------------------------------------------------------------------
+  // Constructor and initialization
+  //-----------------------------------------------------------------------------
+  tTabBase(Ui::GUIDemoClass& ui, QObject* pParent, QWidget& tab);
 
-    void OnConnect( Navico::Protocol::NRP::tImageClient* pImageClient );
-    void OnDisconnect();
+  void OnConnect(Navico::Protocol::NRP::tImageClient* pImageClient);
+  void OnDisconnect();
 
-protected:
-    //-----------------------------------------------------------------------------
-    // Member Fields
-    //-----------------------------------------------------------------------------
-    Navico::Protocol::NRP::tImageClient*    m_pImageClient;
-    Ui::GUIDemoClass&                       m_Ui;
-    QWidget&                                m_Tab;
+ protected:
+  //-----------------------------------------------------------------------------
+  // Member Fields
+  //-----------------------------------------------------------------------------
+  Navico::Protocol::NRP::tImageClient* m_pImageClient;
+  Ui::GUIDemoClass& m_Ui;
+  QWidget& m_Tab;
 };
 
 //-----------------------------------------------------------------------------
