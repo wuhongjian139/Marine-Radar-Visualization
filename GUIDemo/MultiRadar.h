@@ -74,7 +74,6 @@ class tMultiRadar : public QObject,
   void MultiRadarUnlock_clicked(bool checked);
   void MultiRadarUnlockAll_clicked(bool checked);
   void MultiRadarFlush_clicked(bool checked);
-  void testclick();
 
  private:
   Ui::GUIDemoClass& ui;

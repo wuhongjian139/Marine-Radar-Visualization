@@ -1,7 +1,7 @@
 QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++17
 CONFIG += warn_on
 
 
@@ -27,9 +27,12 @@ HEADERS += \
     TabImage.h \
     TabInstallation.h \
     TabFeatures.h \
+    TabNewFunction.h \
     TabSectorBlanking.h \
     TabPPI.h \
-    TabTargets.h \
+    TabTargets.h \ \
+    datarecorder.h \
+    datatransimission.h
 
 SOURCES += \
     CustomFrames.cpp \
@@ -45,9 +48,11 @@ SOURCES += \
     TabImage.cpp \
     TabInstallation.cpp \
     TabFeatures.cpp \
+    TabNewFunction.cpp \
     TabSectorBlanking.cpp \
     TabPPI.cpp \
     TabTargets.cpp \
+    datarecorder.cpp \
     main.cpp \
 
 #------------------------------------------------------------
@@ -73,9 +78,10 @@ INCLUDEPATH += $${UI_DIR}
 #------------------------------------------------------------
 
 LIBS += \
-    -L../../lib/$${TARGET_DIR} \
+#    -L../../lib/$${TARGET_DIR} \
   	-lNRPClient \
   	-lNRPPPI \
+        -lsqlite3
    
 #------------------------------------------------------------
 # Final config

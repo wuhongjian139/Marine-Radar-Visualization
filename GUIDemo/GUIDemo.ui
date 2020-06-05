@@ -7736,17 +7736,17 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="tabNewFunction">
        <attribute name="title">
         <string>Page</string>
        </attribute>
        <widget class="QPushButton" name="pushButton">
         <property name="geometry">
          <rect>
-          <x>640</x>
-          <y>84</y>
+          <x>220</x>
+          <y>190</y>
           <width>89</width>
-          <height>41</height>
+          <height>25</height>
          </rect>
         </property>
         <property name="text">

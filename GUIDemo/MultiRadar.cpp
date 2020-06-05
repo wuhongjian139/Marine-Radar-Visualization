@@ -7,12 +7,6 @@
 #include "QControlUtils.h"
 #include "ui_Registration.h"
 
-#include <QMessageBox>
-#include <QString>
-#include <cassert>
-
-#include <QDebug>
-
 //-----------------------------------------------------------------------------
 //  Helpers
 //-----------------------------------------------------------------------------
@@ -50,8 +44,6 @@ tMultiRadar::tMultiRadar(Ui::GUIDemoClass& myUI, QObject* pParent)
   Connect(true, this, SIGNAL(GetUnlockKey_signal(const char*, QString)), this,
           SLOT(MultiRadar_GetUnlockKey(const char*, QString)),
           Qt::QueuedConnection);
-
-  connect(ui.pushButton, &QPushButton::clicked, this, &tMultiRadar::testclick);
 
   ConnectControls(true, *this, *ui.groupMultiRadar);
 
@@ -269,7 +261,7 @@ void tMultiRadar::MultiRadarUnlock_clicked(bool) {
 
 //-----------------------------------------------------------------------------
 void tMultiRadar::MultiRadarUnlockAll_clicked(bool) {
-  Navico::Protocol::tMultiRadarClient::GetInstance()->UnlockRadar(0, 0);
+  Navico::Protocol::tMultiRadarClient::GetInstance()->UnlockRadar(nullptr, 0);
 }
 
 //-----------------------------------------------------------------------------
@@ -277,4 +269,3 @@ void tMultiRadar::MultiRadarFlush_clicked(bool) {
   Navico::Protocol::tMultiRadarClient::GetInstance()->ClearUnlockKeys();
 }
 
-void tMultiRadar::testclick() { qDebug() << "test\n"; }

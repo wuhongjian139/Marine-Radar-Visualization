@@ -14,8 +14,14 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QSlider>
+#include <QPainter>
 #include <QSpinBox>
-
+#include <QMenu>
+#include <QMessageBox>
+#include <QString>
+#include <QGroupBox>
+#include <QPushButton>
+#include <cassert>
 //-----------------------------------------------------------------------------
 // tQDoubleIntConnector Class
 //-----------------------------------------------------------------------------

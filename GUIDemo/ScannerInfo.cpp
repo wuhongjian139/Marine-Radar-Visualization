@@ -6,7 +6,6 @@
 #include "ScannerInfo.h"
 #include "QControlUtils.h"
 
-#include <cassert>
 
 //-----------------------------------------------------------------------------
 // Helpers

@@ -6,7 +6,6 @@
 #include "TabImage.h"
 
 #include <FeatureManager.h>
-#include <cassert>
 #include "ImageClient.h"
 #include "QControlUtils.h"
 #include "TabBase.h"

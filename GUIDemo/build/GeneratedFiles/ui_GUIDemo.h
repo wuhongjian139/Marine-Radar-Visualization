@@ -572,7 +572,7 @@ public:
     QPushButton *pushCancelSelection;
     QPushButton *pushCancelDisplay;
     QTableWidget *tableTargets;
-    QWidget *tab;
+    QWidget *tabNewFunction;
     QPushButton *pushButton;
 
     void setupUi(QMainWindow *GUIDemoClass)
@@ -4431,12 +4431,12 @@ public:
         verticalLayout_3->addWidget(tableTargets);
 
         tabs->addTab(tabTargets, QString());
-        tab = new QWidget();
-        tab->setObjectName(QStringLiteral("tab"));
-        pushButton = new QPushButton(tab);
+        tabNewFunction = new QWidget();
+        tabNewFunction->setObjectName(QStringLiteral("tabNewFunction"));
+        pushButton = new QPushButton(tabNewFunction);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(640, 84, 89, 41));
-        tabs->addTab(tab, QString());
+        pushButton->setGeometry(QRect(220, 190, 89, 25));
+        tabs->addTab(tabNewFunction, QString());
 
         verticalLayout_5->addWidget(tabs);
 
@@ -4822,7 +4822,7 @@ public:
         pushCancelDisplay->setText(QApplication::translate("GUIDemoClass", "Display", Q_NULLPTR));
         tabs->setTabText(tabs->indexOf(tabTargets), QApplication::translate("GUIDemoClass", "Targets", Q_NULLPTR));
         pushButton->setText(QApplication::translate("GUIDemoClass", "PushButton", Q_NULLPTR));
-        tabs->setTabText(tabs->indexOf(tab), QApplication::translate("GUIDemoClass", "Page", Q_NULLPTR));
+        tabs->setTabText(tabs->indexOf(tabNewFunction), QApplication::translate("GUIDemoClass", "Page", Q_NULLPTR));
     } // retranslateUi
 
 };

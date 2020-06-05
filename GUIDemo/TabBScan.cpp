@@ -6,9 +6,6 @@
 #include "TabBScan.h"
 #include "QControlUtils.h"
 
-#include <QPainter>
-#include <cassert>
-
 //-----------------------------------------------------------------------------
 //  tQBScanFrame Implementation
 //-----------------------------------------------------------------------------

@@ -4,8 +4,6 @@
 //-----------------------------------------------------------------------------
 
 #include "TabTargets.h"
-#include <QPainter>
-#include <cassert>
 #include "QControlUtils.h"
 #include "TabBase.h"
 #include "TargetTrackingClient.h"

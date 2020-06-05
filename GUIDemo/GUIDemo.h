@@ -32,6 +32,7 @@
 #include "TabPPI.h"
 #include "TabSectorBlanking.h"
 #include "TabTargets.h"
+#include "TabNewFunction.h"
 
 #include "OverlayManager.h"
 
@@ -198,6 +199,7 @@ class GUIDemo
   tScannerInfo* m_pScannerInfo;
   tTabImage* m_pTabImage;
   tTabInstallation* m_pTabInstallation;
+  tTabNewFunction* m_pTabNewFunction;
   tTabAdvanced* m_pTabAdvanced;
   tTabGuardZone* m_pTabGuardZone;
   tTabTargets* m_pTabTargets;

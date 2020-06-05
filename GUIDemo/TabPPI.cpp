@@ -3,15 +3,9 @@
 // Confidential and proprietary.  All rights reserved.
 //-----------------------------------------------------------------------------
 
-//#define _USE_MATH_DEFINES
-#include <cassert>
 #include <cmath>
-
 #include "QControlUtils.h"
 #include "TabPPI.h"
-
-#include <QMenu>
-#include <QPainter>
 
 static float CompassToDegrees(uint16_t compass) {
   return static_cast<float>(compass) * 360.0f / 4096.0f;

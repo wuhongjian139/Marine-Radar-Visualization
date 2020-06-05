@@ -6,9 +6,7 @@
 #include "GUIDemo.h"
 #include "QControlUtils.h"
 
-#include <QMessageBox>
 #include <algorithm>
-#include <cassert>
 
 #include <NavRadarProtocol.h>
 
@@ -107,6 +105,7 @@ GUIDemo::GUIDemo(QWidget* pParent, Qt::WindowFlags flags)
   m_pScannerInfo = new tScannerInfo(ui, this);
   m_pTabImage = new tTabImage(ui, this, *ui.tabImage);
   m_pTabInstallation = new tTabInstallation(ui, this, *ui.tabInstallation);
+  m_pTabNewFunction = new tTabNewFunction(ui, this, *ui.tabNewFunction);
   m_pTabAdvanced = new tTabAdvanced(ui, this, *ui.tabAdvanced);
   m_pTabGuardZone =
       new tTabGuardZone(ui, this, *ui.tabGuardZone, m_OverlayManager);
@@ -137,6 +136,7 @@ GUIDemo::~GUIDemo() {
   delete m_pTabGuardZone;
   delete m_pTabAdvanced;
   delete m_pTabInstallation;
+  delete m_pTabNewFunction;
   delete m_pTabImage;
   delete m_pScannerInfo;
   delete m_pMultiRadar;
@@ -276,6 +276,7 @@ void GUIDemo::MultiRadar_ConnectChanged(bool connect) {
       m_pScannerInfo->OnConnect(m_pImageClient);
       m_pTabImage->OnConnect(m_pImageClient);
       m_pTabInstallation->OnConnect(m_pImageClient);
+      m_pTabNewFunction->OnConnect(m_pImageClient);
       m_pTabAdvanced->OnConnect(m_pImageClient);
       m_pTabGuardZone->OnConnect(m_pImageClient);
       m_pTabTargets->OnConnect(m_pTargetClient);
@@ -296,6 +297,7 @@ void GUIDemo::MultiRadar_ConnectChanged(bool connect) {
     m_pScannerInfo->OnDisconnect();
     m_pTabImage->OnDisconnect();
     m_pTabInstallation->OnDisconnect();
+    m_pTabNewFunction->OnDisconnect();
     m_pTabAdvanced->OnDisconnect();
     m_pTabGuardZone->OnDisconnect();
     m_pTabTargets->OnDisconnect();

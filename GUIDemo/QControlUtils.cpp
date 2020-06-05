@@ -5,10 +5,6 @@
 
 #include "QControlUtils.h"
 
-#include <QGroupBox>
-#include <QPushButton>
-#include <cassert>
-
 //-----------------------------------------------------------------------------
 tQDoubleIntConnector::tQDoubleIntConnector(QDoubleSpinBox* pSpin,
                                            QSlider* pSlider,

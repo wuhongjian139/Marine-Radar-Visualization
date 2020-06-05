@@ -6,7 +6,6 @@
 #include "TabSectorBlanking.h"
 #include <FeatureManager.h>
 #include <NavTypes.h>
-#include <cassert>
 #include "ImageClient.h"
 #include "QControlUtils.h"
 #include "ui_GUIDemo.h"
