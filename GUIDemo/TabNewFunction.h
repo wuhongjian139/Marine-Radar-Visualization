@@ -28,6 +28,7 @@ class tTabNewFunction : public tTabBase {
   //-----------------------------------------------------------------------------
   // group: Configuration
   void RecordData_click();
+  void TransmitData_click();
 
 
 };

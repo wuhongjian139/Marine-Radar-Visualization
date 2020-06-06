@@ -53,6 +53,7 @@ SOURCES += \
     TabPPI.cpp \
     TabTargets.cpp \
     datarecorder.cpp \
+    datatransimission.cpp \
     main.cpp \
 
 #------------------------------------------------------------

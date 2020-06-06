@@ -573,7 +573,8 @@ public:
     QPushButton *pushCancelDisplay;
     QTableWidget *tableTargets;
     QWidget *tabNewFunction;
-    QPushButton *pushButton;
+    QPushButton *Recoder_DB;
+    QPushButton *DataTrans_PB;
 
     void setupUi(QMainWindow *GUIDemoClass)
     {
@@ -4433,9 +4434,12 @@ public:
         tabs->addTab(tabTargets, QString());
         tabNewFunction = new QWidget();
         tabNewFunction->setObjectName(QStringLiteral("tabNewFunction"));
-        pushButton = new QPushButton(tabNewFunction);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(220, 190, 89, 25));
+        Recoder_DB = new QPushButton(tabNewFunction);
+        Recoder_DB->setObjectName(QStringLiteral("Recoder_DB"));
+        Recoder_DB->setGeometry(QRect(80, 40, 89, 25));
+        DataTrans_PB = new QPushButton(tabNewFunction);
+        DataTrans_PB->setObjectName(QStringLiteral("DataTrans_PB"));
+        DataTrans_PB->setGeometry(QRect(210, 60, 171, 25));
         tabs->addTab(tabNewFunction, QString());
 
         verticalLayout_5->addWidget(tabs);
@@ -4821,7 +4825,8 @@ public:
         pushCancelSelection->setText(QApplication::translate("GUIDemoClass", "Selection", Q_NULLPTR));
         pushCancelDisplay->setText(QApplication::translate("GUIDemoClass", "Display", Q_NULLPTR));
         tabs->setTabText(tabs->indexOf(tabTargets), QApplication::translate("GUIDemoClass", "Targets", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("GUIDemoClass", "PushButton", Q_NULLPTR));
+        Recoder_DB->setText(QApplication::translate("GUIDemoClass", "PushButton", Q_NULLPTR));
+        DataTrans_PB->setText(QApplication::translate("GUIDemoClass", "Data Transmission", Q_NULLPTR));
         tabs->setTabText(tabs->indexOf(tabNewFunction), QApplication::translate("GUIDemoClass", "Page", Q_NULLPTR));
     } // retranslateUi
 

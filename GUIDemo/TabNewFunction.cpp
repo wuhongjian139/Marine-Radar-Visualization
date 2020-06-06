@@ -3,6 +3,7 @@
 #include "ImageClient.h"
 #include "QControlUtils.h"
 #include "datarecorder.h"
+#include "datatransimission.h"
 #include <QDebug>
 //-----------------------------------------------------------------------------
 // tTabNewFunction Implementation
@@ -10,7 +11,8 @@
 tTabNewFunction::tTabNewFunction(Ui::GUIDemoClass& ui, QObject* pParent,
                                    QWidget& tab)
     : tTabBase(ui, pParent, tab) {
-    connect(ui.pushButton, &QPushButton::clicked, this, &tTabNewFunction::RecordData_click);
+    connect(ui.Recoder_DB, &QPushButton::clicked, this, &tTabNewFunction::RecordData_click);
+    connect(ui.DataTrans_PB, &QPushButton::clicked, this, &tTabNewFunction::TransmitData_click);
 
 //  ConnectControls(true, *this, tab);
 
@@ -48,4 +50,11 @@ marineradar_db _marineradar_db(folderp);
 _marineradar_db.create_table();
 _marineradar_db.update_motion_table(_est_state_db_data);
 //_marineradar_db.update_state_table(est_state_db_data);
+}
+
+
+void tTabNewFunction::TransmitData_click(){
+
+
+
 }
