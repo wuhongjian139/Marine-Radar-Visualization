@@ -3,9 +3,9 @@
 // Confidential and proprietary.  All rights reserved.
 //-----------------------------------------------------------------------------
 
+#include "TabPPI.h"
 #include <cmath>
 #include "QControlUtils.h"
-#include "TabPPI.h"
 
 static float CompassToDegrees(uint16_t compass) {
   return static_cast<float>(compass) * 360.0f / 4096.0f;
@@ -179,7 +179,8 @@ void tTabPPI::OnUpdateSpoke(
         (intptr_t)m_pImage->scanLine(0), m_pImage->size().width(),
         m_pImage->size().height(), &gNavicoLUT, m_pImage->size().width() / 2,
         m_pImage->size().height() / 2);
-    m_pController->SetTrailsTime(-1);
+    //    m_pController->SetTrailsTime(-1);
+    m_pController->SetTrailsTime(0);
   }
 
   m_pFrame->SetFullRange_m(

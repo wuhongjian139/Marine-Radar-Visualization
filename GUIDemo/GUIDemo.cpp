@@ -7,6 +7,7 @@
 #include "QControlUtils.h"
 
 #include <algorithm>
+#include <thread>
 
 #include <NavRadarProtocol.h>
 
@@ -119,6 +120,13 @@ GUIDemo::GUIDemo(QWidget* pParent, Qt::WindowFlags flags)
       new tTabPPI(ui, m_pTargetLocations, cMaxTargets, this, m_OverlayManager);
 
   MakeConnections(true);
+
+  // create new thread
+
+  std::thread database_thread(&GUIDemo::DataBaseLoop, this);
+  std::thread socket_thread(&GUIDemo::DataTransmissionLoop, this);
+  socket_thread.detach();
+  database_thread.detach();
 }
 
 //-----------------------------------------------------------------------------
@@ -395,6 +403,13 @@ void GUIDemo::UpdateSpoke(
       Navico::Protocol::NRP::Spoke::GetPixelCellSize_mm(pSpoke->header);
   m_pTabBScan->OnUpdateSpoke(pSpoke);
   m_pTabPPI->OnUpdateSpoke(pSpoke);
+
+  // update MarineRadar_RTdata
+  rt_marineradar_data.spoke_azimuth_deg =
+      pSpoke->header.spokeAzimuth * 360 / 4096.0;
+  rt_marineradar_data.spoke_samplerange_m =
+      Navico::Protocol::NRP::Spoke::GetSampleRange_mm(pSpoke->header) / 1000.0;
+  memcpy(rt_marineradar_data.spokedata, pSpoke->data, SAMPLES_PER_SPOKE / 2);
 }
 
 //-----------------------------------------------------------------------------
@@ -606,3 +621,45 @@ void GUIDemo::UpdateNavigationState_slot() {}
 void GUIDemo::UpdateTargetTarget_slot(unsigned target) {
   m_pTabTargets->OnTrackedTargetChanged(target, &m_pTargets[target]);
 }
+
+//-------------------------------------------------------------------------
+//  New Function
+//-------------------------------------------------------------------------
+void GUIDemo::DataBaseLoop() {
+  QString strBuffer =
+      QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+  QDir().mkdir("../" + strBuffer);
+  std::string folderp = "../" + strBuffer.toStdString() + "/";
+
+  marineradar_db _marineradar_db(folderp);
+  _marineradar_db.create_table();
+
+  while (1) {
+    if (m_pTabNewFunction->IsDatabase()) {
+      _marineradar_db.update_motion_table(rt_est_state_db_data);
+      _marineradar_db.update_spoke_table({
+          0,                                        // local_time
+          rt_marineradar_data.spoke_azimuth_deg,    // azimuth_deg
+          rt_marineradar_data.spoke_samplerange_m,  // sample_range
+          std::vector<uint8_t>(
+              &rt_marineradar_data.spokedata[0],
+              &rt_marineradar_data
+                   .spokedata[SAMPLES_PER_SPOKE / 2])  // spokedata
+      });
+    } else
+      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+  }
+}  // DataBaseLoop
+
+void GUIDemo::DataTransmissionLoop() {
+  datatransimission _datatransimission("9340");
+  static const int recv_size = 50;
+  static const int send_size = 1024;
+  char recv_buffer[recv_size] = {0x00};
+  char send_buffer[send_size] = {0x00};
+
+  while (1) {
+    _datatransimission.selectserver(recv_buffer, send_buffer, recv_size,
+                                    send_size);
+  }
+}  // DataTransmissionLoop

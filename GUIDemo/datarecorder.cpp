@@ -39,13 +39,9 @@ void marineradar_db::create_table() {
   insert_string_spoke += ") ";
   db << str;
 
-  std::vector<std::pair<std::string, std::string>> db_config_motion =
-      {{"state_x", "DOUBLE"},
-      {"state_y", "DOUBLE"},
-      {"state_theta", "DOUBLE"},
-      {"state_u", "DOUBLE"},
-      {"state_v", "DOUBLE"},
-      {"state_r", "DOUBLE"}};
+  std::vector<std::pair<std::string, std::string>> db_config_motion = {
+      {"state_x", "DOUBLE"}, {"state_y", "DOUBLE"}, {"state_theta", "DOUBLE"},
+      {"state_u", "DOUBLE"}, {"state_v", "DOUBLE"}, {"state_r", "DOUBLE"}};
   str =
       "CREATE TABLE motion"
       "(ID          INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -64,7 +60,7 @@ void marineradar_db::create_table() {
 }  // create_table
 
 void marineradar_db::update_spoke_table(const marineradar_db_data &update_data,
-                                  const std::string &_datetime) {
+                                        const std::string &_datetime) {
   std::string str = "INSERT INTO radar";
   str += insert_string_spoke;
   str += "VALUES(";
@@ -77,30 +73,25 @@ void marineradar_db::update_spoke_table(const marineradar_db_data &update_data,
 }  // update_spoke_table
 
 void marineradar_db::update_motion_table(const est_state_db_data &update_data,
-                                  const std::string &_datetime) {
+                                         const std::string &_datetime) {
+  std::string str = "INSERT INTO motion";
+  str += insert_string_motion;
+  str += "VALUES(";
+  str += _datetime;
+  str += ", ";
+  str += master_db::to_string_with_precision<double>(update_data.state_x, 3);
+  str += ", ";
+  str += master_db::to_string_with_precision<double>(update_data.state_y, 3);
+  str += ", ";
+  str += std::to_string(update_data.state_theta);
+  str += ", ";
+  str += master_db::to_string_with_precision<double>(update_data.state_u, 3);
+  str += ", ";
+  str += master_db::to_string_with_precision<double>(update_data.state_v, 3);
+  str += ", ";
+  str += std::to_string(update_data.state_r);
+  str += ");";
 
-      std::string str = "INSERT INTO motion";
-      str += insert_string_motion;
-      str += "VALUES(";
-      str += _datetime;
-      str += ", ";
-      str +=
-          master_db::to_string_with_precision<double>(update_data.state_x, 3);
-      str += ", ";
-      str +=
-          master_db::to_string_with_precision<double>(update_data.state_y, 3);
-      str += ", ";
-      str += std::to_string(update_data.state_theta);
-      str += ", ";
-      str +=
-          master_db::to_string_with_precision<double>(update_data.state_u, 3);
-      str += ", ";
-      str +=
-          master_db::to_string_with_precision<double>(update_data.state_v, 3);
-      str += ", ";
-      str += std::to_string(update_data.state_r);
-      str += ");";
-
-      db << str;
+  db << str;
 
 }  // update_spoke_table

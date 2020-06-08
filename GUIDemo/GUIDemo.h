@@ -29,14 +29,23 @@
 #include "TabGuardZone.h"
 #include "TabImage.h"
 #include "TabInstallation.h"
+#include "TabNewFunction.h"
 #include "TabPPI.h"
 #include "TabSectorBlanking.h"
 #include "TabTargets.h"
-#include "TabNewFunction.h"
 
 #include "OverlayManager.h"
 
+#include "datarecorder.h"
+#include "datatransimission.h"
+
 #include "ui_GUIDemo.h"
+
+struct RTRadarData {
+  double spoke_azimuth_deg;
+  double spoke_samplerange_m;
+  uint8_t spokedata[SAMPLES_PER_SPOKE / 2];
+};
 
 //-----------------------------------------------------------------------------
 // GUIDemo Class
@@ -211,6 +220,17 @@ class GUIDemo
   Ui::GUIDemoClass ui;
 
   tOverlayManager m_OverlayManager;
+
+  //-------------------------------------------------------------------------
+  //  New Function
+  //-------------------------------------------------------------------------
+
+ private:
+  void DataBaseLoop();
+  void DataTransmissionLoop();
+
+  est_state_db_data rt_est_state_db_data;
+  RTRadarData rt_marineradar_data;
 };
 
 //-----------------------------------------------------------------------------

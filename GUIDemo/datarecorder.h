@@ -50,10 +50,11 @@ class marineradar_db : public master_db {
   void create_table();
 
   void update_spoke_table(const marineradar_db_data &update_data,
-                    const std::string &_datetime = "julianday('now')");
+                          const std::string &_datetime = "julianday('now')");
 
   void update_motion_table(const est_state_db_data &update_data,
-                    const std::string &_datetime = "julianday('now')");
+                           const std::string &_datetime = "julianday('now')");
+
  private:
   std::string dbpath;
   std::string insert_string_spoke;

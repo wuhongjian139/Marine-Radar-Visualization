@@ -7740,31 +7740,44 @@
        <attribute name="title">
         <string>Page</string>
        </attribute>
-       <widget class="QPushButton" name="Recoder_DB">
+       <widget class="QGroupBox" name="groupBox_2">
         <property name="geometry">
          <rect>
-          <x>80</x>
+          <x>50</x>
           <y>40</y>
-          <width>89</width>
-          <height>25</height>
+          <width>211</width>
+          <height>161</height>
          </rect>
         </property>
-        <property name="text">
-         <string>PushButton</string>
+        <property name="title">
+         <string>New Functions</string>
         </property>
-       </widget>
-       <widget class="QPushButton" name="DataTrans_PB">
-        <property name="geometry">
-         <rect>
-          <x>210</x>
-          <y>60</y>
-          <width>171</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Data Transmission</string>
-        </property>
+        <widget class="QCheckBox" name="checkBox_DataRecord">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>131</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Data Record</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="checkBox_datatransmit">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>60</y>
+           <width>121</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Data Transmit</string>
+         </property>
+        </widget>
        </widget>
       </widget>
      </widget>

@@ -13,14 +13,14 @@
 #include <NavRadarProtocol.h>
 #include <QCheckBox>
 #include <QComboBox>
-#include <QSlider>
-#include <QPainter>
-#include <QSpinBox>
+#include <QGroupBox>
 #include <QMenu>
 #include <QMessageBox>
-#include <QString>
-#include <QGroupBox>
+#include <QPainter>
 #include <QPushButton>
+#include <QSlider>
+#include <QSpinBox>
+#include <QString>
 #include <cassert>
 //-----------------------------------------------------------------------------
 // tQDoubleIntConnector Class

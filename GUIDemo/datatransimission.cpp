@@ -1,13 +1,12 @@
 #include "datatransimission.h"
 
-
 datatransimission::datatransimission(const std::string &_port)
     : fdmax(0), listener(0), port(_port), results(0) {
   initializesocket();
 }
 
-void datatransimission::selectserver(char *recv_buffer, const char *send_buffer, int recv_size,
-                  int send_size) {
+void datatransimission::selectserver(char *recv_buffer, const char *send_buffer,
+                                     int recv_size, int send_size) {
   read_fds = master;  // copy it
   if (select(fdmax + 1, &read_fds, NULL, NULL, NULL) == -1) {
     results = 4;
@@ -19,8 +18,7 @@ void datatransimission::selectserver(char *recv_buffer, const char *send_buffer,
       if (i == listener) {         // handle new connections
         // newly accept()ed socket descriptor
         socklen_t addrlen = sizeof remoteaddr;
-        int newfd =
-            accept(listener, (struct sockaddr *)&remoteaddr, &addrlen);
+        int newfd = accept(listener, (struct sockaddr *)&remoteaddr, &addrlen);
 
         if (newfd != -1) {
           FD_SET(newfd, &master);  // add to master set
@@ -43,18 +41,15 @@ void datatransimission::selectserver(char *recv_buffer, const char *send_buffer,
       }  // END handle data from client
     }    // END got new incoming connection
   }      // END looping through file descriptors
-}        // selectserver()
+}  // selectserver()
 
-
-int datatransimission::getconnectioncount()  {
+int datatransimission::getconnectioncount() {
   int clientcount = 0;  // # of clients connected
   for (int i = 0; i <= fdmax; i++) {
     if (FD_ISSET(i, &master)) ++clientcount;
   }
   return clientcount - 1;  // remove self fd
-} // getconnectioncount
-
-
+}  // getconnectioncount
 
 void datatransimission::initializesocket() {
   struct addrinfo hints, *ai, *p;
@@ -86,8 +81,7 @@ void datatransimission::initializesocket() {
     struct timeval tv;
     tv.tv_sec = 1;
     tv.tv_usec = 0;
-    setsockopt(listener, SOL_SOCKET, SO_RCVTIMEO, (const char *)&tv,
-               sizeof tv);
+    setsockopt(listener, SOL_SOCKET, SO_RCVTIMEO, (const char *)&tv, sizeof tv);
 
     if (bind(listener, p->ai_addr, p->ai_addrlen) < 0) {
       close(listener);

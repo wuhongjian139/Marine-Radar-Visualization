@@ -22,7 +22,7 @@ class datatransimission {
                     int send_size);
 
   int getsocketresults() const noexcept { return results; }
-  int getconnectioncount() ;
+  int getconnectioncount();
 
  private:
   fd_set master;    // master file descriptor list
@@ -48,5 +48,4 @@ class datatransimission {
   void initializesocket();
 };
 
-
-#endif // DATATRANSIMISSION_H
+#endif  // DATATRANSIMISSION_H

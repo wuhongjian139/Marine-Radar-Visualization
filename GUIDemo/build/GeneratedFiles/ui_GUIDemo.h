@@ -573,8 +573,9 @@ public:
     QPushButton *pushCancelDisplay;
     QTableWidget *tableTargets;
     QWidget *tabNewFunction;
-    QPushButton *Recoder_DB;
-    QPushButton *DataTrans_PB;
+    QGroupBox *groupBox_2;
+    QCheckBox *checkBox_DataRecord;
+    QCheckBox *checkBox_datatransmit;
 
     void setupUi(QMainWindow *GUIDemoClass)
     {
@@ -4434,12 +4435,15 @@ public:
         tabs->addTab(tabTargets, QString());
         tabNewFunction = new QWidget();
         tabNewFunction->setObjectName(QStringLiteral("tabNewFunction"));
-        Recoder_DB = new QPushButton(tabNewFunction);
-        Recoder_DB->setObjectName(QStringLiteral("Recoder_DB"));
-        Recoder_DB->setGeometry(QRect(80, 40, 89, 25));
-        DataTrans_PB = new QPushButton(tabNewFunction);
-        DataTrans_PB->setObjectName(QStringLiteral("DataTrans_PB"));
-        DataTrans_PB->setGeometry(QRect(210, 60, 171, 25));
+        groupBox_2 = new QGroupBox(tabNewFunction);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        groupBox_2->setGeometry(QRect(50, 40, 211, 161));
+        checkBox_DataRecord = new QCheckBox(groupBox_2);
+        checkBox_DataRecord->setObjectName(QStringLiteral("checkBox_DataRecord"));
+        checkBox_DataRecord->setGeometry(QRect(10, 30, 131, 23));
+        checkBox_datatransmit = new QCheckBox(groupBox_2);
+        checkBox_datatransmit->setObjectName(QStringLiteral("checkBox_datatransmit"));
+        checkBox_datatransmit->setGeometry(QRect(10, 60, 121, 23));
         tabs->addTab(tabNewFunction, QString());
 
         verticalLayout_5->addWidget(tabs);
@@ -4825,8 +4829,9 @@ public:
         pushCancelSelection->setText(QApplication::translate("GUIDemoClass", "Selection", Q_NULLPTR));
         pushCancelDisplay->setText(QApplication::translate("GUIDemoClass", "Display", Q_NULLPTR));
         tabs->setTabText(tabs->indexOf(tabTargets), QApplication::translate("GUIDemoClass", "Targets", Q_NULLPTR));
-        Recoder_DB->setText(QApplication::translate("GUIDemoClass", "PushButton", Q_NULLPTR));
-        DataTrans_PB->setText(QApplication::translate("GUIDemoClass", "Data Transmission", Q_NULLPTR));
+        groupBox_2->setTitle(QApplication::translate("GUIDemoClass", "New Functions", Q_NULLPTR));
+        checkBox_DataRecord->setText(QApplication::translate("GUIDemoClass", "Data Record", Q_NULLPTR));
+        checkBox_datatransmit->setText(QApplication::translate("GUIDemoClass", "Data Transmit", Q_NULLPTR));
         tabs->setTabText(tabs->indexOf(tabNewFunction), QApplication::translate("GUIDemoClass", "Page", Q_NULLPTR));
     } // retranslateUi
 

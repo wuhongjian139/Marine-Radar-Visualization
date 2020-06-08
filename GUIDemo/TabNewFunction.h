@@ -20,20 +20,22 @@ class tTabNewFunction : public tTabBase {
   ~tTabNewFunction();
 
   void OnConnect(Navico::Protocol::NRP::tImageClient* pImageClient);
-
+  bool IsDatabase() const noexcept { return IsDatabase_; }
+  bool IsDataTransmission() const noexcept { return IsDataTransmission_; }
 
  private slots:
   //-----------------------------------------------------------------------------
   // UI Signal Handling Interface
   //-----------------------------------------------------------------------------
   // group: Configuration
-  void RecordData_click();
-  void TransmitData_click();
+  void RecordData_check(bool checked);
+  void TransmitData_check(bool checked);
 
-
+ private:
+  bool IsDatabase_ = false;
+  bool IsDataTransmission_ = false;
 };
 
 //-----------------------------------------------------------------------------
 
-
-#endif // TABNEWFUNCTION_H
+#endif  // TABNEWFUNCTION_H

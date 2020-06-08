@@ -268,4 +268,3 @@ void tMultiRadar::MultiRadarUnlockAll_clicked(bool) {
 void tMultiRadar::MultiRadarFlush_clicked(bool) {
   Navico::Protocol::tMultiRadarClient::GetInstance()->ClearUnlockKeys();
 }
-
