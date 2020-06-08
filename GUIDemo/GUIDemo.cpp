@@ -125,8 +125,8 @@ GUIDemo::GUIDemo(QWidget* pParent, Qt::WindowFlags flags)
 
   std::thread database_thread(&GUIDemo::DataBaseLoop, this);
   std::thread socket_thread(&GUIDemo::DataTransmissionLoop, this);
-  socket_thread.detach();
   database_thread.detach();
+  socket_thread.detach();
 }
 
 //-----------------------------------------------------------------------------
@@ -636,7 +636,16 @@ void GUIDemo::DataBaseLoop() {
 
   while (1) {
     if (m_pTabNewFunction->IsDatabase()) {
-      _marineradar_db.update_motion_table(rt_est_state_db_data);
+      std::cout << rt_marineradar_data.spoke_azimuth_deg << std::endl;
+      _marineradar_db.update_motion_table({
+          0,  // local_time
+          1,  // state_x
+          2,  // state_y
+          3,  // state_theta
+          4,  // state_u
+          5,  // state_v
+          6   // statt_r
+      });
       _marineradar_db.update_spoke_table({
           0,                                        // local_time
           rt_marineradar_data.spoke_azimuth_deg,    // azimuth_deg
@@ -646,6 +655,7 @@ void GUIDemo::DataBaseLoop() {
               &rt_marineradar_data
                    .spokedata[SAMPLES_PER_SPOKE / 2])  // spokedata
       });
+
     } else
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));
   }

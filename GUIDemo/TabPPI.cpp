@@ -179,7 +179,6 @@ void tTabPPI::OnUpdateSpoke(
         (intptr_t)m_pImage->scanLine(0), m_pImage->size().width(),
         m_pImage->size().height(), &gNavicoLUT, m_pImage->size().width() / 2,
         m_pImage->size().height() / 2);
-    //    m_pController->SetTrailsTime(-1);
     m_pController->SetTrailsTime(0);
   }
 

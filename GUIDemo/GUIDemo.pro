@@ -3,7 +3,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
 CONFIG += warn_on
-
+CONFIG += console
 
 #------------------------------------------------------------
 # Source Files

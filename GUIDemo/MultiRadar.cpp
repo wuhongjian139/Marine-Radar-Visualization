@@ -176,6 +176,10 @@ void tMultiRadar::MultiRadar_GetUnlockKey(const char* pSerialNumber,
   Ui::RegistrationDialog uiReg;
   uiReg.setupUi(pDialog);
   uiReg.textLockID->setPlainText(lockID);
+  uiReg.textUnlockKey->setPlainText(
+      "7C180CB12B282B3F5C2F1BBBFF023936D9AA0D4D512FED8980F780C02F87D9B3FD5E36AF"
+      "4CB42425929D9043B8F7A1E8BECFC955F1A22D134EBBB6370269E44F");
+
   pDialog->setWindowTitle(QString("Radar - ") + pSerialNumber);
   int result = pDialog->exec();
   QString unlockKey = uiReg.textUnlockKey->toPlainText();
