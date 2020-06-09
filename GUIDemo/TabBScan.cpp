@@ -6,6 +6,11 @@
 #include "TabBScan.h"
 #include "QControlUtils.h"
 
+// swap two nibbles in a byte
+uint8_t swapNibbles(uint8_t x) {
+  return ((x & 0x0F) << 4 | (x & 0xF0) >> 4);
+}  // swapNibbles
+
 //-----------------------------------------------------------------------------
 //  tQBScanFrame Implementation
 //-----------------------------------------------------------------------------
@@ -55,12 +60,12 @@ tTabBScan::tTabBScan(Ui::GUIDemoClass& myUI, tTargetLocation* pTargets,
                      unsigned maxTargets, QObject* pParent,
                      tOverlayManager& overlayManager)
     : QObject(pParent),
-      m_pFrame(NULL),
-      m_pImage(NULL),
+      m_pFrame(nullptr),
+      m_pImage(nullptr),
       m_NumSamples(0),
       ui(myUI) {
-  m_pFrame =
-      new tQBScanFrame(pTargets, maxTargets, ui.tabBScan, NULL, overlayManager);
+  m_pFrame = new tQBScanFrame(pTargets, maxTargets, ui.tabBScan, nullptr,
+                              overlayManager);
   ui.verticalLayout_tabBscan->addWidget(m_pFrame);
 
   Connect(true, &m_Timer, SIGNAL(timeout()), this, SLOT(Timer_timeout()));
@@ -96,7 +101,8 @@ void tTabBScan::Timer_timeout() {
 
 //-----------------------------------------------------------------------------
 void tTabBScan::OnUpdateSpoke(
-    const Navico::Protocol::NRP::Spoke::t9174Spoke* pSpoke) {
+    const Navico::Protocol::NRP::Spoke::t9174Spoke* pSpoke,
+    RTSpokeData* rtSpokeData) {
   QMutexLocker locker(tQCustomFrame::getImageMutex());
 
   const uint32_t cSpokesPerRevolution = 2048;
@@ -104,8 +110,8 @@ void tTabBScan::OnUpdateSpoke(
     m_NumSamples = pSpoke->header.nOfSamples;
 
     // create the correct size of the frame buffer
-    m_pImage =
-        new QImage(cSpokesPerRevolution, m_NumSamples, QImage::Format_RGB32);
+    m_pImage = new QImage(cSpokesPerRevolution, static_cast<int>(m_NumSamples),
+                          QImage::Format_RGB32);
     m_pImage->fill(0);
     m_pFrame->setImage(m_pImage);
 
@@ -117,13 +123,16 @@ void tTabBScan::OnUpdateSpoke(
 
   uint32_t* pRawImage = (uint32_t*)m_pImage->scanLine(0);
   uint32_t azimuth = (pSpoke->header.spokeAzimuth >> 1) &
-                     0x7ff;  // to be suer to have a value between 0-2047
+                     0x7ff;  // to be sure to have a value between 0-2047
+
+  rtSpokeData->spoke_azimuth_deg = 0.1758671 * azimuth;
 
   for (unsigned r = 0; r < m_NumSamples; ++r) {
     *(pRawImage + azimuth + ((r << 1)) * cSpokesPerRevolution) =
         gNavicoLUT.GetColour(((pSpoke->data[r]) & 0xf));
     *(pRawImage + azimuth + ((r << 1) + 1) * cSpokesPerRevolution) =
         gNavicoLUT.GetColour(((pSpoke->data[r] >> 4) & 0xf));
+    rtSpokeData->spokedata[r] = swapNibbles(pSpoke->data[r]);
   }
 
   m_pFrame->SetFullRange_m(

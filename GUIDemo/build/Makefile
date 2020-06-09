@@ -875,14 +875,16 @@ GeneratedFiles/debug/moc_CustomFrames.cpp: /opt/Qt/5.9.8/gcc_64/include/QtWidget
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtCore/QMutex \
-		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/RadarColourLookUpTable.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/PPIController.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavTypes.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavDefines.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/ExportSDK.h \
-		../OverlayManager.h \
-		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarProtocol.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarSpoke.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/BytePackOn.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/BytePackOff.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/RadarColourLookUpTable.h \
+		../OverlayManager.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarProtocol.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/QColor \
 		../CustomFrames.h \
 		GeneratedFiles/debug/moc_predefs.h \
@@ -2180,18 +2182,19 @@ GeneratedFiles/debug/moc_TabBScan.cpp: /opt/Qt/5.9.8/gcc_64/include/QtCore/QObje
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtCore/QMutex \
-		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/RadarColourLookUpTable.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/PPIController.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavTypes.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavDefines.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/ExportSDK.h \
-		../OverlayManager.h \
-		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarProtocol.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarSpoke.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/BytePackOn.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/BytePackOff.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/RadarColourLookUpTable.h \
+		../OverlayManager.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarProtocol.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/QColor \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/ImageClient.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/ImageClientObserver.h \
-		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarSpoke.h \
 		GeneratedFiles/ui_GUIDemo.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtCore/QVariant \
 		/opt/Qt/5.9.8/gcc_64/include/QtWidgets/QAction \
@@ -3066,14 +3069,16 @@ CustomFrames.o: ../CustomFrames.cpp ../CustomFrames.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtCore/QMutex \
-		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/RadarColourLookUpTable.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/PPIController.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavTypes.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavDefines.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/ExportSDK.h \
-		../OverlayManager.h \
-		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarProtocol.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarSpoke.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/BytePackOn.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/BytePackOff.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/RadarColourLookUpTable.h \
+		../OverlayManager.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarProtocol.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/QColor \
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/QContextMenuEvent \
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/QImage \
@@ -4741,18 +4746,19 @@ TabBScan.o: ../TabBScan.cpp ../TabBScan.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtCore/QMutex \
-		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/RadarColourLookUpTable.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/PPIController.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavTypes.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavDefines.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/ExportSDK.h \
-		../OverlayManager.h \
-		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarProtocol.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarSpoke.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/BytePackOn.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/BytePackOff.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/RadarColourLookUpTable.h \
+		../OverlayManager.h \
+		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarProtocol.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtGui/QColor \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/ImageClient.h \
 		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/ImageClientObserver.h \
-		../../third_party/SIMRAD_SDK/SDK_3.0.02/include/NavRadarSpoke.h \
 		GeneratedFiles/ui_GUIDemo.h \
 		/opt/Qt/5.9.8/gcc_64/include/QtCore/QVariant \
 		/opt/Qt/5.9.8/gcc_64/include/QtWidgets/QAction \

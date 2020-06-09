@@ -51,7 +51,10 @@ class tTabBScan : public QObject {
   void OnConnect();
   void OnDisconnect();
 
-  void OnUpdateSpoke(const Navico::Protocol::NRP::Spoke::t9174Spoke* pSpoke);
+  //  void OnUpdateSpoke(const Navico::Protocol::NRP::Spoke::t9174Spoke*
+  //  pSpoke);
+  void OnUpdateSpoke(const Navico::Protocol::NRP::Spoke::t9174Spoke* pSpoke,
+                     RTSpokeData* rtSpokeData);
 
  signals:
   void AcquireTarget(double sample, double degrees);

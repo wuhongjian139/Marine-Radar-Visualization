@@ -14,6 +14,7 @@
 #include <QFrame>
 #include <QMutex>
 
+#include <PPIController.h>
 #include <RadarColourLookUpTable.h>
 
 #include "OverlayManager.h"
@@ -37,6 +38,27 @@ struct tTargetLocation {
   bool isValid;
   double sample;
   double degrees;
+};
+
+//-----------------------------------------------------------------------------
+// real-time Radar data
+//-----------------------------------------------------------------------------
+
+struct RTSpokeData {
+  // spoke data
+  float spoke_azimuth_deg;
+  float spoke_samplerange_m;
+  uint8_t spokedata[SAMPLES_PER_SPOKE / 2];
+};
+
+struct RTVesselData {
+  // motion data
+  double vessel_x;
+  double vessel_y;
+  double vessel_theta;
+  double vessel_u;
+  double vessel_v;
+  double vessel_r;
 };
 
 //-----------------------------------------------------------------------------

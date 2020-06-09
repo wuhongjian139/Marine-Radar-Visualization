@@ -10,7 +10,7 @@
 #include <thread>
 
 #include <NavRadarProtocol.h>
-
+#include <cstring>
 //-----------------------------------------------------------------------------
 // Helper Functions
 //-----------------------------------------------------------------------------
@@ -401,15 +401,9 @@ void GUIDemo::UpdateSpoke(
     const Navico::Protocol::NRP::Spoke::t9174Spoke* pSpoke) {
   m_PixelCellSize_mm =
       Navico::Protocol::NRP::Spoke::GetPixelCellSize_mm(pSpoke->header);
-  m_pTabBScan->OnUpdateSpoke(pSpoke);
+  m_pTabBScan->OnUpdateSpoke(pSpoke, &rt_marineradar_data);
   m_pTabPPI->OnUpdateSpoke(pSpoke);
-
-  // update MarineRadar_RTdata
-  rt_marineradar_data.spoke_azimuth_deg =
-      pSpoke->header.spokeAzimuth * 360 / 4096.0;
-  rt_marineradar_data.spoke_samplerange_m =
-      Navico::Protocol::NRP::Spoke::GetSampleRange_mm(pSpoke->header) / 1000.0;
-  memcpy(rt_marineradar_data.spokedata, pSpoke->data, SAMPLES_PER_SPOKE / 2);
+    printf("azimuth: %f\n",rt_marineradar_data.spoke_azimuth_deg);
 }
 
 //-----------------------------------------------------------------------------
@@ -663,10 +657,14 @@ void GUIDemo::DataBaseLoop() {
 
 void GUIDemo::DataTransmissionLoop() {
   datatransimission _datatransimission("9340");
-  static const int recv_size = 50;
-  static const int send_size = 1024;
-  char recv_buffer[recv_size] = {0x00};
-  char send_buffer[send_size] = {0x00};
+  static const size_t recv_size = 50;
+  static const size_t send_size =520;
+  unsigned char recv_buffer[recv_size] = {0x00};
+  unsigned char send_buffer[send_size] = {0x00};
+
+  pack(send_buffer, "d",  rt_marineradar_data.spoke_azimuth_deg);
+  std::memcpy(send_buffer+4,rt_marineradar_data.spokedata,512);
+
 
   while (1) {
     _datatransimission.selectserver(recv_buffer, send_buffer, recv_size,

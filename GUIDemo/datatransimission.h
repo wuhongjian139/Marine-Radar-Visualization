@@ -13,13 +13,44 @@
 
 #include <string>
 
+#include <ctype.h>
+#include <stdarg.h>
+
+unsigned long long int pack754(long double f, unsigned bits, unsigned expbits);
+
+long double unpack754(unsigned long long int i, unsigned bits,
+                      unsigned expbits);
+
+void packi16(unsigned char *buf, unsigned int i);
+
+void packi32(unsigned char *buf, unsigned long int i);
+
+void packi64(unsigned char *buf, unsigned long long int i);
+
+int unpacki16(unsigned char *buf);
+
+unsigned int unpacku16(unsigned char *buf);
+
+long int unpacki32(unsigned char *buf);
+
+unsigned long int unpacku32(unsigned char *buf);
+
+long long int unpacki64(unsigned char *buf);
+
+unsigned long long int unpacku64(unsigned char *buf);
+
+unsigned int pack(unsigned char *buf, const char *format, ...);
+
+void unpack(unsigned char *buf, const char *format, ...);
+
 class datatransimission {
  public:
   explicit datatransimission(const std::string &_port);
   virtual ~datatransimission() = default;
 
-  void selectserver(char *recv_buffer, const char *send_buffer, int recv_size,
-                    int send_size);
+  void selectserver(unsigned char *recv_buffer,
+                    const unsigned char *send_buffer, size_t recv_size,
+                    size_t send_size);
 
   int getsocketresults() const noexcept { return results; }
   int getconnectioncount();
