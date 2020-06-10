@@ -662,8 +662,9 @@ void GUIDemo::DataTransmissionLoop() {
   unsigned char recv_buffer[recv_size] = {0x00};
   unsigned char send_buffer[send_size] = {0x00};
 
-  pack(send_buffer, "d",  rt_marineradar_data.spoke_azimuth_deg);
-  std::memcpy(send_buffer+4,rt_marineradar_data.spokedata,512);
+  std::memcpy(send_buffer,rt_marineradar_data.spokedata,SAMPLES_PER_SPOKE/2);
+
+  pack(send_buffer+ SAMPLES_PER_SPOKE / 2, "f",  rt_marineradar_data.spoke_azimuth_deg);
 
 
   while (1) {

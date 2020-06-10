@@ -125,7 +125,7 @@ void tTabBScan::OnUpdateSpoke(
   uint32_t azimuth = (pSpoke->header.spokeAzimuth >> 1) &
                      0x7ff;  // to be sure to have a value between 0-2047
 
-  rtSpokeData->spoke_azimuth_deg = 0.1758671 * azimuth;
+  rtSpokeData->spoke_azimuth_deg = (360/2048.0) * azimuth;
 
   for (unsigned r = 0; r < m_NumSamples; ++r) {
     *(pRawImage + azimuth + ((r << 1)) * cSpokesPerRevolution) =
