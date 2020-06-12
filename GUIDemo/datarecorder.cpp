@@ -57,6 +57,9 @@ void marineradar_db::create_table() {
 
   db << str;
 
+  // commits can be orders of magnitude faster with synchronous OFF
+  db << "PRAGMA synchronous = OFF";
+
 }  // create_table
 
 void marineradar_db::update_spoke_table(const marineradar_db_data &update_data,

@@ -46,8 +46,8 @@ struct tTargetLocation {
 
 struct RTSpokeData {
   // spoke data
-  float spoke_azimuth_deg;
-  float spoke_samplerange_m;
+  double spoke_azimuth_deg;
+  double spoke_samplerange_m;
   uint8_t spokedata[SAMPLES_PER_SPOKE / 2];
 };
 

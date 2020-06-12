@@ -125,6 +125,15 @@ GUIDemo::GUIDemo(QWidget* pParent, Qt::WindowFlags flags)
 
   std::thread database_thread(&GUIDemo::DataBaseLoop, this);
   std::thread socket_thread(&GUIDemo::DataTransmissionLoop, this);
+
+  sched_param sch;
+  int policy;
+  pthread_getschedparam(socket_thread.native_handle(), &policy, &sch);
+  sch.sched_priority = 90;
+  if (pthread_setschedparam(socket_thread.native_handle(), SCHED_FIFO, &sch)) {
+    std::cout << "Failed to setschedparam: " << std::strerror(errno) << '\n';
+  }
+
   database_thread.detach();
   socket_thread.detach();
 }
@@ -403,7 +412,6 @@ void GUIDemo::UpdateSpoke(
       Navico::Protocol::NRP::Spoke::GetPixelCellSize_mm(pSpoke->header);
   m_pTabBScan->OnUpdateSpoke(pSpoke, &rt_marineradar_data);
   m_pTabPPI->OnUpdateSpoke(pSpoke);
-    printf("azimuth: %f\n",rt_marineradar_data.spoke_azimuth_deg);
 }
 
 //-----------------------------------------------------------------------------
@@ -630,7 +638,6 @@ void GUIDemo::DataBaseLoop() {
 
   while (1) {
     if (m_pTabNewFunction->IsDatabase()) {
-      std::cout << rt_marineradar_data.spoke_azimuth_deg << std::endl;
       _marineradar_db.update_motion_table({
           0,  // local_time
           1,  // state_x
@@ -658,17 +665,23 @@ void GUIDemo::DataBaseLoop() {
 void GUIDemo::DataTransmissionLoop() {
   datatransimission _datatransimission("9340");
   static const size_t recv_size = 50;
-  static const size_t send_size =520;
-  unsigned char recv_buffer[recv_size] = {0x00};
-  unsigned char send_buffer[send_size] = {0x00};
-
-  std::memcpy(send_buffer,rt_marineradar_data.spokedata,SAMPLES_PER_SPOKE/2);
-
-  pack(send_buffer+ SAMPLES_PER_SPOKE / 2, "f",  rt_marineradar_data.spoke_azimuth_deg);
-
+  static const size_t send_size = 100;
 
   while (1) {
-    _datatransimission.selectserver(recv_buffer, send_buffer, recv_size,
-                                    send_size);
+    unsigned char recv_buffer[recv_size] = {0x00};
+    unsigned char send_buffer[send_size] = {0x00};
+
+    static double t_previous_azimuth = 0;
+
+    if (std::fabs(t_previous_azimuth - rt_marineradar_data.spoke_azimuth_deg) >
+        0.1) {
+      printf("azimuth: %f\n", rt_marineradar_data.spoke_azimuth_deg);
+
+      std::memcpy(send_buffer, rt_marineradar_data.spokedata, 80);
+      pack(send_buffer + 80, "d", rt_marineradar_data.spoke_azimuth_deg);
+      _datatransimission.selectserver(recv_buffer, send_buffer, recv_size,
+                                      send_size);
+      t_previous_azimuth = rt_marineradar_data.spoke_azimuth_deg;
+    }
   }
 }  // DataTransmissionLoop

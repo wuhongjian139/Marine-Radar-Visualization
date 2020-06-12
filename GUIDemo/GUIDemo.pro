@@ -62,6 +62,7 @@ SOURCES += \
 
 INCLUDES = \
     ../third_party/SIMRAD_SDK/SDK_3.0.02/include
+    ../third_party/pyclustering/ccore/include
 
 #------------------------------------------------------------
 # UI Generation
